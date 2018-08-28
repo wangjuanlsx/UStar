@@ -384,7 +384,13 @@ p{
     border-bottom: 1px solid #efefef;
     padding: 0.8rem 0;
     margin: 0 0.8rem;
-    line-height: 1.7rem;
+    line-height: 1.7rem !important;
+}
+
+.cus-wrap .cus-log-info-sure-wrap li .item-inner{
+    min-height: 1.7rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .cus-wrap .fix-button{
