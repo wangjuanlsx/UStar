@@ -1,3 +1,6 @@
+/**
+*车型选择下拉菜单
+* */
 $("#picker-car-type").picker({
     toolbarTemplate: '<header class="bar bar-nav">\
   <button class="button button-link pull-right close-picker">确定</button>\
@@ -10,7 +13,9 @@ $("#picker-car-type").picker({
         }
     ]
 });
-
+/**
+ *车长选择下拉菜单
+ * */
 $("#picker-car-length").picker({
     toolbarTemplate: '<header class="bar bar-nav">\
   <button class="button button-link pull-right close-picker">确定</button>\

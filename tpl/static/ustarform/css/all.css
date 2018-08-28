@@ -83,6 +83,10 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .pb60{
     padding-bottom:3rem !important;
 }
+.mt0{
+    margin-top:0 !important;
+
+}
 .mtb12{
     margin: 0.6rem 0 !important;
 }
@@ -214,10 +218,27 @@ p{
 }
 
 .cus-wrap .id-img img{
-    width: 100%;
+    width: 7.2rem;
+    height: 4.4rem;
     border: 1px dashed #ccc;
     border-radius: 2px;
     padding: 0.2rem;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.cus-wrap input.up-file{
+    width: 7.2rem;
+    height: 4.2rem;
+    padding: 0.2rem;
+    position: absolute;
+    right: 0;
+    top: 2px;
+    z-index: 1000;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+
 }
 
 .cus-wrap .id-info-text{
