@@ -1,0 +1,397 @@
+@charset "utf-8";
+/*基本样式*/
+body{
+    color:#000;
+}
+.cus-f-r {
+    float: right;
+}
+
+.cus-f-l {
+    float: left;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.clearfix:after {
+    clear: both;
+    display: block;
+    visibility: hidden;
+    font-size: 0;
+    content: " ";
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #ccc;
+    font-size: 0.75rem;
+}
+.position-r{
+    position: relative;
+}
+
+.tc{
+    text-align: center;
+}
+
+.tl{
+    text-align: left;
+}
+
+.tr{
+    text-align: right;
+}
+
+.f-color-b1b1b1{
+    color:#b1b1b1 !important;
+}
+.color-ff731e{
+    color: #ff731e;
+}
+.bg-2e48a6{
+    background: #2e48a6;
+}
+
+.bg-ff731e{
+    background: #ff731e;
+}
+
+.f14{
+    font-size: 0.7rem;
+}
+
+.w90{
+    width: 90% !important;
+}
+
+.w70{
+    width: 70% !important;
+}
+
+.pt0{
+    padding-top:0 !important;
+}
+.pb0{
+    padding-bottom:0 !important;
+}
+.pb60{
+    padding-bottom:3rem !important;
+}
+.mtb12{
+    margin: 0.6rem 0 !important;
+}
+.mb10{
+    margin-bottom: 0.5rem !important;
+}
+.display-inline{
+    display: inline-block !important;
+}
+
+p{
+    margin: 0;
+}
+
+.border-radius-4{
+    border-radius: 4px;
+}
+
+/*头部样式*/
+.cus-header{
+    line-height: 2.2rem;
+}
+.cus-header-bg {
+    background: #1a191e;
+}
+
+.cus-header-font-color h1 {
+    color: #fff;
+}
+
+.cus-back-btn{
+    font-size: 0.75rem;
+    color: #fff;
+}
+
+.cus-back-icon{
+    display: inline-block;
+    height: 0.55rem;
+    width: 0.55rem;
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    margin-right: 2px;
+    transform:rotate(45deg);
+}
+
+.cus-dot{
+    display: inline-block;
+    height: 0.25rem;
+    width: 0.25rem;
+    border-radius: 100%;
+    background: #fff;
+    margin-left: 0.1rem;
+    vertical-align: middle;
+}
+
+/*司机信息表单页面样式*/
+.cus-driver-info-bg{
+    background: url(../images/driver-info-bg.jpg) no-repeat;
+    background-size: cover;
+}
+
+.cus-wrap .cus-list-form{
+    margin: 0 !important;
+    padding: 0.6rem;
+    font-size: 0.75rem;
+}
+
+.cus-wrap .cus-list-form .item-media+.item-inner{
+    margin: 0 0.5rem;
+}
+
+.cus-wrap .list-block .item-content{
+    padding-right: .75rem;
+}
+
+.cus-wrap .list-block .item-inner{
+    padding-right: 0 !important;
+}
+
+.cus-wrap .cus-list-form .label {
+    color: #000;
+}
+
+.cus-wrap .cus-list-form input{
+    font-size: 0.75rem !important;
+}
+
+.cus-wrap .content-block{
+    padding: 0.5rem !important;
+}
+
+.cus-wrap .input-after-triangle{
+    display: inline-block;
+    border: 0.2rem solid transparent;
+    border-top: 0.25rem solid #808082;
+    vertical-align: middle;
+}
+
+.cus-wrap .cus-id-wrap{
+    padding: .6rem 0 !important;
+}
+
+.cus-wrap .cus-back-bg{
+    background: #fff;
+}
+
+.cus-wrap .cus-driver-wrap li .item-inner{
+    border-bottom: 1px solid #f6f6f6;
+}
+.cus-wrap .cus-driver-wrap li:last-child .item-inner{
+    border-bottom: none;
+}
+.cus-wrap .id-li{
+    width: 44%;
+    display: inline-block;
+}
+.cus-wrap .id-li:first-child{
+    margin-left: 3%;
+}
+.cus-wrap .id-li:last-child{
+    margin: 0 3% 0 4%;
+}
+.cus-wrap .id-title-text{
+    text-align: center;
+    line-height: 2rem;
+}
+.cus-wrap .id-img{
+}
+
+.cus-wrap .id-img img{
+    width: 100%;
+    border: 1px dashed #ccc;
+    border-radius: 2px;
+    padding: 0.2rem;
+}
+
+.cus-wrap .id-info-text{
+    font-size: 0.6rem;
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    color: #ff731e;
+}
+
+.cus-wrap .cus-button-wrap{
+    padding: 0 0.5rem;
+}
+
+.cus-wrap .cus-button-submit{
+    background: #ff731e !important;
+    color: #fff;
+}
+
+.cus-wrap .list-block ul:before{
+    height: 0;
+}
+
+.cus-wrap .cus-button-height{
+    height: 2.25rem;
+    line-height: 2.25rem !important;
+}
+
+/*物流信息确认样式*/
+.cus-wrap .bar:after{
+    background-color: transparent !important;
+}
+.list-block ul:after{
+    background-color: transparent !important;
+}
+.cus-wrap .cus-logistics-info-bg {
+    background: #1a191e;
+}
+/*物流信息确认地址样式*/
+.cus-log-bg{
+    background: #1a191e !important;
+}
+
+.cus-log-add-wrap{
+    color: #fff;
+}
+
+.cus-wrap .log-add-li{
+    width: 42%;
+    display: inline-block;
+}
+
+.cus-wrap .log-add-title-text{
+
+}
+
+.cus-wrap .log-add-li:first-child{
+    margin-left: 3.5%;
+}
+.cus-wrap .log-add-li:last-child{
+    margin: 0 1% 0 10%;
+}
+
+.cus-wrap span.log-add-title-text{
+    display: inline-block;
+    height: 1.7rem;
+    line-height: 1.7rem;
+    width: 1.7rem;
+    font-size: 0.85rem;
+    border-radius: 100%;
+}
+
+.cus-wrap .arrive-car img{
+    width: 0.65rem;
+}
+
+.cus-wrap .arrive-car{
+    position: absolute;
+    top: 0.6rem;
+    width: 4rem;
+    height: 1.1rem;
+    z-index: 1000;
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    left: 50%;
+    margin-left: -1.8rem;
+}
+
+.cus-wrap .arrive-line-triangle{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 0.1rem solid #fff;
+    transform: rotate(45deg);
+    margin-left: 3.5rem;
+    margin-top: -0.3rem;
+}
+
+.list-block .item-inner:after{
+    background-color: transparent !important;
+}
+
+.cus-wrap .cus-log-info-wrap .item-content{
+    min-height: 2rem;
+}
+.cus-wrap .cus-log-info-wrap .item-inner{
+    padding-top: .2rem !important;
+    padding-bottom: .2rem !important;
+    min-height: 2rem;
+}
+
+.cus-wrap .cus-log-info-wrap li{
+    margin: 0 0.8rem;
+}
+
+.cus-wrap .cus-log-info-wrap li .cus-log-content{
+    margin: 4px 0;
+}
+
+.cus-wrap .cus-log-info-wrap li:nth-child(even){
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 0.6rem;
+}
+
+.cus-wrap .cus-log-info-wrap li:nth-child(odd){
+    padding-top: 0.6rem;
+}
+
+.cus-wrap .cus-log-info-wrap li:last-child{
+    border-bottom: none;
+}
+
+.cus-log-title{
+    float: left;
+}
+.cus-wrap .cus-log-info-sure-wrap li:nth-child(even){
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.cus-wrap .cus-log-info-sure-wrap li:nth-child(odd){
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.cus-wrap .cus-log-info-sure-wrap li{
+    border-bottom: 1px solid #efefef;
+    padding: 0.8rem 0;
+    margin: 0 0.8rem;
+    line-height: 1.7rem;
+}
+
+.cus-wrap .fix-button{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.cus-wrap .fix-button a{
+    display: block;
+    width: 100%;
+    border-radius: 0;
+}
+
+.cus-wrap .cus-button-sure{
+    background: #2e48a6 !important;
+}
+
+.cus-wrap .stamp-text{
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    margin-left: -5.8rem;
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    font-size: 1.2rem;
+    border: 2px solid #ff9d61;
+    letter-spacing: 5px;
+    transform: rotate(45deg);
+    color: #ff9d61;
+}
