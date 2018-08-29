@@ -594,6 +594,10 @@ p{
 }
 .order-detail-wrap .order-detail-timeline ul li:first-child .date-msg:after {
     background: #ff731e;
+    top: 0;
+}
+.order-detail-wrap .order-detail-timeline ul li:last-child .date-msg:after {
+    top: 100%;
 }
 .order-detail-wrap .order-detail-timeline .time-wrap {
     height: 100%;
@@ -601,7 +605,17 @@ p{
     top: 35%;
     margin-top: -17.5%;
 }
-.order-detail-wrap .order-detail-wrap .order-detail-timeline ul li:first-child .date-msg:after {
+.order-detail-wrap .order-detail-timeline ul li:first-child .date-msg {
+    top: 35%;
+}   
+.order-detail-wrap .order-detail-timeline ul li:first-child .date-msg .time-wrap {
+    top: 0;
 }   
 
 
+.order-detail-wrap .order-detail-timeline ul li:last-child .date-msg {
+    top: -65%;
+}
+.order-detail-wrap .order-detail-timeline ul li:last-child .date-msg .time-wrap {
+    top: 100%;
+}
