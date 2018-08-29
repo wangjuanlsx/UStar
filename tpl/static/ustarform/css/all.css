@@ -440,7 +440,8 @@ p{
 }
 .my-order-wrap .searchbar {
     background-color: transparent;
-    padding: .6rem .6rem;
+    padding: .4rem .6rem;
+    margin-top: .2rem;
 }
 .my-order-wrap .bar .searchbar .search-input input{
     height: 1.7rem;
@@ -458,21 +459,21 @@ p{
     padding-top: 13px;
 }
 .my-order-wrap .order-list ul{
-   padding: .6rem;
+ padding: .6rem;
 }
 .my-order-wrap .order-list ul li{
-   list-style:none;
-   background: #fff;
-   margin-top: .6rem;
-   font-size: .6rem;
-   position: relative;
-   border-radius: .2rem;
+ list-style:none;
+ background: #fff;
+ margin-top: .6rem;
+ font-size: .6rem;
+ position: relative;
+ border-radius: .2rem;
 }
 .my-order-wrap .order-list ul li a {
     display: block;
     color: #666;
-   padding: .6rem;
-   padding-bottom: 0.5rem;
+    padding: .6rem;
+    padding-bottom: 0.5rem;
 }
 .my-order-wrap .order-list ul li .order-img ,.order-detail-msg .order-img {
     width: 18%;
@@ -539,11 +540,11 @@ p{
 }
 /* 我的订单详情样式 */
 .order-detail-wrap .order-detail-msg {
-   background: #fff;
-   font-size: .6rem;
-   padding: 0.6rem 1.5rem;
-   padding-bottom: 0.5rem;
-   color: #666;
+ background: #fff;
+ font-size: .6rem;
+ padding: 0.6rem 1.5rem;
+ padding-bottom: 0.5rem;
+ color: #666;
 }
 .order-detail-wrap .order-detail-timeline {
     background: #fff;
@@ -577,7 +578,13 @@ p{
     padding-left: 10px;
     font-size: 0.7rem;
     color: #666;
+    display: table;
+    min-height: 40px;
     /* padding-bottom: 15px; */
+}
+.order-detail-wrap .order-detail-timeline .site-msg p {
+    display: table-cell;
+    vertical-align: middle;
 }
 .order-detail-wrap .order-detail-timeline ul li:first-child .site-msg {
     color: #ff731e;
@@ -589,7 +596,7 @@ p{
     border-radius: 50px;
     background: #ccc;
     position: absolute;
-    top: 35%;
+    top: 30%;
     margin-left: 7px;
 }
 .order-detail-wrap .order-detail-timeline ul li:first-child .date-msg:after {
@@ -602,11 +609,11 @@ p{
 .order-detail-wrap .order-detail-timeline .time-wrap {
     height: 100%;
     position: relative;
-    top: 35%;
+    top: 30%;
     margin-top: -17.5%;
 }
 .order-detail-wrap .order-detail-timeline ul li:first-child .date-msg {
-    top: 35%;
+    top: 30%;
 }   
 .order-detail-wrap .order-detail-timeline ul li:first-child .date-msg .time-wrap {
     top: 0;
@@ -614,8 +621,38 @@ p{
 
 
 .order-detail-wrap .order-detail-timeline ul li:last-child .date-msg {
-    top: -65%;
+    top: -70%;
 }
 .order-detail-wrap .order-detail-timeline ul li:last-child .date-msg .time-wrap {
     top: 100%;
+}
+@media screen and (max-width: 375px) {
+    .order-detail-wrap .order-detail-timeline .date-msg {
+        width: 29%;
+    }
+    .order-detail-wrap .order-detail-timeline .site-msg {
+        width: 70%;
+    }
+}
+@media (min-width: 700px) and (max-width: 900px) {
+    .order-detail-wrap .order-detail-timeline ul li:first-child .date-msg .time-wrap {
+        top: 15%;
+    }  
+    .order-detail-wrap .order-detail-timeline ul li:last-child .date-msg .time-wrap {
+        top: 115%;
+    }
+    .order-detail-wrap .order-detail-timeline .time-wrap {
+        top: 45%;
+    }
+}
+@media screen and (min-width: 900px) {
+    .order-detail-wrap .order-detail-timeline ul li:first-child .date-msg .time-wrap {
+        top: 25%;
+    }  
+    .order-detail-wrap .order-detail-timeline ul li:last-child .date-msg .time-wrap {
+        top: 130%;
+    }
+    .order-detail-wrap .order-detail-timeline .time-wrap {
+        top: 55%;
+    }
 }
