@@ -51,6 +51,8 @@ $(function(){
                     var newUrl = this.result;
                     $(img).attr("src",newUrl);
                 };
+            }else {
+                $.alert('请上传正确的照片格式！');
             }
         });
     }
