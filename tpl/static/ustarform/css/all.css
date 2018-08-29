@@ -626,7 +626,7 @@ p{
 .order-detail-wrap .order-detail-timeline ul li:last-child .date-msg .time-wrap {
     top: 100%;
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 320px) {
     .order-detail-wrap .order-detail-timeline .date-msg {
         width: 29%;
     }
