@@ -29,68 +29,32 @@ $("#picker-car-length").picker({
     ]
 });
 
-/**/
-
-function getPhoto(node) {
-    var imgURL = "";
-    try{
-        var file = null;
-        if(node.files && node.files[0] ){
-            file = node.files[0];
-        }else if(node.files && node.files.item(0)) {
-            file = node.files.item(0);
-        }
-        //Firefox 因安全性问题已无法直接通过input[file].value 获取完整的文件路径
-        try{
-            imgURL =  file.getAsDataURL();
-        }catch(e){
-            imgRUL = window.URL.createObjectURL(file);
-        }
-    }catch(e){
-        if (node.files && node.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                imgURL = e.target.result;
-            };
-            reader.readAsDataURL(node.files[0]);
-        }
+/**
+* 上传照片
+* */
+$(function(){
+    function upLoadImg(input,img){
+        $(input).on('change',function(){
+            var file = this.files[0];
+            // 确认选择的文件是图片
+            var size = Math.round(file.size / 1024 / 1024);
+            if(file.type.indexOf("image") == 0) {
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                //上传照片不能超过10MB
+                if(size>10){
+                    $.alert('照片超过10MB,请重新上传!');
+                    return;
+                }
+                reader.onload = function(e) {
+                    // 图片base64化
+                    var newUrl = this.result;
+                    $(img).attr("src",newUrl);
+                };
+            }
+        });
     }
-    creatImg(imgRUL);
-    return imgURL;
-}
+    upLoadImg("#up-file-driver1","#up-file-img1");
+    upLoadImg("#up-file-driver2","#up-file-img2");
+})
 
-function getPhoto1(node) {
-    var imgURL = "";
-    try{
-        var file = null;
-        if(node.files && node.files[0] ){
-            file = node.files[0];
-        }else if(node.files && node.files.item(0)) {
-            file = node.files.item(0);
-        }
-        //Firefox 因安全性问题已无法直接通过input[file].value 获取完整的文件路径
-        try{
-            imgURL =  file.getAsDataURL();
-        }catch(e){
-            imgRUL = window.URL.createObjectURL(file);
-        }
-    }catch(e){
-        if (node.files && node.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                imgURL = e.target.result;
-            };
-            reader.readAsDataURL(node.files[0]);
-        }
-    }
-    creatImg1(imgRUL);
-    return imgURL;
-}
-
-function creatImg(imgRUL){
-    $("#up-file-img1").attr("src",imgRUL);
-}
-
-function creatImg1(imgRUL){
-    $("#up-file-img2").attr("src",imgRUL);
-}

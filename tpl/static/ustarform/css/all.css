@@ -411,15 +411,15 @@ p{
 
 .cus-wrap .stamp-text{
     position: absolute;
-    top: 6rem;
+    top: 5.8rem;
     left: 50%;
-    margin-left: -5.8rem;
+    margin-left: -5.5rem;
     display: inline-block;
     padding: 0.2rem 0.5rem;
     font-size: 1.2rem;
     border: 2px solid #ff9d61;
     letter-spacing: 5px;
-    transform: rotate(45deg);
+    transform: rotate(40deg);
     color: #ff9d61;
 }
 /* 我的订单、订单详情样式 */
