@@ -215,6 +215,7 @@ p{
     line-height: 2rem;
 }
 .cus-wrap .id-img{
+    text-align: center;
 }
 
 .cus-wrap .id-img img{
@@ -233,12 +234,12 @@ p{
     height: 4.2rem;
     padding: 0.2rem;
     position: absolute;
-    right: 0;
+    left: 50%;
     top: 2px;
     z-index: 1000;
     opacity: 0;
     -ms-filter: 'alpha(opacity=0)';
-
+    margin-left: -3.6rem;
 }
 
 .cus-wrap .id-info-text{
@@ -431,6 +432,7 @@ p{
 }
 .my-order-wrap .search-icon {
     width: 22px;
+    top: 60%;
 }
 .my-order-wrap .search-icon img{
     width: 100%;
@@ -477,6 +479,7 @@ p{
 .my-order-wrap .order-list ul li .order-img ,.order-detail-msg .order-img {
     width: 18%;
     display: inline-block;
+    float: left;
 }
 .my-order-wrap .order-list ul li .order-img img,.order-detail-msg .order-img img {
     width: 100%;
