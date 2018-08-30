@@ -478,9 +478,11 @@ p{
     padding-bottom: 0.5rem;
 }
 .my-order-wrap .order-list ul li .order-img ,.order-detail-msg .order-img {
-    width: 18%;
+    width: 2.8rem;
     display: inline-block;
     float: left;
+    height: 2.8rem;
+    overflow: hidden;
 }
 .my-order-wrap .order-list ul li .order-img img,.order-detail-msg .order-img img {
     width: 100%;
