@@ -24,6 +24,10 @@ a img, input, button, textarea {
     border: none;
 }
 
+.pt0{
+    padding-top:0 !important;
+}
+
 input, button, textarea {
     display: inline-block;
     font: menu;
