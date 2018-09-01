@@ -149,15 +149,19 @@ body {
     color: #2e48a6;
     position: relative;
 }
-.msg-title span{
+.msg-title span.msg-title-span{
+    display: inline-block;
+    margin-right: 0.2rem;
+    font-size: 0.8rem;
+}
+.msg-title span.cus-msg-flag{
     font-size: 0.5rem;
     font-weight: normal;
-    padding: 0px 5px;
+    padding: 2px;
     border-radius: 3px;
     margin-left: 0.2rem;
     position: relative;
     top: -2px;
-    display: inline-block;
 }
 .msg-title span.msg-flag-green{
     background: #ecfcf7;
