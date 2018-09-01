@@ -152,12 +152,19 @@ body {
 .msg-title span.msg-title-span{
     display: inline-block;
     margin-right: 0.2rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+}
+
+@media screen and (max-width: 320px) {
+
+    .msg-title span.msg-title-span{
+        font-size: 0.8rem;
+    }
 }
 .msg-title span.cus-msg-flag{
     font-size: 0.5rem;
     font-weight: normal;
-    padding: 2px;
+    padding: 0 2px;
     border-radius: 3px;
     margin-left: 0.2rem;
     position: relative;
