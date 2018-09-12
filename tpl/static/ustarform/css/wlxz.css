@@ -159,12 +159,6 @@ body {
     font-size: 0.9rem;
 }
 
-@media screen and (max-width: 320px) {
-
-    .msg-title span.msg-title-span{
-        font-size: 0.8rem;
-    }
-}
 .msg-title span.cus-msg-flag{
     font-size: 0.5rem;
     font-weight: normal;
@@ -263,7 +257,7 @@ img.dajian {
     height: 4rem;
     margin-top:0.5rem;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
     .logo {
         width: 3rem;
     }
@@ -271,6 +265,9 @@ img.dajian {
         width: 2.6rem;
         height: 2.6rem;
         margin-top: 1.2rem;
+    }
+    .msg-title span.msg-title-span{
+        font-size: 0.8rem;
     }
 }
 .logo img {
