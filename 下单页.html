@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>填写订单</title>
+    <!--框架样式-->
+    <link rel="stylesheet" href="./tpl/static/ustarform/css/aui.css">
+    <link rel="stylesheet" href="./tpl/static/ustarform/css/sm.min.css">
+    <style type="text/css">
+        .w90 {
+            width: 90% !important;
+        }
+
+        .pt0 {
+            padding-top: 0 !important;
+        }
+
+        .display-inline {
+            display: inline-block !important;
+        }
+
+        .xdy-top {
+            padding: 0.6rem;
+        }
+
+        .xdy-list-item {
+            height: 46px;
+            font-size: 0.75rem;
+        }
+
+        .xdy-top-dz-j {
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            color: #fff;
+            background-color: #2e48a6;
+            line-height: 26px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .xdy-top-dz-s {
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            color: #fff;
+            background-color: #ff731e;
+            line-height: 26px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .aui-list-item-input input {
+            font-size: 15px;
+            text-overflow: ellipsis;
+        }
+
+        .order-add-wrap {
+            width: 100%;
+            margin: 8px 0;
+        }
+
+        .order-add-wrap div {
+            float: left;
+            line-height: 30px;
+        }
+
+        .order-add-wrap div.xdy-top-dz-dzb {
+            width: 2.4rem;
+            margin-right: 0.5rem;
+            font-size: 0.6rem;
+            float: right;
+            color: #FFA06C;
+            padding-left: 0.5rem;
+            border-left: 1px solid #f3f3f3;
+        }
+
+        .aui-list-item-input select {
+            font-size: 15px;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        .submit {
+            background-color: #FF731E;
+            color: #fff;
+            font-size: 16px;
+        }
+        .xdy-shipping-div select {
+            font-size: 15px;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        .xdy-shipping-input input {
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .xdy-shipping-span span {
+            width: 94%;
+            margin: 0 3%;
+            color: #FABA91;
+            font-size: 14px;
+        }
+
+        .add-text {
+            width: 65%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 0.75rem;
+        }
+
+        .cus-wrap .cus-list-form {
+            margin: 0 !important;
+            padding: 0.6rem;
+            font-size: 0.75rem;
+        }
+
+        .cus-wrap .cus-list-form .item-media + .item-inner {
+            margin: 0 0.5rem;
+        }
+
+        .cus-wrap .list-block .item-content {
+            padding-right: .75rem;
+        }
+
+        .cus-wrap .list-block .item-inner {
+            padding-right: 0 !important;
+        }
+
+        .cus-wrap .cus-list-form .label {
+            color: #000;
+        }
+
+        .cus-wrap .cus-list-form input {
+            font-size: 0.75rem !important;
+            text-align: center;
+        }
+
+        .cus-wrap .input-after-triangle {
+            display: inline-block;
+            border: 0.2rem solid transparent;
+            border-top: 0.25rem solid #808082;
+            vertical-align: middle;
+        }
+
+        .cus-wrap .cus-driver-wrap li .item-inner {
+            border-bottom: 1px solid #f6f6f6;
+        }
+
+        .cus-wrap .cus-driver-wrap li:last-child .item-inner {
+            border-bottom: none;
+        }
+        .cus-order-title {
+            width: 24% !important;
+        }
+
+        input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+            color: #ccc;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+<div class="aui-content xdy-top">
+    <ul class="aui-list aui-form-list">
+        <li class="aui-list-item xdy-list-item">
+            <div class="order-add-wrap">
+                <div class="" style="width:34px;">
+                    <span class="xdy-top-dz-j">寄</span>
+                </div>
+                <div class="add-text" style="color:#2e48a6;">寄件人信息</div>
+                <div class="xdy-top-dz-dzb">
+                    地址薄
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="order-add-wrap">
+                <div class="" style="width:34px;">
+                    <span class="xdy-top-dz-s">收</span>
+                </div>
+                <div class="add-text" style="color:#ff731e;">收件人信息</div>
+                <div class="xdy-top-dz-dzb">
+                    地址薄
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="cus-wrap">
+    <form action="">
+        <div class="list-block pt0 cus-list-form cus-driver-wrap">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label cus-order-title">货物类型</div>
+                            <div class="item-input">
+                                <input type="text" id="goods-type" class="w90 display-inline"
+                                       placeholder="请选择货物类型(必选)">
+                                <i class="input-after-triangle"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label cus-order-title">重量</div>
+                            <div class="item-input">
+                                <input type="text" id="picker-weight" class="w90 display-inline"
+                                       placeholder="请选择重量">
+                                <i class="input-after-triangle"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="list-block pt0 cus-list-form cus-driver-wrap">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label cus-order-title">运输方式</div>
+                            <div class="item-input">
+                                <input type="text" id="transportation-way" class="w90 display-inline"
+                                       placeholder="请选择运输方式">
+                                <i class="input-after-triangle"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label cus-order-title">支付方式</div>
+                            <div class="item-input">
+                                <input type="text" id="payment-way" class="w90 display-inline"
+                                       placeholder="请选择支付方式">
+                                <i class="input-after-triangle"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label cus-order-title">优惠券</div>
+                            <div class="item-input">
+                                <input type="text" id="discount-coupon" class="w90 display-inline"
+                                       placeholder="当前有 1 张优惠券可选">
+                                <i class="input-after-triangle"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+<footer class="aui-bar aui-bar-tab" id="footer">
+    <div class="aui-btn-block submit">确定发货</div>
+</footer>
+<script type="text/javascript" src="./tpl/static/ustarform/js/zepto.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./tpl/static/ustarform/js/sm.min.js" charset="utf-8"></script>
+<script>
+    /**
+     *货物类型下拉菜单
+     * */
+    $("#goods-type").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择货物类型(必选)</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['货物类型1', '货物类型2', '货物类型3', '货物类型4', '货物类型5', '货物类型6', '货物类型7', '货物类型8']
+            }
+        ]
+    });
+    /**
+     *重量下拉菜单
+     * */
+    $("#picker-weight").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择重量</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['重量1', '重量2', '重量3', '重量4', '重量5', '重量6']
+            }
+        ]
+    });
+    /**
+     *运输方式下拉菜单
+     * */
+    $("#transportation-way").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择运输方式</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['运输方式1', '运输方式2', '运输方式3', '运输方式4']
+            }
+        ]
+    });
+    /**
+     *支付方式下拉菜单
+     * */
+    $("#payment-way").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择支付方式</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['支付宝', '微信','其他']
+            }
+        ]
+    });
+    /**
+     *优惠券下拉菜单
+     * */
+    $("#discount-coupon").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择优惠券</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['优惠券1', '优惠券2']
+            }
+        ]
+    });
+
+</script>
+</body>
+</html>
