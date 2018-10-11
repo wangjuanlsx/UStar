@@ -13,6 +13,9 @@
         .w90 {
             width: 90% !important;
         }
+        .w80 {
+            width: 85% !important;
+        }
 
         .pt0 {
             padding-top: 0 !important;
@@ -177,6 +180,54 @@
         .aui-list:after{
             background-color: transparent!important;
         }
+        .car-bg{
+            background-color: #e9e9e9;
+            height: 1.7rem;
+        }
+        .list-block input.car-info{
+            height: 1.7rem !important;
+            line-height: 1.7rem !important;
+            min-height: 1.7rem !important;
+        }
+        .cus-back-icon{
+            display: inline-block;
+            height: 0.3rem;
+            width: 0.3rem;
+            border: 1px solid #808082;
+            border-top: none;
+            border-right: none;
+            margin-right: 6px;
+            transform: rotate(-45deg);
+            vertical-align: super;
+        }
+        .list-block .not-line{
+            padding-right: 0 !important;
+            position: relative;
+            width: 100%;
+            padding-top: .4rem;
+            padding-bottom: .35rem;
+            min-height: 2.2rem;
+            overflow: hidden;
+            box-sizing: border-box;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .cus-wrap .cus-list-form input.car-info{
+            font-size: 0.6rem !important;
+        }
+        input.car-info::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+            color: #333;
+            font-size: 0.6rem;
+        }
     </style>
 </head>
 <body>
@@ -240,7 +291,7 @@
             <ul>
                 <li>
                     <div class="item-content">
-                        <div class="item-inner">
+                        <div class="not-line">
                             <div class="item-title label cus-order-title">运输方式</div>
                             <div class="item-input">
                                 <input type="text" id="transportation-way" class="w90 display-inline"
@@ -248,6 +299,54 @@
                                 <i class="input-after-triangle"></i>
                             </div>
                         </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row item-content">
+                        <div class="col-50 item-input car-bg">
+                            <input type="text" id="car-length" class="w80 display-inline car-info"
+                                   placeholder="车长">
+                            <i class="cus-back-icon"></i>
+                        </div>
+                        <div class="col-50 item-input car-bg">
+                            <input type="text" id="car-type-num" class="w80 display-inline car-info"
+                                   placeholder="车型">
+                            <i class="cus-back-icon"></i>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row item-content">
+                        <div class="col-50 item-input car-bg">
+                            <input type="text" id="car-brand" class="w80 display-inline car-info"
+                                   placeholder="车辆品牌">
+                            <i class="cus-back-icon"></i>
+                        </div>
+                        <div class="col-50 item-input car-bg">
+                            <input type="text" id="car-model" class="w80 display-inline car-info"
+                                   placeholder="车辆型号">
+                            <i class="cus-back-icon"></i>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row item-content">
+                        <div class="not-line">
+                            <div class="col-80 item-input car-bg">
+                                <input type="text" id="car-type" class="display-inline car-info"
+                                       placeholder="车辆识别号">
+                            </div>
+                            </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-input">
+                            <p style="font-size: 0.55rem; color: #f2915d;margin: 2px 0 8px 0px;">友情提醒:车辆托运过程中建议购买正规运输保险用于保障您的权益，最终解释权由第三方保险公司负责。（例如过海、过桥导致车辆磕碰等意外情况）</p>
+                        </div>
+
+                    </div>
                     </div>
                 </li>
                 <li>
@@ -262,6 +361,7 @@
                         </div>
                     </div>
                 </li>
+
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
@@ -334,13 +434,13 @@
      * */
     $("#payment-way").picker({
         toolbarTemplate: '<header class="bar bar-nav">\
-  <button class="button button-link pull-right close-picker">确定</button>\
+  <button class="button button-link pull-right close-picker" id="pay-id">确定</button>\
   <h1 class="title">请选择支付方式</h1>\
   </header>',
         cols: [
             {
                 textAlign: 'center',
-                values: ['支付宝', '微信','其他']
+                values: ['支付宝', '微信','到付']
             }
         ]
     });
@@ -359,7 +459,128 @@
             }
         ]
     });
-
+    /**
+     *车辆品牌下拉菜单
+     * */
+    $("#car-brand").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择车辆品牌</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['奥迪', '奔驰',
+                    '宝马',
+                    '本田',
+                    '别克',
+                    '比亚迪',
+                    '保时捷',
+                    '标致',
+                    '长城',
+                    '大众',
+                    '丰田',
+                    '福特',
+                    '吉利',
+                    '捷豹',
+                    '凯迪拉克',
+                    '路虎',
+                    '雷克萨斯',
+                    '雷诺',
+                    '起亚',
+                    '奇瑞',
+                    '日产',
+                    '斯柯达',
+                    '三菱',
+                    '斯巴鲁',
+                    '沃尔沃',
+                    '现代',
+                    '雪佛兰',
+                    '雪铁龙',
+                    '英菲尼迪',
+                    '一汽',
+                    '众泰',
+                    '中华',
+                    '其他品牌']
+            }
+        ]
+    });
+    /**
+     *车辆型号下拉菜单
+     * */
+    $("#car-model").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择车辆型号</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['轿车',
+                    '越野车',
+                    '多功能车',
+                    '其他车型']
+            }
+        ]
+    });
+    /**
+     *车长下拉菜单
+     * */
+    $("#car-length").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择车长</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['2.7米',
+                    '3.5米',
+                    '4.2米',
+                    '5.5米',
+                    '6.8米',
+                    '7.2米',
+                    '9.6米',
+                    '13米',
+                    '17.5米',
+                    '其他'
+                ]
+            }
+        ]
+    });
+    /**
+     *车型下拉菜单
+     * */
+    $("#car-type-num").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择车型</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['厢式车',
+                    '平板车',
+                    '高栏车',
+                    '低栏车',
+                    '高低板车',
+                    '冷藏车',
+                    '集装箱车',
+                    '自卸货车',
+                    '其他车型'
+                ]
+            }
+        ]
+    });
+    /**
+    * 到付提醒
+    * */
+    $('body').on('click','#pay-id',function(){
+        if($('#payment-way').val()=="到付"){
+            $.alert("到付需要加收30%-50%不等的手续费。");
+        };
+    })
+    /*$('#payment-way').*/
 </script>
 </body>
 </html>
