@@ -446,7 +446,7 @@
         cols: [
             {
                 textAlign: 'center',
-                values: ['汽车托运', '整车物流']
+                values: ['快递/零担快运','汽车托运', '整车物流']
             }
         ]
     });
@@ -464,6 +464,10 @@
             $('.car-transportation').addClass('hide');
             $('.all-transportation').removeClass('hide');
             $('.change-not-line').removeClass('item-inner').addClass('not-line');
+        }else{
+            $('.car-transportation').addClass('hide');
+            $('.all-transportation').addClass('hide');
+            $('.change-not-line').removeClass('not-line').addClass('item-inner');
         }
     }
     /**
