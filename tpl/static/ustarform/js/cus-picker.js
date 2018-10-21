@@ -1,4 +1,14 @@
-if ((/Android/gi).test(navigator.userAgent)) {
+
+/*if(/Android [4-6]/.test(navigator.appVersion)) {
+    window.addEventListener("resize", function() {
+        if(document.activeElement.tagName=="INPUT" || document.activeElement.tagName=="TEXTAREA") {
+            window.setTimeout(function() {
+                document.activeElement.scrollIntoViewIfNeeded();
+            },0);
+        }
+    })}
+
+    if ((/Android/gi).test(navigator.userAgent)) {
     window.addEventListener('resize', function () {
         if (document.activeElement.tagName == 'INPUT' ||
             document.activeElement.tagName == 'TEXTAREA') {
@@ -7,7 +17,10 @@ if ((/Android/gi).test(navigator.userAgent)) {
             }, 0);
         }
     });
-}
+}*/
+setTimeout(function(){
+    document.body.scrollTop = document.body.scrollHeight;
+},300);
 
     function checkWords(input) {
     // 获取要显示已经输入字数文本框对象
