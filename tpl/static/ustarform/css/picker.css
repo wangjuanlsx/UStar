@@ -1,0 +1,158 @@
+.picker .picker-panel .picker-choose .picker-title {
+    line-height: 44px !important;
+    font-size: 0.8rem !important;
+    text-align: center;
+    color: #333;
+}
+.picker .picker-panel .picker-choose {
+    position: relative;
+    height: 44px !important;
+    color: #878787;
+    font-size: 14px;
+    background-color: #f7f7f8;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}
+.picker .picker-panel .picker-choose .confirm {
+    right: 0;
+    color: #0894ec !important;
+}
+.picker .picker-panel .picker-choose .cancel, .picker .picker-panel .picker-choose .confirm,.picker .picker-panel .picker-choose .confirm {
+    position: absolute;
+    padding: 10px;
+    top: 2px !important;
+}
+h1.picker-title{
+    margin:0 !important;
+}
+.picker .picker-panel .wheel-wrapper .wheel {
+    font-size: 0.75rem !important;
+}
+.picker .picker-panel .wheel-wrapper .wheel .wheel-scroll .wheel-item {
+    height: 36px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #333;
+    text-overflow: ellipsis;
+}
+.jjr-top {
+    margin: 10px 10px 10px 10px;
+}
+.jjr-top-dz-j {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+    background-color: #3049A6;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 0.7rem;
+}
+.ji-width{
+    width: 30% !important;
+}
+.jjr-list-box {
+    width: 100%;
+    background: #fff;
+    padding: 0 10px;
+}
+
+.jjr-list-box-div {
+    height: 50px;
+    font-size: 0.75rem;
+}
+
+.aui-list-item-input select {
+    font-size: 15px;
+    text-overflow: ellipsis;
+}
+
+.aui-list-item-input input {
+    font-size: 0.75rem;
+    text-overflow: ellipsis;
+}
+
+.submit {
+    background-color: #FF731E;
+    color: #fff;
+    font-size: 16px;
+}
+.jjr-list-box-radio {
+    height: 30px;
+    font-size: 0.75rem;
+    line-height: 30px;
+    margin-left: 15px;
+}
+
+.jjr-list-box-radio label {
+    height: 30px;
+    font-size: 0.75rem;
+    line-height: 30px;
+    color: #7e7e7e;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #b1b1b1;
+    font-size: 0.75rem;
+}
+
+.jjr-list-box-radio label input {
+    width: 0.9rem;
+    height: 0.9rem;
+    margin: 6px 5px 0 0;
+    line-height: 30px;
+}
+
+.jjr-list-box-radio label input:checked {
+    background-color: #FF731E;
+    border: solid 1px #FF731E;
+}
+
+.jjr-li-box-img {
+    width: 20px;
+    height: 20px;
+    line-height: 12px;
+    margin-right: 10px;
+}
+
+.jjr-list-box-textarea {
+    border: solid 1px #E8E8E8;
+    padding: 10px;
+}
+
+.jjr-list-box-textarea-span {
+    bottom: -25px;
+    right: 0px;
+    position: absolute;
+    font-size: 13px;
+    color: #b1b1b1;
+}
+
+.jjr-list-box-textarea-btn {
+    background: #2e48a5;
+    color: #fff;
+    border-radius: 2px;
+    padding: 0.32rem 1.2rem;
+    margin: 40px -16px 20px 0;
+    float: right;
+    font-size: 0.75rem;
+}
+.input-after-triangle{
+    display: inline-block;
+    border: 0.2rem solid transparent;
+    border-top: 0.25rem solid #808082;
+    vertical-align: middle;
+}
+.aui-list .add-list-item-input{
+    padding-right: 0 !important;
+}
+.aui-list .add-list-item-input input{
+    display: inline-block;
+    width: 95%;
+}
+.aui-list textarea{
+    font-size: 0.75rem;
+}
+.picker .picker-mask.show{
+    background: #000;
+    opacity: 0.3 !important;
+}

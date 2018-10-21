@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>填写订单</title>
+    <!--框架样式-->
+    <link rel="stylesheet" type="text/css" href="./tpl/static/ustarform/css/aui.css" />
+    <!--地址选择样式-->
+    <link rel="stylesheet" href="./tpl/static/ustarform/css/picker.css">
+</head>
+<body>
+<div class="aui-content jjr-top">
+    <div class="aui-list aui-form-list jjr-list-box">
+        <div class="aui-list-item-inner jjr-list-box-div">
+            <div class="aui-list-item-label ji-width">
+                <span class="jjr-top-dz-j">寄</span>
+            </div>
+            <div class="aui-list-item-input">
+                <input type="text" id="name" placeholder="寄件人姓名" value="">
+            </div>
+            <div class="aui-list-item-input">
+                <input type="text" id="phone" placeholder="联系电话" value="">
+            </div>
+        </div>
+        <div class="aui-hr">
+        </div>
+        <div class="aui-list-item-inner xdy-list-box-div">
+            <div class="aui-list-item-input add-list-item-input">
+                <!--<input type="text" placeholder="海南省 海口市 美兰区" readonly id="location" name="location">-->
+                <input type="text" placeholder="请选择省市区" readonly id="sel_city" name="location">
+                <i class="input-after-triangle"></i>
+            </div>
+        </div>
+        <div class="aui-hr">
+        </div>
+        <div class="aui-list-item-inner jjr-list-box-div">
+            <div class="aui-list-item-input">
+                <input type="text" id="detailAddress" placeholder="请填写街道、写字楼、门牌" value="">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="aui-list-item-inner jjr-list-box-radio">
+    <div class="aui-list-item-input">
+        <label>
+            <input class="aui-radio" type="checkbox" name="box">
+            默认地址
+        </label>
+    </div>
+</div>
+<div class="aui-content aui-margin-b-15 jjr-top">
+    <div class="aui-list aui-form-list jjr-list-box">
+        <div class="aui-list-item-inner jjr-list-box-div">
+            <div class="aui-list-item-label" style="width: 100%;">
+                    <span class="jjr-li-box-img">
+                        <img src="./tpl/static/ustarform/images/Intelligence-ico.png" width="100%" height="100%">
+                    </span> 智能地址粘贴
+            </div>
+        </div>
+        <div class="aui-list-item-inner">
+                <textarea id="textArea" onkeyup="checkWords(this);" maxlength="100" class="jjr-list-box-textarea"
+                          placeholder="例：张三，18898980099，海南省海口市美兰区海南大厦40楼"></textarea>
+            <span class='jjr-list-box-textarea-span'><span id="textNum">0</span>/100</span>
+        </div>
+        <div class="aui-list-item-inner">
+            <div class="aui-list-item-input">
+                <div class="jjr-list-box-textarea-btn" onclick="noopsycheFill()">
+                    智能填写
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="aui-bar aui-bar-tab" id="footer">
+    <div class="aui-btn-block submit">确认</div>
+</footer>
+<script src="./tpl/static/ustarform/js/zepto.min.js"></script>
+<script src="tpl/static/ustarform/js/cityselect.js"></script>
+<script src="./tpl/static/ustarform/js/picker.min.js"></script>
+<script src="./tpl/static/ustarform/js/city.js"></script>
+<script src="./tpl/static/ustarform/js/cus-picker.js"></script>
+</body>
+</html>
