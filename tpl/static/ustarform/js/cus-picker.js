@@ -1,4 +1,4 @@
-if(/Android [4-6]/.test(navigator.appVersion)) {
+/*if(/Android [4-6]/.test(navigator.appVersion)) {
     window.addEventListener("resize", function () {
         if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA") {
             window.setTimeout(function () {
@@ -6,7 +6,7 @@ if(/Android [4-6]/.test(navigator.appVersion)) {
             }, 0);
         }
     })
-}
+}*/
 function checkWords(input) {
     // 获取要显示已经输入字数文本框对象
     var content = document.getElementById('textNum');
@@ -53,7 +53,6 @@ function noopsycheFill() {
     var infoList = content.split(",");//分割里面内容
 
     infoList = notempty(infoList);
-    console.log(infoList);
     for (var i in infoList) {
         if (infoList[i] == "") {
             continue;
@@ -247,7 +246,6 @@ picker.on('picker.change', function (index, selectedIndex) {
             if (secondCity.hasOwnProperty('sub')) {
                 creatList(secondCity.sub, third);
                 nameEl.value = firstCity.name + ' ' + secondCity.name + ' ' +third[0].text;
-                console.log(third)
             } else {
                 third = [{text: '', value: 0}];
                 checked[2] = 0;
@@ -281,14 +279,13 @@ picker.on('picker.change', function (index, selectedIndex) {
             checked[2] = 0;
             picker.refillColumn(2, third);
             picker.scrollColumn(2, 0)
-            nameEl.value = city[first_index].name + ' ' + city[first_index].sub[selectedIndex];
+            nameEl.value = city[first_index].name + ' ' + city[first_index].sub[selectedIndex].name;
         }
     }
     function thirdChange(){
         checked[2] = selectedIndex;
         var first_index1 = checked[0];
         var second_index1 = checked[1];
-        console.log(city[first_index1],city[first_index1].sub[second_index1]);
         if (city[first_index1].sub[second_index1].hasOwnProperty('sub')){
             var thirdCity = city[first_index1].sub[second_index1].sub[selectedIndex];
         }
@@ -298,10 +295,18 @@ picker.on('picker.change', function (index, selectedIndex) {
 });
 
 picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
-    console.log(selectedVal);
-    console.log(selectedIndex);
+    /*console.log(selectedVal);
+    console.log(selectedIndex);*/
 });
 
 nameEl.addEventListener('click', function () {
     picker.show();
 });
+
+$('#noopsyche-fill').on('click',function(){
+    noopsycheFill();
+});
+$('.picker-mask').on('click',function(){
+    picker.hide();
+});
+
