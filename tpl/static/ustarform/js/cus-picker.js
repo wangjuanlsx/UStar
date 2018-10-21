@@ -1,12 +1,4 @@
-/*if(/Android [4-6]/.test(navigator.appVersion)) {
-    window.addEventListener("resize", function () {
-        if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA") {
-            window.setTimeout(function () {
-                document.activeElement.scrollIntoViewIfNeeded();
-            }, 0);
-        }
-    })
-}*/
+
 function checkWords(input) {
     // 获取要显示已经输入字数文本框对象
     var content = document.getElementById('textNum');
@@ -272,8 +264,14 @@ picker.on('picker.change', function (index, selectedIndex) {
             var secondCity = city[first_index].sub[selectedIndex];
             creatList(secondCity.sub, third);
             picker.refillColumn(2, third);
-            picker.scrollColumn(2, 0)
-            nameEl.value = city[first_index].name + ' ' + secondCity.name + ' ' + third[0].text;
+            picker.scrollColumn(2, 0);
+            console.log(third);
+            if(third.length!=0){
+                nameEl.value = city[first_index].name + ' ' + secondCity.name + ' ' + third[0].text;
+            }else {
+                nameEl.value = city[first_index].name + ' ' + secondCity.name
+            }
+
         } else {
             third = [{text: '', value: 0}];
             checked[2] = 0;
@@ -295,18 +293,37 @@ picker.on('picker.change', function (index, selectedIndex) {
 });
 
 picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
-    /*console.log(selectedVal);
-    console.log(selectedIndex);*/
+
 });
 
 nameEl.addEventListener('click', function () {
     picker.show();
+    if(nameEl.value ==""){
+        nameEl.value = "北京 北京市 城东区";
+    }
 });
-
 $('#noopsyche-fill').on('click',function(){
     noopsycheFill();
 });
 $('.picker-mask').on('click',function(){
     picker.hide();
 });
+// 判断是否为手机号
+function isPoneAvailable (pone) {
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if (!myreg.test(pone)) {
+        return false;
+    } else {
+        return true;
+    }
+};
+/*提交*/
+$('.submit').on('click',function(){
+    var phoneVal = $('#phone').val();
+    if(phoneVal.substr(0, 1)=='1'&&!isPoneAvailable(phoneVal)){
+            $.alert("请输入正确的手机号!");
+    }
+});
+
+
 
