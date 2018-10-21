@@ -72,7 +72,7 @@ function getProvinceCityCounty($cityInput) {
 		$(".provinceAll .list ul").empty();
 		$(".cityAll .list ul").empty();
 		$(".countyAll .list ul").empty();
-		
+
 		var pccName = $cityInput.val().split("-");
 		if (pccName.length == 3) {
 			var provinceName = pccName[0];
@@ -85,7 +85,7 @@ function getProvinceCityCounty($cityInput) {
 					return;
 				}
 			});
-			
+
 			var cityName = pccName[1];
 			var cityId;
 			var cityIndex;
@@ -99,7 +99,7 @@ function getProvinceCityCounty($cityInput) {
 					}
 				});
 			}
-			
+
 			var countyName = pccName[2];
 			var countyId;
 			var countyIndex;
@@ -113,7 +113,7 @@ function getProvinceCityCounty($cityInput) {
 					}
 				});
 			}
-			
+
 			if (countyId) {
 				var currentProvincePage = Math.ceil((provinceIndex + 1) / pageSize);
 				var currentCityPage = Math.ceil((cityIndex + 1) / pageSize);
@@ -881,7 +881,6 @@ function getAllCounty(){
 	{"cityId":"9FCPBeGkTM2CoIHNVLAsMl","name":"邻水县","provinceId":"sichuan","id":"linshuixian"},
 	{"cityId":"qWTdBgOLQpiyv50yUQwxyV","name":"邓州市","provinceId":"henan","id":"dengzhoushi"},
 	{"cityId":"R2MGr3mAQuWJG400bFLQYV","name":"叠彩区","provinceId":"guangxi","id":"diecaiqu"},
-	{"cityId":"v6lMtMvyRIuxYJvtNfjH6l","name":"定安县","provinceId":"hainan","id":"dinganxian"},
 	{"cityId":"MnqoMAgpQeCmiKHe23vXlV","name":"定南县","provinceId":"jiangxi","id":"dingnanxian"},
 	{"cityId":"SgGkHXTSRsBqGY3q3JNaP1","name":"东城区","provinceId":"beijin","id":"dongchengqu"},
 	{"cityId":"CeCKB4cGTYeWeY2LVLDDDF","name":"东光县","provinceId":"hebei","id":"dongguangxian"},
@@ -1209,14 +1208,12 @@ function getAllCounty(){
 	{"cityId":"nsbf5TURSWuJ2zCBxE80oV","name":"涟源市","provinceId":"hunan","id":"lianyuanshi"},
 	{"cityId":"7OJTjawIRUKCizYy2xp2UF","name":"梁园区","provinceId":"henan","id":"liangyuanqu"},
 	{"cityId":"K3HOS3CQQ32bG44VK7UVKl","name":"临川区","provinceId":"jiangxi","id":"linchuanqu"},
-	{"cityId":"aSNBVGzSTCW3UxyzJAkUJF","name":"临高县","provinceId":"hainan","id":"lingaoxian"},
 	{"cityId":"R2MGr3mAQuWJG400bFLQYV","name":"临桂县","provinceId":"guangxi","id":"linguixian"},
 	{"cityId":"Xm5wHSV2SKB5rqXvjxeXcl","name":"临颍县","provinceId":"henan","id":"linyingxian"},
 	{"cityId":"NwvrQuLlRzWv5h7wCjKTp1","name":"得荣县","provinceId":"sichuan","id":"derongxian"},
 	{"cityId":"tqkB64R4RAWNp55Pt8mbTF","name":"鼎湖区","provinceId":"guangdong","id":"dinghuqu"},
 	{"cityId":"dN3aFk4tSq61fMlTMWldcF","name":"定边县","provinceId":"shanxi2","id":"dingbianxian"},
 	{"cityId":"F4OJ0DDtRyuINwdtPjrMpV","name":"定结县","provinceId":"xizang","id":"dingjiexian"},
-	{"cityId":"VR9jIgIHQPO96UVKHMXjWF","name":"东方市","provinceId":"hainan","id":"dongfangshi"},
 	{"cityId":"xSRnHPR9Q42VL0bHzTFhCF","name":"东丽区","provinceId":"tianjin","id":"dongliqu"},
 	{"cityId":"Wj0ZhoBFQV2H2ZsJCLlAdF","name":"东源县","provinceId":"guangdong","id":"dongyuanxian"},
 	{"cityId":"IwS8airmRPSNJD9EAULiWl","name":"法库县","provinceId":"liaoning","id":"fakuxian"},
@@ -1395,7 +1392,6 @@ function getAllCounty(){
 	{"cityId":"7b5i6hAHRBSB9oDevgAu6l","name":"清河门区","provinceId":"liaoning","id":"qinghemenqu"},
 	{"cityId":"P6eZe0srTMiRof1Cv89S7F","name":"清浦区","provinceId":"jiangsu","id":"qingpuqu"},
 	{"cityId":"aVygddPYREBFLhX8hc1oPF","name":"琼结县","provinceId":"xizang","id":"qiongjiexian"},
-	{"cityId":"sqEJqAhWQteCfxLQ5iZbP1","name":"琼中黎族苗族自治县","provinceId":"hainan","id":"qiongzhonglizumiaozuzizhixian"},
 	{"cityId":"4ekeqXM4QuB40OVJzuBCAV","name":"曲阜市","provinceId":"shandong","id":"qufushi"},
 	{"cityId":"aVygddPYREBFLhX8hc1oPF","name":"曲松县","provinceId":"xizang","id":"qusongxian"},
 	{"cityId":"jUxovkChQMO0BYIkse3jU1","name":"饶平县","provinceId":"guangdong","id":"raopingxian"},
@@ -1441,7 +1437,6 @@ function getAllCounty(){
 	{"cityId":"7gJXLvGRSABkLfRuAHSuXF","name":"武鸣县","provinceId":"guangxi","id":"wumingxian"},
 	{"cityId":"fPBc9tidT8C9E2034eG07V","name":"武宁县","provinceId":"jiangxi","id":"wuningxian"},
 	{"cityId":"62BC1RhISA26JNdY5OecEF","name":"武强县","provinceId":"hebei","id":"wuqiangxian"},
-	{"cityId":"gp316aHzQA6uFE5BKbEi3F","name":"五家渠市","provinceId":"xinjiang","id":"wujiaqushi"},
 	{"cityId":"ZDmm5ivhRmBOrQDn5R5DCV","name":"西华县","provinceId":"henan","id":"xihuaxian"},
 	{"cityId":"A7lmXA7RT1qZ4URpIGkbzl","name":"赣榆县","provinceId":"jiangsu","id":"ganyuxian"},
 	{"cityId":"ZLBCMUd3StCAVkvThN1YvF","name":"高唐县","provinceId":"shandong","id":"gaotangxian"},
@@ -1636,7 +1631,6 @@ function getAllCounty(){
 	{"cityId":"7aMwhXomT3GqRKNxI4IDO1","name":"布拖县","provinceId":"sichuan","id":"butuoxian"},
 	{"cityId":"mTPhBOLeRcKWglIZDn9s5l","name":"蔡甸区","provinceId":"hubei","id":"caidianqu"},
 	{"cityId":"CeCKB4cGTYeWeY2LVLDDDF","name":"沧县","provinceId":"hebei","id":"cangxian"},
-	{"cityId":"WmeedtAWSSWt7HLOZk0g9F","name":"昌江黎族自治县","provinceId":"hainan","id":"changjianglizuzizhixian"},
 	{"cityId":"FOttci5fTpm8Rw5K0xmBD1","name":"昌邑区","provinceId":"jilin","id":"changyiqu"},
 	{"cityId":"h34U4POBQamXAVpkwnaVZF","name":"长安区","provinceId":"hebei","id":"changanqu"},
 	{"cityId":"E4q3lD4JSEy6p1URH36T6F","name":"长春市","provinceId":"jilin","id":"changchunshi"},
@@ -1742,7 +1736,6 @@ function getAllCounty(){
 	{"cityId":"obEnAt4WThiKceSx3hBz6V","name":"岳塘区","provinceId":"hunan","id":"yuetangqu"},
 	{"cityId":"XdVBIBwNTw2mIEbRBIfdbl","name":"凌河区","provinceId":"liaoning","id":"linghequ"},
 	{"cityId":"9HXUnAfnRqexzOSNtBRw8V","name":"灵丘县","provinceId":"shanxi1","id":"lingqiuxian"},
-	{"cityId":"mpxhqA5gQZBMdCzowxAK8V","name":"陵水黎族自治县","provinceId":"hainan","id":"lingshuilizuzizhixian"},
 	{"cityId":"hCBVBLECQOqM1yNAfyTCZ1","name":"陵县","provinceId":"shandong","id":"lingxian"},
 	{"cityId":"aWPzXWtBSIyQbzdu1MIdDV","name":"六合区","provinceId":"jiangsu","id":"liuhequ"},
 	{"cityId":"rMN6FeShQQuBqTmClExyIF","name":"龙州县","provinceId":"guangxi","id":"longzhouxian"},
@@ -1779,7 +1772,6 @@ function getAllCounty(){
 	{"cityId":"TnTWoAYSTsCb0FGbFrfAEF","name":"晴隆县","provinceId":"guizhou","id":"qinglongxian"},
 	{"cityId":"ASszDCKmQNGFu05pb0UFfl","name":"庆安县","provinceId":"heilongjiang","id":"qinganxian"},
 	{"cityId":"hCBVBLECQOqM1yNAfyTCZ1","name":"庆云县","provinceId":"shandong","id":"qingyunxian"},
-	{"cityId":"dxlOyhAtSkOcKpkKJJ0rz1","name":"琼海市","provinceId":"hainan","id":"qionghaishi"},
 	{"cityId":"a03KwWMyRBSNFyUnBJfnUF","name":"汝城县","provinceId":"hunan","id":"ruchengxian"},
 	{"cityId":"F4OJ0DDtRyuINwdtPjrMpV","name":"萨迦县","provinceId":"xizang","id":"sajiaxian"},
 	{"cityId":"K92FeAvSTy2U59aCzlEjjV","name":"赛罕区","provinceId":"neimenggu","id":"saihanqu"},
@@ -1990,7 +1982,6 @@ function getAllCounty(){
 	{"cityId":"XQfeHu9vQhWB9nQDfNZuVl","name":"浉河区","provinceId":"henan","id":"hequ"},
 	{"cityId":"sc1Ao1EYRMmTrbgsxyheGV","name":"阿巴嘎旗","provinceId":"neimenggu","id":"abagaqi"},
 	{"cityId":"qHWiTAGhToCc8S1SYvnM6V","name":"阿尔山市","provinceId":"neimenggu","id":"aershanshi"},
-	{"cityId":"d9RcznG7RvGN2i4POFVgz1","name":"阿拉尔市","provinceId":"xinjiang","id":"alaershi"},
 	{"cityId":"FwdFCt5RRhmDAvuorgYsa1","name":"阿拉善右旗","provinceId":"neimenggu","id":"alashanyouqi"},
 	{"cityId":"eYvnCSvGSiBe6WnxBXTL4F","name":"阿荣旗","provinceId":"neimenggu","id":"arongqi"},
 	{"cityId":"9BU7lRKcRsBkx6mNARBsdF","name":"爱民区","provinceId":"heilongjiang","id":"aiminqu"},
@@ -2025,8 +2016,6 @@ function getAllCounty(){
 	{"cityId":"m9aTiCwVRpqnrQz2vMTfgF","name":"城区","provinceId":"guangdong","id":"chengqu"},
 	{"cityId":"0uG8VaWFQRK5sRh7xY0PVV","name":"成县","provinceId":"gansu","id":"chengxian"},
 	{"cityId":"mjsuSJi3TqqyAqhMrAR5M1","name":"呈贡县","provinceId":"yunnan","id":"chenggongxian"},
-	{"cityId":"5DAAGFqfSgykAVPhz1wSsV","name":"澄江县","provinceId":"yunnan","id":"chengjiangxian"},
-	{"cityId":"gsYX8ODARwabnUcZZh3fHF","name":"澄迈县","provinceId":"hainan","id":"chengmaixian"},
 	{"cityId":"Tk1UB4AqTvCRsZOwuNyefV","name":"慈利县","provinceId":"hunan","id":"cilixian"},
 	{"cityId":"R41NEg3RT6qzT8dMPSmXDF","name":"措勤县","provinceId":"xizang","id":"cuoqinxian"},
 	{"cityId":"aw3zsPJAThqCaasxTwYABF","name":"达孜县","provinceId":"xizang","id":"dazixian"},
@@ -2196,7 +2185,6 @@ function getAllCounty(){
 	{"cityId":"hvCobrAESv6UY2PSf5FjMl","name":"乌达区","provinceId":"neimenggu","id":"wudaqu"},
 	{"cityId":"CPxaQseqRtKnBX8fWq2z3F","name":"武乡县","provinceId":"shanxi1","id":"wuxiangxian"},
 	{"cityId":"eiyesojLS2mYJCmT8dCGwV","name":"五莲县","provinceId":"shandong","id":"wulianxian"},
-	{"cityId":"sQeI6SDITaGsuYoyTCIfzl","name":"五指山市","provinceId":"hainan","id":"wuzhishanshi"},
 	{"cityId":"i35uUQtyRv6fBcX1qcldbF","name":"西峰区","provinceId":"gansu","id":"xifengqu"},
 	{"cityId":"0uG8VaWFQRK5sRh7xY0PVV","name":"西和县","provinceId":"gansu","id":"xihexian"},
 	{"cityId":"7NJtL3VoTPWBt3ScI4ljxV","name":"西盟佤族自治县","provinceId":"yunnan","id":"ximengwazuzizhixian"},
@@ -2505,13 +2493,11 @@ function getAllCounty(){
 	{"cityId":"6o5zYebaQMqH6MUkjcgAeF","name":"同安区","provinceId":"fujian","id":"tonganqu"},
 	{"cityId":"4nHh5JugSqB6IDyqzqVYrl","name":"同心县","provinceId":"ningxia","id":"tongxinxian"},
 	{"cityId":"BoPIl2ooTKWmSvVpf78PkF","name":"头屯河区","provinceId":"xinjiang","id":"toutunhequ"},
-	{"cityId":"z2BhKnKPRzB3QbHO4O5waV","name":"屯昌县","provinceId":"hainan","id":"tunchangxian"},
 	{"cityId":"cLjmbvsiSpGMWBya00W2CF","name":"万年县","provinceId":"jiangxi","id":"wannianxian"},
 	{"cityId":"pfVBDMXSS4yDZqdmZlO6xl","name":"望都县","provinceId":"hebei","id":"wangduxian"},
 	{"cityId":"iKGbyXUvRLeBEwyTIlIhwV","name":"威县","provinceId":"hebei","id":"weixian"},
 	{"cityId":"IrdbQxkkQAKPwOK9mdtYol","name":"魏都区","provinceId":"henan","id":"weiduqu"},
 	{"cityId":"5OFHnsfIQdOKa50lhtlBmV","name":"温泉县","provinceId":"xinjiang","id":"wenquanxian"},
-	{"cityId":"2VDdO4RWSrBBYTv2Me3O9V","name":"文昌市","provinceId":"hainan","id":"wenchangshi"},
 	{"cityId":"BwFCz7ULRqBCuEiC3Bofbl","name":"文登市","provinceId":"shandong","id":"wendengshi"},
 	{"cityId":"hCPYkqACRIiFlPBbkxZ8jV","name":"闻喜县","provinceId":"shanxi1","id":"wenxixian"},
 	{"cityId":"x1BbMxgVTJiy8d0bx3Hj1l","name":"涡阳县","provinceId":"anhui","id":"woyangxian"},
@@ -2635,7 +2621,6 @@ function getAllCounty(){
 	{"cityId":"F4OJ0DDtRyuINwdtPjrMpV","name":"拉孜县","provinceId":"xizang","id":"lazixian"},
 	{"cityId":"ZzqgUfDWTYqKOjcjvkQ04F","name":"兰溪市","provinceId":"zhejiang","id":"lanxishi"},
 	{"cityId":"7NJtL3VoTPWBt3ScI4ljxV","name":"澜沧拉祜族自治县","provinceId":"yunnan","id":"lancanglahuzuzizhixian"},
-	{"cityId":"jLM3a6rsQpyAicwmr6QU1V","name":"乐东黎族自治县","provinceId":"hainan","id":"ledonglizuzizhixian"},
 	{"cityId":"7aMwhXomT3GqRKNxI4IDO1","name":"雷波县","provinceId":"sichuan","id":"leiboxian"},
 	{"cityId":"dfcs5qbnRLGBB3ovNc94Jl","name":"梨树区","provinceId":"heilongjiang","id":"lishuqu"},
 	{"cityId":"K3HOS3CQQ32bG44VK7UVKl","name":"黎川县","provinceId":"jiangxi","id":"lichuanxian"},
@@ -2686,7 +2671,6 @@ function getAllCounty(){
 	{"cityId":"mjsuSJi3TqqyAqhMrAR5M1","name":"安宁市","provinceId":"yunnan","id":"anningshi"},
 	{"cityId":"uLGhTDvoQQepu1FbRpN6RF","name":"安乡县","provinceId":"hunan","id":"anxiangxian"},
 	{"cityId":"F4OJ0DDtRyuINwdtPjrMpV","name":"白朗县","provinceId":"xizang","id":"bailangxian"},
-	{"cityId":"SY7uuNGrS2u0A9IfxsM3eV","name":"白沙黎族自治县","provinceId":"hainan","id":"baishalizuzizhixian"},
 	{"cityId":"y7Chz2tIQMu3CQN5gPD3vF","name":"白塔区","provinceId":"liaoning","id":"baitaqu"},
 	{"cityId":"YYsmFCqOTaWwMcTxldbH4F","name":"宝清县","provinceId":"heilongjiang","id":"baoqingxian"},
 	{"cityId":"HVi9qJvwTqaJTXJYaIcBF1","name":"宝山区","provinceId":"shanghai","id":"baoshanqu"},
@@ -2897,7 +2881,6 @@ function getAllCounty(){
 	{"cityId":"kj38GTK8SbqExSdDWj0AUF","name":"土默特右旗","provinceId":"neimenggu","id":"tumoteyouqi"},
 	{"cityId":"tY1IAsDLS7O5166XXxFspV","name":"瓦房店市","provinceId":"liaoning","id":"wafangdianshi"},
 	{"cityId":"JNJsMOuaQ5m4WEDOBsGdeF","name":"湾里区","provinceId":"jiangxi","id":"wanliqu"},
-	{"cityId":"Jex4B2JZRbuV3uPQRmhLZF","name":"万宁市","provinceId":"hainan","id":"wanningshi"},
 	{"cityId":"qqaXeuzHTxyrLTQtGA6Ezl","name":"万州区","provinceId":"chongqing","id":"wanzhouqu"},
 	{"cityId":"ccvxzMeVT9qC5R0RKcINmV","name":"巍山彝族回族自治县","provinceId":"yunnan","id":"weishanyizuhuizuzizhixian"},
 	{"cityId":"byUugnyxRMWVVlwy4YwqUV","name":"温县","provinceId":"henan","id":"wenxian"},
@@ -2920,7 +2903,6 @@ function getAllCounty(){
 	{"cityId":"Qb8NyrtZSYmLlJKhLdgFz1","name":"高州市","provinceId":"guangdong","id":"gaozhoushi"},
 	{"cityId":"27ZXGtbhTsyUzDkSSAsfql","name":"白水县","provinceId":"shanxi2","id":"baishuixian"},
 	{"cityId":"kj38GTK8SbqExSdDWj0AUF","name":"白云矿区","provinceId":"neimenggu","id":"baiyunkuangqu"},
-	{"cityId":"VBkIB7URQUehvfcHAdpAbl","name":"保亭黎族苗族自治县","provinceId":"hainan","id":"baotinglizumiaozuzizhixian"},
 	{"cityId":"uHHyd6FpSuuyDBlnc1z6vF","name":"长安区","provinceId":"shanxi2","id":"changanqu"},
 	{"cityId":"HVi9qJvwTqaJTXJYaIcBF1","name":"长宁区","provinceId":"shanghai","id":"changningqu"},
 	{"cityId":"C5sfzgOPRKy7X1xrRO7uBF","name":"长阳土家族自治县","provinceId":"hubei","id":"changyangtujiazuzizhixian"},
@@ -3242,7 +3224,6 @@ function getAllCounty(){
 	{"cityId":"N3NIrMZGQLeNBfdY9A709V","name":"神池县","provinceId":"shanxi1","id":"shenchixian"},
 	{"cityId":"MnqoMAgpQeCmiKHe23vXlV","name":"石城县","provinceId":"jiangxi","id":"shichengxian"},
 	{"cityId":"AGAQcq3gQMqZJMkFlgjBm1","name":"石峰区","provinceId":"hunan","id":"shifengqu"},
-	{"cityId":"2pDAa4BGQWCaHb7Y3uuBdV","name":"石河子市","provinceId":"xinjiang","id":"shihezishi"},
 	{"cityId":"cvwjYvPhSrKGnwT9b6zeGl","name":"石泉县","provinceId":"shanxi2","id":"shiquanxian"},
 	{"cityId":"A2rjgBdcQOy4XgAJSt1OJ1","name":"始兴县","provinceId":"guangdong","id":"shixingxian"},
 	{"cityId":"S6037PkXT1BBG47fVpJlNl","name":"市南区","provinceId":"shandong","id":"shinanqu"},
@@ -3261,7 +3242,6 @@ function getAllCounty(){
 	{"cityId":"X3zjD7METaCjHB1r24SSeF","name":"天宁区","provinceId":"jiangsu","id":"tianningqu"},
 	{"cityId":"DUrxmkkjRS6QjpVc49RAIV","name":"通化县","provinceId":"jilin","id":"tonghuaxian"},
 	{"cityId":"TcipBdDPTUGDxi04CuzEKV","name":"同仁县","provinceId":"qinghai","id":"tongrenxian"},
-	{"cityId":"VHeQ5ehLQ0eS6Xw36XcOoF","name":"图木舒克市","provinceId":"xinjiang","id":"tumushukeshi"},
 	{"cityId":"CPxaQseqRtKnBX8fWq2z3F","name":"屯留县","provinceId":"shanxi1","id":"tunliuxian"},
 	{"cityId":"qWTdBgOLQpiyv50yUQwxyV","name":"宛城区","provinceId":"henan","id":"wanchengqu"},
 	{"cityId":"mqzqtUoETjuNy7Y8sM9YjF","name":"万全县","provinceId":"hebei","id":"wanquanxian"},
@@ -3347,7 +3327,6 @@ function getAllCounty(){
 	{"cityId":"NffjLTMhQWahj4OqaTbNT1","name":"自流井区","provinceId":"sichuan","id":"ziliujingqu"},
 	{"cityId":"zvr9L34hQAyPtDLKsL5aSl","name":"遵化市","provinceId":"hebei","id":"zunhuashi"},
 	{"cityId":"2tArbt8zTSGI11DFlLmwVl","name":"伽师县","provinceId":"xinjiang","id":"jiashixian"},
-	{"cityId":"H3L2EnG9RjKYuCu8cYt0BV","name":"儋州市","provinceId":"hainan","id":"danzhoushi"},
 	{"cityId":"nPIpLHk5RJWHHJrBHIuykV","name":"邳州市","provinceId":"jiangsu","id":"pizhoushi"},
 	{"cityId":"dAQw9pwaRumZYH2QKlHctV","name":"勐腊县","provinceId":"yunnan","id":"menglaxian"},
 	{"cityId":"qZZsxxHTTLmmfu6LUDf7c1","name":"芙蓉区","provinceId":"hunan","id":"furongqu"},

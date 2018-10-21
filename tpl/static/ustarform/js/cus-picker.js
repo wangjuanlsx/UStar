@@ -72,6 +72,7 @@ function noopsycheFill() {
         var infoContent = RemoveBlankSpace(infoList[i], "g");
 
         CityValidation(infoContent);
+
         if (postInfo.proName == "" && postInfo.cityName == "" && postInfo.disName == "") {
             if (isChinaName(infoContent)) {
                 postInfo.name = infoContent;
@@ -90,11 +91,17 @@ function noopsycheFill() {
             postInfo.phoneNum = infoContent;
         }
         else if (isChinaName(infoContent)) {
-            postInfo.name = infoContent;
+            var proviceStr = postInfo.proName+postInfo.cityName+postInfo.disName;
+            if(infoContent!==proviceStr){
+                postInfo.name = infoContent;
+            }
         }
         else {
             if (postInfo.detailedAddress == "") {
-                postInfo.detailedAddress = infoContent;
+                var proviceStr = postInfo.proName+postInfo.cityName+postInfo.disName;
+                if(infoContent!==proviceStr){
+                    postInfo.detailedAddress = infoContent;
+                }
             }
         }
     }
@@ -336,7 +343,7 @@ function isPoneAvailable (pone) {
     } else {
         return true;
     }
-};
+}
 /*提交*/
 $('.submit').on('click',function(){
     var phoneVal = $('#phone').val();
