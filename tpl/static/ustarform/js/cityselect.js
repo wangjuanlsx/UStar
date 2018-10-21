@@ -708,7 +708,9 @@ function getAllCity() {
 	{"name":"淄博市","id":"YnrvOp7gQTapzsnCoBIsf1","provinceId":"shandong"},
 	{"name":"自贡市","id":"NffjLTMhQWahj4OqaTbNT1","provinceId":"sichuan"},
 	{"name":"资阳市","id":"lBp7lb40QLiAB78ENiu4w1","provinceId":"sichuan"},
-	{"name":"遵义市","id":"jI37MKrmTzanEJMGBiZJZF","provinceId":"guizhou"}];
+	{"name":"遵义市","id":"jI37MKrmTzanEJMGBiZJZF","provinceId":"guizhou"},
+		{"name":"济源市","id":"byUugnyxRMWVVlwy4YwqUV","provinceId":"henan"}];
+
 	
 	$.each(allCity, function(){
 		var cityArr = allCityMap.get(this.provinceId);
@@ -1392,6 +1394,7 @@ function getAllCounty(){
 	{"cityId":"7b5i6hAHRBSB9oDevgAu6l","name":"清河门区","provinceId":"liaoning","id":"qinghemenqu"},
 	{"cityId":"P6eZe0srTMiRof1Cv89S7F","name":"清浦区","provinceId":"jiangsu","id":"qingpuqu"},
 	{"cityId":"aVygddPYREBFLhX8hc1oPF","name":"琼结县","provinceId":"xizang","id":"qiongjiexian"},
+	{"cityId":"sqEJqAhWQteCfxLQ5iZbP1","name":"琼中黎族苗族自治县","provinceId":"hainan","id":"qiongzhonglizumiaozuzizhixian"},
 	{"cityId":"4ekeqXM4QuB40OVJzuBCAV","name":"曲阜市","provinceId":"shandong","id":"qufushi"},
 	{"cityId":"aVygddPYREBFLhX8hc1oPF","name":"曲松县","provinceId":"xizang","id":"qusongxian"},
 	{"cityId":"jUxovkChQMO0BYIkse3jU1","name":"饶平县","provinceId":"guangdong","id":"raopingxian"},
@@ -2520,7 +2523,6 @@ function getAllCounty(){
 	{"cityId":"1FhRFP6wQjG5Ed2fh4Doi1","name":"大观区","provinceId":"anhui","id":"daguanqu"},
 	{"cityId":"l48offAsSyC8iAdGkqKuj1","name":"海城市","provinceId":"liaoning","id":"haichengshi"},
 	{"cityId":"D9hHTDwuSrW4wAgICoi4Sl","name":"华龙区","provinceId":"henan","id":"hualongqu"},
-	{"cityId":"byUugnyxRMWVVlwy4YwqUV","name":"济源市","provinceId":"henan","id":"jiyuanshi"},
 	{"cityId":"A5m0Tlh3TOaKBODFRg0WM1","name":"靖安县","provinceId":"jiangxi","id":"jinganxian"},
 	{"cityId":"59NfTXALRnyPyWod2n2HfV","name":"君山区","provinceId":"hunan","id":"junshanqu"},
 	{"cityId":"Y5dNnqC4Sm2vnm6omtyCZl","name":"类乌齐县","provinceId":"xizang","id":"leiwuqixian"},
