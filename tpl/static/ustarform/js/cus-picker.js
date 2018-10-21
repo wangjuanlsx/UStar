@@ -1,5 +1,15 @@
+if ((/Android/gi).test(navigator.userAgent)) {
+    window.addEventListener('resize', function () {
+        if (document.activeElement.tagName == 'INPUT' ||
+            document.activeElement.tagName == 'TEXTAREA') {
+            window.setTimeout(function () {
+                document.activeElement.scrollIntoViewIfNeeded();
+            }, 0);
+        }
+    });
+}
 
-function checkWords(input) {
+    function checkWords(input) {
     // 获取要显示已经输入字数文本框对象
     var content = document.getElementById('textNum');
     if (content && input) {
