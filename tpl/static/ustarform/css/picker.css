@@ -115,7 +115,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 }
 
 .jjr-list-box-textarea {
-    border: 1px solid #e6e6e6;
+    border: 1px solid #f00;
     padding: 10px;
 }
 
