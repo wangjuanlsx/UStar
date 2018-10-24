@@ -292,7 +292,6 @@ picker.on('picker.change', function (index, selectedIndex) {
             creatList(secondCity.sub, third);
             picker.refillColumn(2, third);
             picker.scrollColumn(2, 0);
-            console.log(third);
             if(third.length!=0){
                 nameEl.value = city[first_index].name + ' ' + secondCity.name + ' ' + third[0].text;
             }else {
@@ -346,9 +345,14 @@ function isPoneAvailable (pone) {
 }
 /*提交*/
 $('.submit').on('click',function(){
+    var chinaVal = $("name").val();
     var phoneVal = $('#phone').val();
     if(phoneVal.substr(0, 1)=='1'&&!isPoneAvailable(phoneVal)){
             $.alert("请输入正确的手机号!");
+    }
+    /*新增姓名验证*/
+    if(!isChinaName(chinaVal)){
+        $.alert("请输入中文姓名!");
     }
 });
 
