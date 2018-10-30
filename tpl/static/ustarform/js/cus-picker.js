@@ -343,14 +343,25 @@ function isPoneAvailable (pone) {
         return true;
     }
 }
+/**
+*新增***判断是否为座机*/
+function isPhone (pone) {
+    var myreg1 = /^[0|4|9]{1,20}/;
+    if (!myreg1.test(pone)) {
+        return false;
+    } else {
+        return true;
+    }
+}
 /*提交*/
 $('.submit').on('click',function(){
-    var chinaVal = $("name").val();
+    var chinaVal = $("#name").val();
     var phoneVal = $('#phone').val();
-    if(phoneVal.substr(0, 1)=='1'&&!isPoneAvailable(phoneVal)){
-            $.alert("请输入正确的手机号!");
+    /**新增校验规则：只要是0/4/9打头的号码都不校验位数，1打头（手机号）的校验11位，其他都定义成不合规！*/
+    if(!isPoneAvailable(phoneVal)&&!isPhone(phoneVal)){
+            $.alert("手机号码不规范，请输入正确的号码!");
     }
-    /*新增姓名验证*/
+    /**姓名验证*/
     if(!isChinaName(chinaVal)){
         $.alert("请输入中文姓名!");
     }
