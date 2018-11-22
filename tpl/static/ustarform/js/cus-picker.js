@@ -365,4 +365,16 @@ $('.submit').on('click',function(){
         $.alert("请输入中文姓名!");
     }
 });
+/**/
+var wh = $(window).height();
+var scrollH = $(window).height()+500;
+$("#textArea").on("click",function(){
+    $('.all-content').css({"height":scrollH+"px"});
+    document.getElementById('all-content1').scrollTop = 300;
+});
+var contentH = $('.all-content').height();
+console.log(contentH);
+
+/*$('.all-content').css({"height":});*/
+
 
