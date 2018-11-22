@@ -1,4 +1,3 @@
-
 if(/Android [4-6]/.test(navigator.appVersion)) {
     window.addEventListener("resize", function() {
         if(document.activeElement.tagName=="INPUT" || document.activeElement.tagName=="TEXTAREA") {
@@ -9,17 +8,17 @@ if(/Android [4-6]/.test(navigator.appVersion)) {
     })}
 
 /*    if ((/Android/gi).test(navigator.userAgent)) {
-    window.addEventListener('resize', function () {
-        if (document.activeElement.tagName == 'INPUT' ||
-            document.activeElement.tagName == 'TEXTAREA') {
-            window.setTimeout(function () {
-                document.activeElement.scrollIntoViewIfNeeded();
-            }, 0);
-        }
-    });
-}*/
+ window.addEventListener('resize', function () {
+ if (document.activeElement.tagName == 'INPUT' ||
+ document.activeElement.tagName == 'TEXTAREA') {
+ window.setTimeout(function () {
+ document.activeElement.scrollIntoViewIfNeeded();
+ }, 0);
+ }
+ });
+ }*/
 
-    function checkWords(input) {
+function checkWords(input) {
     // 获取要显示已经输入字数文本框对象
     var content = document.getElementById('textNum');
     if (content && input) {
@@ -344,7 +343,7 @@ function isPoneAvailable (pone) {
     }
 }
 /**
-*新增***判断是否为座机*/
+ *新增***判断是否为座机*/
 function isPhone (pone) {
     var myreg1 = /^[0|4|9]{1,20}/;
     if (!myreg1.test(pone)) {
@@ -359,13 +358,11 @@ $('.submit').on('click',function(){
     var phoneVal = $('#phone').val();
     /**新增校验规则：只要是0/4/9打头的号码都不校验位数，1打头（手机号）的校验11位，其他都定义成不合规！*/
     if(!isPoneAvailable(phoneVal)&&!isPhone(phoneVal)){
-            $.alert("手机号码不规范，请输入正确的号码!");
+        $.alert("手机号码不规范，请输入正确的号码!");
     }
     /**姓名验证*/
     if(!isChinaName(chinaVal)){
         $.alert("请输入中文姓名!");
     }
 });
-
-
 
