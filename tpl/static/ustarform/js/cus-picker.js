@@ -372,8 +372,12 @@ $("#textArea").on("click",function(){
     $('.all-content').css({"height":scrollH+"px"});
     document.getElementById('all-content1').scrollTop = 300;
 });
-var contentH = $('.all-content').height();
-console.log(contentH);
+$("#textArea").on("blur",function(){
+    $('.all-content').css({"height":wh+"px"});
+    document.getElementById('all-content1').scrollTop = 0;
+});
+/*var contentH = $('.all-content').height();
+console.log(contentH);*/
 
 /*$('.all-content').css({"height":});*/
 
