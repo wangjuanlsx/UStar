@@ -9,13 +9,12 @@
         }
     });
 }*/
-
 function jump_top(){
     var u = navigator.userAgent;
     var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
     var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
     if(isAndroid){
-        $("body").css("height","0px");
+        /*$("body").css("height","0px");
         $("body").css("height",document.body.scrollHeight);
         $('#textArea').on("focus",function(event){
             if($(event.target).attr("type")=="button")return;
@@ -29,7 +28,10 @@ function jump_top(){
             $("body").css("height",document.body.scrollHeight);
             $("body").css("margin-bottom","0px");
             event.preventDefault();
-        });
+        });*/
+        window.addEventListener('resize', function () {
+            alert(1);
+        })
     };
 }
 jump_top();
