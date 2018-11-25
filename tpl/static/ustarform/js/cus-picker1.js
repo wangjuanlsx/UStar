@@ -37,13 +37,11 @@ function jump_top(){
                 //当软键盘弹起，在此处操作
                 $("body").css("margin-bottom","500px");
                 $(window).scrollTop($(event.target).offset().top-100);
-                event.preventDefault();
             }else{
                 //当软键盘收起，在此处操作
                 $("body").css("height","0px");
                 $("body").css("height",document.body.scrollHeight);
                 $("body").css("margin-bottom","0px");
-                event.preventDefault();
             }
         })
     };
