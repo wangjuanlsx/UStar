@@ -33,7 +33,7 @@ function jump_top(){
         window.addEventListener('resize', function () {
             //键盘弹起与隐藏都会引起窗口的高度发生变化
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
-            if(resizeHeight-0>=originalHeight-0){
+            if(!(resizeHeight-0<originalHeight-0)){
                 //当软键盘收起，在此处操作
                 $("body").css("height","0px");
                 $("body").css("height",document.body.scrollHeight);
