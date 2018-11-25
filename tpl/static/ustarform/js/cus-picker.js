@@ -1,14 +1,4 @@
 // 处理安卓手机输入法遮挡输入框问题
-/*if ((/Android/gi).test(navigator.userAgent)) {
-    window.addEventListener('resize', function () {
-        if (document.activeElement.tagName == 'INPUT' ||
-            document.activeElement.tagName == 'TEXTAREA') {
-            window.setTimeout(function () {
-                document.activeElement.scrollIntoViewIfNeeded();
-            }, 0);
-        }
-    });
-}*/
 function jump_top(){
     var u = navigator.userAgent;
     var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
@@ -24,13 +14,6 @@ function jump_top(){
             $('#footer').css("position","absolute");
             event.preventDefault();
         });
-        /*$("body").on("click",function(event){
-            if($(event.target).attr("type")=="button")return;
-            $("body").css("height","0px");
-            $("body").css("height",document.body.scrollHeight);
-            $("body").css("margin-bottom","0px");
-            event.preventDefault();
-        });*/
         window.addEventListener('resize', function () {
             //键盘弹起与隐藏都会引起窗口的高度发生变化
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
@@ -102,7 +85,7 @@ function noopsycheFill() {
         CityValidation(infoContent);
 
         if (postInfo.proName == "" && postInfo.cityName == "" && postInfo.disName == "") {
-            if (isChinaName(infoContent)) {
+            if (isName(infoContent)) {
                 postInfo.name = infoContent;
             }
             else if (!isNaN(infoContent) && infoContent.length >= 6) {
@@ -118,7 +101,7 @@ function noopsycheFill() {
         else if (!isNaN(infoContent) && infoContent.length >= 6) {
             postInfo.phoneNum = infoContent;
         }
-        else if (isChinaName(infoContent)) {
+        else if (isName(infoContent)) {
             var proviceStr = postInfo.proName+postInfo.cityName+postInfo.disName;
             if(infoContent!==proviceStr){
                 postInfo.name = infoContent;
@@ -215,6 +198,11 @@ function SymbolReplace(str) {
 // 验证中文名称
 function isChinaName(name) {
     var pattern = /^[\u4E00-\u9FA5]{1,4}$/;
+    return pattern.test(name);
+}
+// 验证姓名中文英文都可以
+function isName(name) {
+    var pattern = /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[a-zA-Z]){1,20}$/;
     return pattern.test(name);
 }
 
@@ -390,24 +378,8 @@ $('.submit').on('click',function(){
         $.alert("手机号码不规范，请输入正确的号码!");
     }
     /**姓名验证*/
-    if(!isChinaName(chinaVal)){
+    /*if(!isChinaName(chinaVal)){
         $.alert("请输入中文姓名!");
-    }
+    }*/
 });
-/**/
-/*var wh = $(window).height();
-var scrollH = $(window).height()+500;
-$("#textArea").on("click",function(){
-    $('.all-content').css({"height":scrollH+"px"});
-    document.getElementById('all-content1').scrollTop = 300;
-});
-$("#textArea").on("blur",function(){
-    $('.all-content').css({"height":wh+"px"});
-    document.getElementById('all-content1').scrollTop = 0;
-});*/
-/*var contentH = $('.all-content').height();
-console.log(contentH);*/
-
-/*$('.all-content').css({"height":});*/
-
 
