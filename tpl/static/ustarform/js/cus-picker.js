@@ -35,14 +35,12 @@ function jump_top(){
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
             if(resizeHeight-0<originalHeight-0){
                 //当软键盘弹起，在此处操作
-                alert(1);
                 if($(event.target).attr("type")=="button")return;
                 $("body").css("margin-bottom","500px");
                 $(window).scrollTop($(event.target).offset().top-100);
                 event.preventDefault();
             }else{
                 //当软键盘收起，在此处操作
-                alert(2);
                 if($(event.target).attr("type")=="button")return;
                 $("body").css("height","0px");
                 $("body").css("height",document.body.scrollHeight);
