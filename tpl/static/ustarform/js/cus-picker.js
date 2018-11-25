@@ -202,7 +202,7 @@ function isChinaName(name) {
 }
 // 验证姓名中文英文都可以
 function isName(name) {
-    var pattern = /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[a-zA-Z]){1,20}$/;
+    var pattern = /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[a-zA-Z]){2,20}$/;
     return pattern.test(name);
 }
 
