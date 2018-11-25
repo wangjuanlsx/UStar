@@ -14,6 +14,8 @@ function jump_top(){
     var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
     var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
     if(isAndroid){
+        $("body").css("height","0px");
+        $("body").css("height",document.body.scrollHeight);
         /*$("body").css("height","0px");
         $("body").css("height",document.body.scrollHeight);
         $('#textArea').on("focus",function(event){
