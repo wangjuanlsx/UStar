@@ -21,6 +21,7 @@ function jump_top(){
             if($(event.target).attr("type")=="button")return;
             $("body").css("margin-bottom","500px");
             $(window).scrollTop($('#textArea').offset().top-100);
+            $('#footer').css("position","absolute");
             event.preventDefault();
         });
         /*$("body").on("click",function(event){
@@ -34,10 +35,12 @@ function jump_top(){
             //键盘弹起与隐藏都会引起窗口的高度发生变化
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
             if(!(resizeHeight-0<originalHeight-0)){
+                alert("shouqi");
                 //当软键盘收起，在此处操作
                 $("body").css("height","0px");
                 $("body").css("height",document.body.scrollHeight);
                 $("body").css("margin-bottom","0px");
+                $('#footer').css("position","fixed");
             }
         })
     };
