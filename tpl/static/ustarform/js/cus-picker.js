@@ -1,22 +1,20 @@
-if(/Android [4-6]/.test(navigator.appVersion)) {
-    window.addEventListener("resize", function() {
-        if(document.activeElement.tagName=="INPUT" || document.activeElement.tagName=="TEXTAREA") {
-            window.setTimeout(function() {
+// 处理安卓手机输入法遮挡输入框问题
+/*if ((/Android/gi).test(navigator.userAgent)) {
+    window.addEventListener('resize', function () {
+        if (document.activeElement.tagName == 'INPUT' ||
+            document.activeElement.tagName == 'TEXTAREA') {
+            window.setTimeout(function () {
                 document.activeElement.scrollIntoViewIfNeeded();
-            },0);
+            }, 0);
         }
-    })}
-
-/*    if ((/Android/gi).test(navigator.userAgent)) {
- window.addEventListener('resize', function () {
- if (document.activeElement.tagName == 'INPUT' ||
- document.activeElement.tagName == 'TEXTAREA') {
- window.setTimeout(function () {
- document.activeElement.scrollIntoViewIfNeeded();
- }, 0);
- }
- });
- }*/
+    });
+}*/
+$('input[type="text"],textarea').on('click', function () {
+    var target = this;
+    setTimeout(function(){
+        target.scrollIntoViewIfNeeded(true);
+    },0);
+});
 
 function checkWords(input) {
     // 获取要显示已经输入字数文本框对象
@@ -366,7 +364,7 @@ $('.submit').on('click',function(){
     }
 });
 /**/
-var wh = $(window).height();
+/*var wh = $(window).height();
 var scrollH = $(window).height()+500;
 $("#textArea").on("click",function(){
     $('.all-content').css({"height":scrollH+"px"});
@@ -375,7 +373,7 @@ $("#textArea").on("click",function(){
 $("#textArea").on("blur",function(){
     $('.all-content').css({"height":wh+"px"});
     document.getElementById('all-content1').scrollTop = 0;
-});
+});*/
 /*var contentH = $('.all-content').height();
 console.log(contentH);*/
 
