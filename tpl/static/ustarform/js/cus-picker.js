@@ -16,12 +16,11 @@ function jump_top(){
     if(isAndroid){
         $("body").css("height","0px");
         $("body").css("height",document.body.scrollHeight);
-        /*$("body").css("height","0px");
-        $("body").css("height",document.body.scrollHeight);
-        $('#textArea').on("focus",function(event){
+       /* $('#textArea').on("focus",function(event){
             if($(event.target).attr("type")=="button")return;
             $("body").css("margin-bottom","500px");
             $(window).scrollTop($(event.target).offset().top-100);
+            console.log($('#textArea').offset().top)
             event.preventDefault();
         });
         $("body").on("click",function(event){
@@ -38,7 +37,7 @@ function jump_top(){
             if(resizeHeight-0<originalHeight-0){
                 //当软键盘弹起，在此处操作
                 $("body").css("margin-bottom","500px");
-                $(window).scrollTop($(event.target).offset().top-100);
+                $(window).scrollTop($('#textArea').offset().top-100);
             }else{
                 //当软键盘收起，在此处操作
                 $("body").css("height","0px");
