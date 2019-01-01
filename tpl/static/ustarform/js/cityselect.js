@@ -316,6 +316,7 @@ function getAllProvince() {
 
 function getAllCity() {
 	allCity = [{"name":"上海市","id":"HVi9qJvwTqaJTXJYaIcBF1","provinceId":"shanghai"},
+		{"name":"海南藏族自治州","id":"5fwU4TARQ2Chx9G8Z1NsdF","provinceId":"qinghai"},
 		{"name":"深圳市","id":"UFUa2xpERgmtaI1qjBXOTV","provinceId":"guangdong"},
 		{"name":"北京市","id":"SgGkHXTSRsBqGY3q3JNaP1","provinceId":"beijin"},
 		{"name":"广州市","id":"4YE91XXHTYyMcvPs3bkzkF","provinceId":"guangdong"},
@@ -425,7 +426,6 @@ function getAllCity() {
 		{"name":"海北藏族自治州","id":"Z7pWzlYDTuimk8Exq31NJV","provinceId":"qinghai"},
 		{"name":"海东地区","id":"a9RNTQB6Q42cdIVqkPDiDV","provinceId":"qinghai"},
 		{"name":"海口市","id":"LgxPtlJDRsOELF8nc8EfEl","provinceId":"hainan"},
-		{"name":"海南藏族自治州","id":"5fwU4TARQ2Chx9G8Z1NsdF","provinceId":"qinghai"},
 		{"name":"海西蒙古族藏族自治州","id":"V1nlY4TEQkSkNHJswPRTfV","provinceId":"qinghai"},
 		{"name":"哈密地区","id":"8YxtNda0TyqJ4SPA4XUn1F","provinceId":"xinjiang"},
 		{"name":"邯郸市","id":"QQoADPwbTQi01m0YqxdUe1","provinceId":"hebei"},
@@ -1116,7 +1116,10 @@ function getAllCounty(){
 		{"cityId":"uiqgEsO2T2uczD28qFJBSF","name":"马边彝族自治县","provinceId":"sichuan","id":"mabianyizuzizhixian"},
 		{"cityId":"R2MGr3mAQuWJG400bFLQYV","name":"七星区","provinceId":"guangxi","id":"qixingqu"},
 		{"cityId":"hIAQGfE3RzufsAwYmCCjVl","name":"清徐县","provinceId":"shanxi1","id":"qingxuxian"},
-		{"cityId":"Di6ZvoZsQ7mtBTAiXOAyuF","name":"三亚市","provinceId":"hainan","id":"sanyashi"},
+		{"cityId":"Di6ZvoZsQ7mtBTAiXOAyuF","name":"崖州区","provinceId":"hainan","id":"yazhouqu"},
+		{"cityId":"Di6ZvoZsQ7mtBTAiXOAyuF2","name":"吉阳区","provinceId":"hainan","id":"jiyangqu"},
+		{"cityId":"Di6ZvoZsQ7mtBTAiXOAyuF3","name":"天涯区","provinceId":"hainan","id":"tianyaqu"},
+		{"cityId":"Di6ZvoZsQ7mtBTAiXOAyuF4","name":"海棠区","provinceId":"hainan","id":"haitangqu"},
 		{"cityId":"hSenHBIFTYSgBdNZgG31gF","name":"陕县","provinceId":"henan","id":"shanxian"},
 		{"cityId":"obEnAt4WThiKceSx3hBz6V","name":"韶山市","provinceId":"hunan","id":"shaoshanshi"},
 		{"cityId":"qHWiTAGhToCc8S1SYvnM6V","name":"突泉县","provinceId":"neimenggu","id":"tuquanxian"},

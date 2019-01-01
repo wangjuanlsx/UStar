@@ -158,3 +158,17 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 }
 
 input,textarea{-webkit-appearance: none;appearance: none;}
+
+.detail_textarea_wrap{
+    min-height: 2.2rem;
+    height: auto !important;
+    padding: 6px 0;
+}
+.aui-list textarea.detail_textarea{
+    line-height: 25px;
+    height: auto !important;
+    padding-top: 4px;
+}
+.phone-input{
+    padding-right: 0 !important;
+}

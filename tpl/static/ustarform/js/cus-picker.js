@@ -29,6 +29,11 @@ function jump_top(){
     };
 }
 jump_top();
+//对字符串扩展,多个空格替换成一个空格
+String.prototype.ResetBlank=function(){
+    var regEx = /\s+/g;
+    return this.replace(regEx, ' ');
+};
 
 function checkWords(input) {
     // 获取要显示已经输入字数文本框对象
@@ -82,38 +87,49 @@ function noopsycheFill() {
         }
         var infoContent = RemoveBlankSpace(infoList[i], "g");
 
-        CityValidation(infoContent);
-
-        if (postInfo.proName == "" && postInfo.cityName == "" && postInfo.disName == "") {
+        /*CityValidation(infoContent);*/
+        // 是否有一级或二级或三级地址
+        var isHasAddrass = isAddrass(infoContent);
+        console.log(isHasAddrass);
+        if(isHasAddrass){
+            detailAddrassParse(infoContent);
+        }else {
             if (isName(infoContent)) {
                 postInfo.name = infoContent;
+            }else {
+                postInfo.phoneNum = infoContent;
+            }
+            /*if (postInfo.proName == "" && postInfo.cityName == "" && postInfo.disName == "") {
+                if (isName(infoContent)) {
+                    postInfo.name = infoContent;
+                }
+                else if (!isNaN(infoContent) && infoContent.length >= 6) {
+                    postInfo.phoneNum = infoContent;
+                }
+                else {
+                    var regex = /^[A-Za-z]*[a-z0-9]*$/;
+                    if (!regex.test(infoContent)) {
+                        postInfo.detailedAddress = infoContent;
+                    }
+                }
             }
             else if (!isNaN(infoContent) && infoContent.length >= 6) {
                 postInfo.phoneNum = infoContent;
             }
-            else {
-                var regex = /^[A-Za-z]*[a-z0-9]*$/;
-                if (!regex.test(infoContent)) {
-                    postInfo.detailedAddress = infoContent;
-                }
-            }
-        }
-        else if (!isNaN(infoContent) && infoContent.length >= 6) {
-            postInfo.phoneNum = infoContent;
-        }
-        else if (isName(infoContent)) {
-            var proviceStr = postInfo.proName+postInfo.cityName+postInfo.disName;
-            if(infoContent!==proviceStr){
-                postInfo.name = infoContent;
-            }
-        }
-        else {
-            if (postInfo.detailedAddress == "") {
+            else if (isName(infoContent)) {
                 var proviceStr = postInfo.proName+postInfo.cityName+postInfo.disName;
                 if(infoContent!==proviceStr){
-                    postInfo.detailedAddress = infoContent;
+                    postInfo.name = infoContent;
                 }
             }
+            else {
+                if (postInfo.detailedAddress == "") {
+                    var proviceStr = postInfo.proName+postInfo.cityName+postInfo.disName;
+                    if(infoContent!==proviceStr){
+                        postInfo.detailedAddress = infoContent;
+                    }
+                }
+            }*/
         }
     }
     $("#name").val(postInfo.name);
@@ -121,6 +137,8 @@ function noopsycheFill() {
     var cityAddress = postInfo.proName + " " + postInfo.cityName + " " + postInfo.disName;
     $("#sel_city").val(cityAddress);
     $("#detailAddress").val(postInfo.detailedAddress);
+    // 点击只能填写后
+
 }
 /**
  *城市验证
@@ -177,6 +195,502 @@ function CityValidation(addressInfo) {
         postInfo.detailedAddress = detAddress;
     }
 }
+//文字中是否有地址可以匹配
+function isAddrass(addressInfo) {
+    // 获取地区地址
+    getAllCounty();
+    getAllCity();
+    getAllProvince();
+    // 不输入全名的
+    var is_County3 = -1;
+    // 三级地区 去掉 县，区，旗
+    var deep3_area_short = '';
+    var CountyLen = allCounty.length;
+    var cityLen = allCity.length;
+    var provinceLen = allProvince.length;
+    //是否有三级地址
+    var hasCounty = false;
+    //是否有二级地址
+    var is_city = -1;
+    var hasCity = false;
+    var deep2_area_short1 = '';
+    // 是否有一级地址
+    var is_province = -1;
+    var hasProvince = false;
+    var deep1_area_short1 = '';
+    // 三级地址
+    for(var countryI3 = 0; countryI3 < CountyLen; countryI3++ ) {
+        //  三级地区 去掉 县，区，旗
+        if(allCounty[countryI3].name.length>2){
+            deep3_area_short = allCounty[countryI3].name.substr(0,allCounty[countryI3].name.length-1);
+        }else {
+            deep3_area_short = allCounty[countryI3].name.substr(0,allCounty[countryI3].name.length);
+        }
+        is_County3 = addressInfo.search(deep3_area_short);
+        if(is_County3!=-1) {
+            hasCounty = true;
+        }
+    }
+    // 二级地址
+    if(hasCounty){
+        return hasCounty;
+    }else {
+        for(var cityI1 = 0; cityI1 < cityLen; cityI1++){
+            if((allCity[cityI1].name.search("市")!=-1)||(allCity[cityI1].name.search("盟")!=-1)||(allCity[cityI1].name.search("县")!=-1)) {
+                deep2_area_short1 = allCity[cityI1].name.substr(0,allCity[cityI1].name.length-1);
+            }else if((allCity[cityI1].name.search("地区")!=-1)||(allCity[cityI1].name.search("半岛")!=-1)) {
+                deep2_area_short1 = allCity[cityI1].name.substr(0,allCity[cityI1].name.length-2);
+            }else if((allCity[cityI1].name.search("自治州")!=-1)||(allCity[cityI1].name.search("自治县")!=-1)) {
+                deep2_area_short1 = allCity[cityI1].name.substr(0,2);
+            }
+            is_city = addressInfo.search(deep2_area_short1);
+            if(is_city!=-1) {
+                hasCity = true;
+            }
+        }
+        if(hasCity){
+            return hasCity;
+        }else {
+            //一级地址
+            for(var provinceI1 = 0; provinceI1 < provinceLen; provinceI1++){
+                if((allProvince[provinceI1].name.search("省")!=-1)) {
+                    deep1_area_short1 = allProvince[provinceI1].name.substr(0,allProvince[provinceI1].name.length-1);
+                }else{
+                    deep1_area_short1 = allProvince[provinceI1].name.substr(0,2);
+                }
+                is_province = addressInfo.search(deep1_area_short1);
+                if(is_province!=-1) {
+                    hasProvince = true;
+                }
+            }
+            return hasProvince;
+        }
+    }
+}
+// 对地址字符串的重新的分割
+function detailAddrassParse(addressInfo){
+    // 一级地区的区数组
+    var deep1_area = '';
+    var deep2_area = '';
+    var is_deep1_area1 = addressInfo.search("特别行政区");
+    var is_deep1_area2 = addressInfo.search("自治区");
+    if((is_deep1_area1 != -1)||(is_deep1_area2 != -1)){
+        if(is_deep1_area1 != -1) {
+            deep1_area = addressInfo.substr(0,is_deep1_area1+5);
+            addressInfo = addressInfo.substr(is_deep1_area1+5);
+        }
+        if(is_deep1_area2 != -1) {
+            deep1_area = addressInfo.substr(0,is_deep1_area2+3);
+            addressInfo = addressInfo.substr(is_deep1_area2+3);
+        }
+
+    }
+    // 三级地址识别
+    var is_deep3_area1 = addressInfo.search("县");
+    var is_deep3_area2 = addressInfo.search("区");
+    var is_deep3_area3 = addressInfo.search("旗");
+    var is_deep3_area4 = addressInfo.search("市");
+    // 三级地址后的详细地址
+    var detail_area = '';
+    var detail_area1 = '';
+    // 三级地址
+    var deep3_area = '';
+    // 三级地址 前的二级和一级 地址
+    var before_deep3_area = '';
+    // 详细地址前的地址
+    var before_detail_area = '';
+    // 获取三级地区地址
+    getAllCounty();
+    getAllCity();
+    getAllProvince();
+    var CountyLen = allCounty.length;
+    if((is_deep3_area1!=-1)||(is_deep3_area2!=-1)||(is_deep3_area3!=-1)||(is_deep3_area4!=-1)) {
+        // 输入全名的
+        // 旗
+        if(is_deep3_area3!=-1) {
+            before_detail_area = addressInfo.substr(0,is_deep3_area3+1);
+            detail_area = addressInfo.substr(is_deep3_area3+1);
+            deep3_area = getDeep3Area(before_detail_area).deep3_area;
+            before_deep3_area = getDeep3Area(before_detail_area).before_deep3_area;
+
+            deep2_area = getDeep3Area(before_deep3_area).deep2_area;
+            deep1_area = getDeep3Area(before_deep3_area).deep1_area;
+            detail_area1 = getDeep3Area(before_deep3_area).detail_area;
+
+        }
+        // 区
+        if(is_deep3_area2!=-1) {
+            before_detail_area = addressInfo.substr(0, is_deep3_area2+1);
+            detail_area = addressInfo.substr(is_deep3_area2+1);
+            deep3_area = getDeep3Area(before_detail_area).deep3_area;
+            before_deep3_area = getDeep3Area(before_detail_area).before_deep3_area;
+            deep2_area = getDeep3Area(before_deep3_area).deep2_area;
+            deep1_area = getDeep3Area(before_deep3_area).deep1_area;
+            detail_area1 = getDeep3Area(before_deep3_area).detail_area;
+        }
+
+        // 县
+        if(is_deep3_area1!=-1) {
+            before_detail_area = addressInfo.substr(0,is_deep3_area1+1);
+            detail_area = addressInfo.substr(is_deep3_area1+1);
+            deep3_area = getDeep3Area(before_detail_area).deep3_area;
+            before_deep3_area = getDeep3Area(before_detail_area).before_deep3_area;
+            deep2_area = getDeep3Area(before_deep3_area).deep2_area;
+            deep1_area = getDeep3Area(before_deep3_area).deep1_area;
+            detail_area1 = getDeep3Area(before_deep3_area).detail_area;
+        }
+        // 三级地区为市
+        if(is_deep3_area4!=-1) {
+            var is_County1 = -1;
+            var deep3_area_city_id_4 = '';
+            for(var countryI1 = 0; countryI1 < CountyLen; countryI1++ ) {
+                is_County1 = addressInfo.search(allCounty[countryI1].name);
+                if(is_County1 != -1) {
+                    before_deep3_area = addressInfo.substr(0,is_County1);
+                    deep3_area = allCounty[countryI1].name;
+                    deep3_area_city_id_4 = allCounty[countryI1].cityId;
+                    detail_area = addressInfo.substr(is_County1).split(allCounty[countryI1].name)[1];
+                    console.log(is_County1,deep3_area);
+                    console.log(before_deep3_area,detail_area);
+                }
+            }
+            if (deep3_area.length==0&&detail_area.length!=0){
+                detail_area = '';
+                before_deep3_area = addressInfo;
+            }
+            console.log("888",before_deep3_area);
+            deep2_area = getDeep2Area(before_deep3_area,deep3_area_city_id_4).deep2_area;
+            deep1_area = getDeep2Area(before_deep3_area,deep3_area_city_id_4).deep1_area;
+            detail_area1 = getDeep2Area(before_deep3_area,deep3_area_city_id_4).detail_area;
+            /*deep2_area = getDeep2Area(before_deep3_area).deep2_area;
+            deep1_area = getDeep2Area(before_deep3_area).deep1_area;
+            detail_area1 = getDeep2Area(before_deep3_area).detail_area;*/
+        }
+    }else {
+        // 不输入全名的
+        var is_County2 = -1;
+        // 三级地区 去掉 县，区，旗
+        var deep3_area_short = '';
+        var deep3_area_city_id_5 = '';
+        for(var countryI2 = 0; countryI2 < CountyLen; countryI2++ ) {
+            //  三级地区 去掉 县，区，旗
+            if(allCounty[countryI2].name.length>2){
+                deep3_area_short = allCounty[countryI2].name.substr(0,allCounty[countryI2].name.length-1);
+            }else {
+                deep3_area_short = allCounty[countryI2].name.substr(0,allCounty[countryI2].name.length);
+            }
+            is_County2 = addressInfo.search(deep3_area_short);
+            // 三级地区位置>2,且匹配三级地名长度大于2
+            /*if((is_County2 != -1) && (is_County2>2||is_County2==2)) {
+                console.log(allCounty[countryI2].name);
+                console.log(is_County2);
+                before_deep3_area = addressInfo.substr(0,is_County2);
+                deep3_area = allCounty[countryI2].name;
+                deep3_area_city_id_5 = allCounty[countryI2].cityId;
+                detail_area = addressInfo.substr(is_County2).split(deep3_area_short)[1];
+                console.log(before_deep3_area,deep3_area,detail_area);
+            }*/
+            var is_hainan1 = addressInfo.search("海南");
+            var is_henan1 = addressInfo.search("河北");
+            if(is_hainan1!=-1||is_henan1!=-1){
+                if((is_County2 != -1) && (is_County2>2||is_County2==2)) {
+                    console.log(allCounty[countryI2].name);
+                    console.log(is_County2);
+                    before_deep3_area = addressInfo.substr(0,is_County2);
+                    deep3_area = allCounty[countryI2].name;
+                    deep3_area_city_id_5 = allCounty[countryI2].cityId;
+                    detail_area = addressInfo.substr(is_County2).split(deep3_area_short)[1];
+                    console.log(before_deep3_area,deep3_area,detail_area);
+                }
+            }else {
+                if((is_County2 != -1)) {
+                    console.log(allCounty[countryI2].name);
+                    console.log(is_County2);
+                    before_deep3_area = addressInfo.substr(0,is_County2);
+                    deep3_area = allCounty[countryI2].name;
+                    deep3_area_city_id_5 = allCounty[countryI2].cityId;
+                    detail_area = addressInfo.substr(is_County2).split(deep3_area_short)[1];
+                    console.log(before_deep3_area,deep3_area,detail_area);
+                }
+            }
+        }
+        if(before_deep3_area.length==0){
+            before_deep3_area = addressInfo;
+        }
+        deep2_area = getDeep2Area(before_deep3_area,deep3_area_city_id_5).deep2_area;
+        deep1_area = getDeep2Area(before_deep3_area,deep3_area_city_id_5).deep1_area;
+        detail_area1 = getDeep2Area(before_deep3_area,deep3_area_city_id_5).detail_area;
+        /*deep2_area = getDeep2Area(before_deep3_area).deep2_area;
+        deep1_area = getDeep2Area(before_deep3_area).deep1_area;
+        detail_area1 = getDeep2Area(before_deep3_area).detail_area;*/
+    }
+    postInfo.proName = deep1_area;
+    postInfo.cityName = deep2_area;
+    postInfo.disName = deep3_area;
+    postInfo.detailedAddress = detail_area1+detail_area;
+    console.log("deep1_area",deep1_area,"deep2_area",deep2_area,"deep3_area",deep3_area,"before_deep3_area",before_deep3_area,"before_detail_area",before_detail_area,"detail_area",detail_area);
+}
+
+// 一二三级地址已经和详情地址区分开，一二三级地址字符串before_detail_area，详细地址字符串detail_area
+function getDeep3Area(before_detail_area) {
+    var before_deep3_area = before_detail_area;
+    var deep3_area = '';
+    var deep3_area_provice_id = '';
+    var deep3_area_city_id = '';
+    var before_deep3_area1 = '';
+    var CountyLen = allCounty.length;
+    // 一级地区的区数组
+    var deep1_area = '';
+    var deep2_area = '';
+    var detail_area1 = '';
+    // 如果三级地址未知
+    var deep3_area_short1 = '';
+    var is_County3 = -1;
+    for(var countryI3 = 0; countryI3 < CountyLen; countryI3++ ) {
+        //  三级地区 去掉 县，区，旗
+        if(allCounty[countryI3].name.length>2){
+            deep3_area_short1 = allCounty[countryI3].name.substr(0,allCounty[countryI3].name.length-1);
+        }else {
+            deep3_area_short1 = allCounty[countryI3].name.substr(0,allCounty[countryI3].name.length);
+        }
+        is_County3 = before_detail_area.search(deep3_area_short1);
+        // 三级地区位置>2,且匹配三级地名长度大于2
+        /*if((is_County3 != -1) && (is_County3>2||is_County3==2)) {
+            before_deep3_area1 = before_detail_area.substr(0,is_County3);
+            deep3_area_provice_id = allCounty[countryI3].provinceId;
+            // 只有三级地址的proviceId和一级二级的proviceId相等才取出deep3_area
+            if(deep3AreaIsTrue(before_deep3_area1,deep3_area_provice_id)) {
+                before_deep3_area = before_detail_area.substr(0,is_County3);
+                deep3_area = allCounty[countryI3].name;
+                deep3_area_city_id = allCounty[countryI3].cityId;
+            }
+        }*/
+        var is_hainan = before_detail_area.search("海南");
+        var is_henan = before_detail_area.search("河北");
+        if(is_hainan!=-1||is_henan!=-1){
+            if((is_County3 != -1) && (is_County3>2||is_County3==2)) {
+                before_deep3_area1 = before_detail_area.substr(0,is_County3);
+                deep3_area_provice_id = allCounty[countryI3].provinceId;
+                // 只有三级地址的proviceId和一级二级的proviceId相等才取出deep3_area
+                if(deep3AreaIsTrue(before_deep3_area1,deep3_area_provice_id)) {
+                    before_deep3_area = before_detail_area.substr(0,is_County3);
+                    deep3_area = allCounty[countryI3].name;
+                    deep3_area_city_id = allCounty[countryI3].cityId;
+                }
+            }
+        }else {
+            if((is_County3 != -1)) {
+                console.log("22222",deep3_area_short1);
+                before_deep3_area1 = before_detail_area.substr(0,is_County3);
+                deep3_area_provice_id = allCounty[countryI3].provinceId;
+                // 只有三级地址的proviceId和一级二级的proviceId相等才取出deep3_area
+                console.log("3333",deep3AreaIsTrue(before_deep3_area1,deep3_area_provice_id));
+                if(deep3AreaIsTrue(before_deep3_area1,deep3_area_provice_id)) {
+                    before_deep3_area = before_detail_area.substr(0,is_County3);
+                    deep3_area = allCounty[countryI3].name;
+                    deep3_area_city_id = allCounty[countryI3].cityId;
+                    console.log("666",before_deep3_area,deep3_area_city_id);
+                }
+            }
+        }
+
+    }
+    deep2_area = getDeep2Area(before_deep3_area,deep3_area_city_id).deep2_area;
+    deep1_area = getDeep2Area(before_deep3_area,deep3_area_city_id).deep1_area;
+    detail_area1 = getDeep2Area(before_deep3_area,deep3_area_city_id).detail_area;
+    console.log("555",deep2_area,deep1_area);
+
+    return {"before_deep3_area":before_deep3_area,"deep3_area":deep3_area,"deep2_area":deep2_area,"deep1_area":deep1_area,"detail_area":detail_area1};
+}
+//北京东城区识别成东城
+//根据三级确定地址，确定proviceId,再找到before_deep3_area的proviceId,判断是否相当
+function deep3AreaIsTrue(before_deep3_area,deep3_area_provice_id) {
+    console.log("传值",before_deep3_area,deep3_area_provice_id);
+    // 获取地区地址
+    getAllCounty();
+    getAllCity();
+    getAllProvince();
+    // 三级地区 去掉 县，区，旗
+    var cityLen = allCity.length;
+    var provinceLen = allProvince.length;
+    //是否有二级地址
+    var is_city = -1;
+    var is_equal_City = false;
+    var deep2_area_short1 = '';
+    var deep2_area_provice_id = '';
+    // 是否有一级地址
+    var is_province = -1;
+    var is_equal_Province = false;
+    var deep1_area_short1 = '';
+    var deep1_area_provice_id = '';
+    // 二级地址
+    if(before_deep3_area.length!=0){
+        for(var cityI1 = 0; cityI1 < cityLen; cityI1++){
+            if((allCity[cityI1].name.search("市")!=-1)||(allCity[cityI1].name.search("盟")!=-1)||(allCity[cityI1].name.search("县")!=-1)) {
+                deep2_area_short1 = allCity[cityI1].name.substr(0,allCity[cityI1].name.length-1);
+            }else if((allCity[cityI1].name.search("地区")!=-1)||(allCity[cityI1].name.search("半岛")!=-1)) {
+                deep2_area_short1 = allCity[cityI1].name.substr(0,allCity[cityI1].name.length-2);
+            }else if((allCity[cityI1].name.search("自治州")!=-1)||(allCity[cityI1].name.search("自治县")!=-1)) {
+                deep2_area_short1 = allCity[cityI1].name.substr(0,2);
+            }
+            is_city = before_deep3_area.search(deep2_area_short1);
+            if(is_city!=-1) {
+                deep2_area_provice_id = allCity[cityI1].provinceId;
+                if(deep3_area_provice_id==deep2_area_provice_id){
+                    console.log("二级",deep2_area_provice_id,deep3_area_provice_id);
+                    is_equal_City = true;
+                }
+            }
+        }
+        if(is_equal_City){
+            return is_equal_City;
+        }else {
+            //一级地址
+            for(var provinceI1 = 0; provinceI1 < provinceLen; provinceI1++){
+                if((allProvince[provinceI1].name.search("省")!=-1)) {
+                    deep1_area_short1 = allProvince[provinceI1].name.substr(0,allProvince[provinceI1].name.length-1);
+                }else{
+                    deep1_area_short1 = allProvince[provinceI1].name.substr(0,2);
+                }
+                is_province = before_deep3_area.search(deep1_area_short1);
+                if(is_province!=-1) {
+                    deep1_area_provice_id = allProvince[provinceI1].id;
+                    if(deep3_area_provice_id==deep1_area_provice_id){
+                        console.log("一级",deep1_area_provice_id,deep3_area_provice_id);
+                        is_equal_Province = true;
+                    }
+                }
+            }
+            return is_equal_Province;
+        }
+    }else {
+        return true;
+    }
+
+}
+
+function getDeep2Area(before_deep3_area,deep3_area_city_id){
+    var deep2_area = '';
+    var deep1_area = '';
+    var detail_area = '';
+    var is_city = -1;
+    // 二级地址简称
+    var deep2_area_short1 = '';
+    var cityLen = allCity.length;
+    // 一级地址简称
+    var deep1_area_short1 = '';
+    var provinceId = '';
+    var provinceLen = allProvince.length;
+    var is_province = -1;
+    // 二级级地址识别
+    var is_deep2_area1 = before_deep3_area.search("市");
+    var is_deep2_area2 = before_deep3_area.search("区");
+    var is_deep2_area3 = before_deep3_area.search("盟");
+    var is_deep2_area4 = before_deep3_area.search("自治州");
+    var is_deep2_area5 = before_deep3_area.search("自治县");
+    // 二級地址高频词（市、自治州、地区、盟、半岛、自治县）!=-1 就是存在
+    /*if((is_deep2_area1!=-1)||(is_deep2_area2!=-1)||(is_deep2_area3!=-1)||(is_deep2_area4!=-1)||(is_deep2_area5!=-1)){
+        detail_area = before_deep3_area.split(deep2_area);
+    }else {
+        detail_area = before_deep3_area.split(deep2_area_short1);
+    }*/
+    if(deep3_area_city_id.length==0){
+        if(before_deep3_area.length!=0){
+            for(var cityI1 = 0; cityI1 < cityLen; cityI1++){
+                if((allCity[cityI1].name.search("市")!=-1)||(allCity[cityI1].name.search("盟")!=-1)||(allCity[cityI1].name.search("县")!=-1)) {
+                    deep2_area_short1 = allCity[cityI1].name.substr(0,allCity[cityI1].name.length-1);
+                }else if((allCity[cityI1].name.search("地区")!=-1)||(allCity[cityI1].name.search("半岛")!=-1)) {
+                    deep2_area_short1 = allCity[cityI1].name.substr(0,allCity[cityI1].name.length-2);
+                }else if((allCity[cityI1].name.search("自治州")!=-1)||(allCity[cityI1].name.search("自治县")!=-1)) {
+                    deep2_area_short1 = allCity[cityI1].name.substr(0,2);
+                }
+                is_city = before_deep3_area.search(deep2_area_short1);
+                if(is_city!=-1){
+                    deep2_area = allCity[cityI1].name;
+                    deep1_area = before_deep3_area.substr(0,is_city);
+                    // 在详细地址里的区
+                    if(before_deep3_area.search(deep2_area)!=-1){
+                        detail_area = before_deep3_area.split(deep2_area)[1];
+                    }else {
+                        detail_area = before_deep3_area.split(deep2_area_short1)[1];
+                    }
+                    console.log(detail_area,deep2_area);
+                    // 如果二级地址前面没有填，获取provinceId
+                    if(deep1_area.length==0){
+                        provinceId = allCity[cityI1].provinceId;
+                    }
+                    for(var provinceI1 = 0; provinceI1 < provinceLen; provinceI1++){
+                        if((allProvince[provinceI1].name.search("省")!=-1)) {
+                            deep1_area_short1 = allProvince[provinceI1].name.substr(0,allProvince[provinceI1].name.length-1);
+                        }else{
+                            deep1_area_short1 = allProvince[provinceI1].name.substr(0,2);
+                        }
+                        if (deep1_area.length==0) {
+                            if (provinceId == allProvince[provinceI1].id) {
+                                deep1_area = allProvince[provinceI1].name;
+                            }
+                        } else {
+                            is_province = deep1_area.search(deep1_area_short1);
+                            if(is_province!=-1){
+                                deep1_area = allProvince[provinceI1].name;
+                            }
+                        }
+
+                    }
+                }
+            }
+            //如果没有填二级地址
+            if(deep2_area.length==0){
+                var deep2_area_province_id1 = '';
+                var before_deep2_area = before_deep3_area;
+                deep1_area = getDeep1Area(before_deep2_area,deep2_area_province_id1).deep1_area;
+            }
+            //
+        }
+    }else {
+        var deep2_area_province_id2 = '';
+        for(var cityI2 = 0; cityI2 < cityLen; cityI2++){
+            if(deep3_area_city_id==allCity[cityI2].id) {
+                deep2_area = allCity[cityI2].name;
+                deep2_area_province_id2 = allCity[cityI2].provinceId;
+            }
+        }
+        //直接找一级地址
+        deep1_area = getDeep1Area(before_deep3_area,deep2_area_province_id2).deep1_area;
+    }
+    console.log("444",deep2_area,deep1_area);
+    return {"deep2_area":deep2_area,"deep1_area":deep1_area,"detail_area":detail_area};
+}
+
+function getDeep1Area(before_deep2_area,deep2_area_provice_id2) {
+    // 一级地址简称
+    var deep1_area_short1 = '';
+    var provinceLen = allProvince.length;
+    var is_province = -1;
+    var deep1_area = '';
+    if(deep2_area_provice_id2.length==0){
+        for(var provinceI1 = 0; provinceI1 < provinceLen; provinceI1++){
+            if((allProvince[provinceI1].name.search("省")!=-1)) {
+                deep1_area_short1 = allProvince[provinceI1].name.substr(0,allProvince[provinceI1].name.length-1);
+            }else{
+                deep1_area_short1 = allProvince[provinceI1].name.substr(0,2);
+            }
+            is_province = before_deep2_area.search(deep1_area_short1);
+            if(is_province!=-1){
+                deep1_area = allProvince[provinceI1].name;
+            }
+        }
+    }else {
+        for(var provinceI2 = 0; provinceI2 < provinceLen; provinceI2++){
+            if(deep2_area_provice_id2==allProvince[provinceI2].id) {
+                deep1_area = allProvince[provinceI2].name;
+            }
+        }
+    }
+
+    return {"deep1_area":deep1_area};
+}
+
 //去掉空格
 function RemoveBlankSpace(str, is_global) {
     var result;
@@ -190,8 +704,13 @@ function RemoveBlankSpace(str, is_global) {
 
 //符号替换
 function SymbolReplace(str) {
-    var regex = /[^\u4e00-\u9fa5\w]/g;
-    str = str.replace(regex, ",");
+    /*resultStr=testStr.replace(/[ ]/g,""); */
+
+    str = str.ResetBlank();
+    /*var regex = /[^\u4e00-\u9fa5\w]/g;*/
+    var regex = /[ ]/g;
+    str = str.replace(regex, ",");//空格换成逗号
+    str = str.replace(/，/ig,',');
     return str;
 }
 
@@ -202,7 +721,7 @@ function isChinaName(name) {
 }
 // 验证姓名中文英文都可以
 function isName(name) {
-    var pattern = /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[a-zA-Z]){2,20}$/;
+    var pattern = /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[a-zA-Z]){1,20}$/;
     return pattern.test(name);
 }
 
@@ -216,134 +735,193 @@ function notempty(list) {
     }
     return list;
 }
-
-
-var nameEl = document.getElementById('sel_city');
-var first = []; /* 省，直辖市 */
-var second = []; /* 市 */
-var third = []; /* 镇 */
-var selectedIndex = [0, 0, 0]; /* 默认选中的地区 */
-var checked = [0, 0, 0];
-function creatList(obj, list){
-    obj.forEach(function(item, index, arr){
-        var temp = new Object();
-        temp.text = item.name;
-        temp.value = index;
-        list.push(temp);
-    })
-}
-
-creatList(city, first);
-
-if (city[selectedIndex[0]].hasOwnProperty('sub')) {
-    creatList(city[selectedIndex[0]].sub, second);
-} else {
-    second = [{text: '', value: 0}];
-}
-
-if (city[selectedIndex[0]].sub[selectedIndex[1]].hasOwnProperty('sub')) {
-    creatList(city[selectedIndex[0]].sub[selectedIndex[1]].sub, third);
-} else {
-    third = [{text: '', value: 0}];
-}
-
-var picker = new Picker({
-    data: [first, second, third],
-    selectedIndex: selectedIndex,
-    title: '省市区选择'
-});
-
-picker.on('picker.select', function (selectedVal, selectedIndex) {
-    var text1 = first[selectedIndex[0]].text;
-    var text2 = second[selectedIndex[1]].text;
-    var text3 = third[selectedIndex[2]] ? third[selectedIndex[2]].text : '';
-    nameEl.value = text1 + ' ' + text2 + ' ' + text3;
-});
-
-picker.on('picker.change', function (index, selectedIndex) {
-    if (index === 0){
-        firstChange();
-    } else if (index === 1) {
-        secondChange();
-    }else if(index ===2){
-        thirdChange();
+// 地址选择联动
+function addressPicker(nameEl,selectedIndex1) {
+    var first = []; /* 省，直辖市 */
+    var second = []; /* 市 */
+    var third = []; /* 镇 */
+    var selectedIndex = selectedIndex1; /* 默认选中的地区 */
+    var checked = selectedIndex1;
+    function creatList(obj, list){
+        obj.forEach(function(item, index, arr){
+            var temp = new Object();
+            temp.text = item.name;
+            temp.value = index;
+            list.push(temp);
+        })
     }
-    /*console.log(index,selectedIndex);*/
 
-    function firstChange() {
-        second = [];
-        third = [];
-        checked[0] = selectedIndex;
-        var firstCity = city[selectedIndex];
-        if (firstCity.hasOwnProperty('sub')) {
-            creatList(firstCity.sub, second);
-            var secondCity = city[selectedIndex].sub[0];
-            if (secondCity.hasOwnProperty('sub')) {
+    creatList(city, first);
+
+    if (city[selectedIndex[0]].hasOwnProperty('sub')) {
+        creatList(city[selectedIndex[0]].sub, second);
+    } else {
+        second = [{text: '', value: 0}];
+    }
+
+    if (city[selectedIndex[0]].sub[selectedIndex[1]].hasOwnProperty('sub')) {
+        creatList(city[selectedIndex[0]].sub[selectedIndex[1]].sub, third);
+    } else {
+        third = [{text: '', value: 0}];
+    }
+
+    var picker = new Picker({
+        data: [first, second, third],
+        selectedIndex: selectedIndex,
+        title: '省市区选择'
+    });
+
+    picker.on('picker.select', function (selectedVal, selectedIndex) {
+        var text1 = first[selectedIndex[0]].text;
+        var text2 = second[selectedIndex[1]].text;
+        var text3 = third[selectedIndex[2]] ? third[selectedIndex[2]].text : '';
+        postInfo.proName = text1;
+        postInfo.cityName = text2;
+        postInfo.disName = text3;
+        nameEl.value = text1 + ' ' + text2 + ' ' + text3;
+    });
+
+    picker.on('picker.change', function (index, selectedIndex) {
+        if (index === 0){
+            firstChange();
+        } else if (index === 1) {
+            secondChange();
+        }else if(index ===2){
+            thirdChange();
+        }
+
+
+        function firstChange() {
+            second = [];
+            third = [];
+            checked[0] = selectedIndex;
+            var firstCity = city[selectedIndex];
+            if (firstCity.hasOwnProperty('sub')) {
+                creatList(firstCity.sub, second);
+                var secondCity = city[selectedIndex].sub[0];
+                if (secondCity.hasOwnProperty('sub')) {
+                    creatList(secondCity.sub, third);
+                    nameEl.value = firstCity.name + ' ' + secondCity.name + ' ' +third[0].text;
+                } else {
+                    third = [{text: '', value: 0}];
+                    checked[2] = 0;
+                    nameEl.value = firstCity.name + ' ' + secondCity.name;
+                }
+            } else {
+                second = [{text: '', value: 0}];
+                third = [{text: '', value: 0}];
+                checked[1] = 0;
+                checked[2] = 0;
+                nameEl.value = firstCity.name;
+            }
+            picker.refillColumn(1, second);
+            picker.refillColumn(2, third);
+            picker.scrollColumn(1, 0);
+            picker.scrollColumn(2, 0);
+        }
+
+        function secondChange() {
+            third = [];
+            checked[1] = selectedIndex;
+            var first_index = checked[0];
+            if (city[first_index].sub[selectedIndex].hasOwnProperty('sub')) {
+                var secondCity = city[first_index].sub[selectedIndex];
                 creatList(secondCity.sub, third);
-                nameEl.value = firstCity.name + ' ' + secondCity.name + ' ' +third[0].text;
+                picker.refillColumn(2, third);
+                picker.scrollColumn(2, 0);
+                if(third.length!=0){
+                    nameEl.value = city[first_index].name + ' ' + secondCity.name + ' ' + third[0].text;
+                }else {
+                    nameEl.value = city[first_index].name + ' ' + secondCity.name
+                }
+
             } else {
                 third = [{text: '', value: 0}];
                 checked[2] = 0;
-                nameEl.value = firstCity.name + ' ' + secondCity.name;
+                picker.refillColumn(2, third);
+                picker.scrollColumn(2, 0)
+                nameEl.value = city[first_index].name + ' ' + city[first_index].sub[selectedIndex].name;
             }
-        } else {
-            second = [{text: '', value: 0}];
-            third = [{text: '', value: 0}];
-            checked[1] = 0;
-            checked[2] = 0;
-            nameEl.value = firstCity.name;
         }
-        picker.refillColumn(1, second);
-        picker.refillColumn(2, third);
-        picker.scrollColumn(1, 0);
-        picker.scrollColumn(2, 0);
-    }
-
-    function secondChange() {
-        third = [];
-        checked[1] = selectedIndex;
-        var first_index = checked[0];
-        if (city[first_index].sub[selectedIndex].hasOwnProperty('sub')) {
-            var secondCity = city[first_index].sub[selectedIndex];
-            creatList(secondCity.sub, third);
-            picker.refillColumn(2, third);
-            picker.scrollColumn(2, 0);
-            if(third.length!=0){
-                nameEl.value = city[first_index].name + ' ' + secondCity.name + ' ' + third[0].text;
-            }else {
-                nameEl.value = city[first_index].name + ' ' + secondCity.name
+        function thirdChange(){
+            checked[2] = selectedIndex;
+            var first_index1 = checked[0];
+            var second_index1 = checked[1];
+            if (city[first_index1].sub[second_index1].hasOwnProperty('sub')){
+                var thirdCity = city[first_index1].sub[second_index1].sub[selectedIndex];
             }
-
-        } else {
-            third = [{text: '', value: 0}];
-            checked[2] = 0;
-            picker.refillColumn(2, third);
-            picker.scrollColumn(2, 0)
-            nameEl.value = city[first_index].name + ' ' + city[first_index].sub[selectedIndex].name;
+            nameEl.value = city[first_index1].name + ' ' + city[first_index1].sub[second_index1].name + ' ' + thirdCity.name;
         }
-    }
-    function thirdChange(){
-        checked[2] = selectedIndex;
-        var first_index1 = checked[0];
-        var second_index1 = checked[1];
-        if (city[first_index1].sub[second_index1].hasOwnProperty('sub')){
-            var thirdCity = city[first_index1].sub[second_index1].sub[selectedIndex];
-        }
-        nameEl.value = city[first_index1].name + ' ' + city[first_index1].sub[second_index1].name + ' ' + thirdCity.name;
-    }
 
-});
+    });
+    console.log(checked,selectedIndex);
+    picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
 
-picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
-
-});
-
+    });
+    return {"picker":picker,"selectedIndex":selectedIndex};
+}
+var nameEl = document.getElementById('sel_city');
+var selectedIndex_default = defaultPickerSelect(postInfo.proName,postInfo.cityName,postInfo.disName);
+addressPicker(nameEl,selectedIndex_default).picker;
 nameEl.addEventListener('click', function () {
-    picker.show();
+    console.log(postInfo.proName + " " + postInfo.cityName + " " + postInfo.disName);
+    var selectedIndex2 = defaultPickerSelect(postInfo.proName,postInfo.cityName,postInfo.disName);
     if(nameEl.value ==""){
-        nameEl.value = "北京 北京市 城东区";
+        nameEl.value = "北京 北京市 东城区";
+    }else {
+        //
+        selectedIndex2 = defaultPickerSelect(postInfo.proName,postInfo.cityName,postInfo.disName);
+        selectedIndex_default = defaultPickerSelect(postInfo.proName,postInfo.cityName,postInfo.disName);
+        console.log(selectedIndex2);
+        addressPicker(nameEl,selectedIndex2).picker;
     }
+    addressPicker(nameEl,selectedIndex2).picker.show();
 });
+//点击智能填写时，判断是否要打开地址选择器
+function isOpenPicker(proName,cityName,disName) {
+    /*var nameEl = document.getElementById('sel_city');
+    var selectedIndex3 = defaultPickerSelect(proName,cityName,disName);*/
+    if(disName.length==0){
+        $.alert("未找到对应的行政区，请手动进行选择");
+    }
+}
+// 默认选中地址
+function defaultPickerSelect(proName,cityName,disName) {
+    var cityLen = city.length;
+    var defaultSelectedIndex = [];
+    if(proName.length!=0){
+        for(var defaultI = 0; defaultI < cityLen; defaultI++){
+            if(proName == city[defaultI].name){
+                // 第一个
+                defaultSelectedIndex.push(defaultI);
+                if(cityName.length!=0){
+                    for(var defaultI1 = 0; defaultI1 < city[defaultI].sub.length; defaultI1++) {
+                        if(cityName == city[defaultI].sub[defaultI1].name){
+                            // 第二个
+                            defaultSelectedIndex.push(defaultI1);
+                            if(disName.length!=0){
+                                for(var defaultI2 = 0; defaultI2 < city[defaultI].sub[defaultI1].sub.length; defaultI2++){
+                                    if(disName == city[defaultI].sub[defaultI1].sub[defaultI2].name){
+                                        // 第三个
+                                        defaultSelectedIndex.push(defaultI2);
+                                    }
+                                }
+                            }else {
+                                defaultSelectedIndex.push(-1);
+                            }
+                        }
+                    }
+                }else {
+                    defaultSelectedIndex.push(-1);
+                }
+            }
+        }
+    }else {
+        defaultSelectedIndex = [0,0,0];
+    }
+    return defaultSelectedIndex;
+}
+
 $('#noopsyche-fill').on('click',function(){
     noopsycheFill();
 });
@@ -352,7 +930,7 @@ $('.picker-mask').on('click',function(){
 });
 // 判断是否为手机号
 function isPoneAvailable (pone) {
-    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    var myreg = /^[1][0-9][0-9]{9}$/;
     if (!myreg.test(pone)) {
         return false;
     } else {
@@ -373,9 +951,13 @@ function isPhone (pone) {
 $('.submit').on('click',function(){
     var chinaVal = $("#name").val();
     var phoneVal = $('#phone').val();
+    var nameElVal = $('#sel_city').val();
     /**新增校验规则：只要是0/4/9打头的号码都不校验位数，1打头（手机号）的校验11位，其他都定义成不合规！*/
     if(!isPoneAvailable(phoneVal)&&!isPhone(phoneVal)){
         $.alert("手机号码不规范，请输入正确的号码!");
+    }
+    if(!nameElVal){
+        $.alert("省市区不能为空！");
     }
     /**姓名验证*/
     /*if(!isChinaName(chinaVal)){
