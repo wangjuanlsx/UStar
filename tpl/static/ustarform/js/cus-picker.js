@@ -94,8 +94,8 @@ function noopsycheFill() {
         if(isHasAddrass){
             detailAddrassParse(infoContent);
         }else {
-            if (isName(infoContent)) {
-                postInfo.name = infoContent;
+            if (isName(infoContent).type) {
+                postInfo.name = isName(infoContent).value;
             }else {
                 postInfo.phoneNum = infoContent;
             }
@@ -137,8 +137,10 @@ function noopsycheFill() {
     var cityAddress = postInfo.proName + " " + postInfo.cityName + " " + postInfo.disName;
     $("#sel_city").val(cityAddress);
     $("#detailAddress").val(postInfo.detailedAddress);
+    if(postInfo.proName.length==0||postInfo.cityName.length==0){
+        $.alert("省市不能为空，请手动选择！");
+    }
     // 点击只能填写后
-
 }
 /**
  *城市验证
@@ -608,33 +610,39 @@ function getDeep2Area(before_deep3_area,deep3_area_city_id){
                 if(is_city!=-1){
                     deep2_area = allCity[cityI1].name;
                     deep1_area = before_deep3_area.substr(0,is_city);
-                    // 在详细地址里的区
+                    // 在详细地址里的区，遗落在二级和一级里的详细地址
                     if(before_deep3_area.search(deep2_area)!=-1){
                         detail_area = before_deep3_area.split(deep2_area)[1];
                     }else {
                         detail_area = before_deep3_area.split(deep2_area_short1)[1];
                     }
                     console.log(detail_area,deep2_area);
-                    // 如果二级地址前面没有填，获取provinceId
-                    if(deep1_area.length==0){
+                    // 二级前面不管填没填，都获取到二级前面的省份id
+                    /*if(deep1_area.length==0){
                         provinceId = allCity[cityI1].provinceId;
-                    }
+                    }*/
+                    provinceId = allCity[cityI1].provinceId;
                     for(var provinceI1 = 0; provinceI1 < provinceLen; provinceI1++){
                         if((allProvince[provinceI1].name.search("省")!=-1)) {
                             deep1_area_short1 = allProvince[provinceI1].name.substr(0,allProvince[provinceI1].name.length-1);
                         }else{
                             deep1_area_short1 = allProvince[provinceI1].name.substr(0,2);
                         }
-                        if (deep1_area.length==0) {
+                        if (provinceId == allProvince[provinceI1].id) {
+                            deep1_area = allProvince[provinceI1].name;
+                        }
+                        //一级没填的情况
+                        /*if (deep1_area.length==0) {
                             if (provinceId == allProvince[provinceI1].id) {
                                 deep1_area = allProvince[provinceI1].name;
                             }
                         } else {
+                            // 一级填写，但有可能不是省份，而是不正确的
                             is_province = deep1_area.search(deep1_area_short1);
                             if(is_province!=-1){
                                 deep1_area = allProvince[provinceI1].name;
                             }
-                        }
+                        }*/
 
                     }
                 }
@@ -721,8 +729,20 @@ function isChinaName(name) {
 }
 // 验证姓名中文英文都可以
 function isName(name) {
+    var formatName = '';
+    var regName=/[:：]/;
+    if(regName.test(name)){
+        var nameReplace = name.replace(new RegExp(/[:：]/g),"_");
+        formatName = nameReplace.split("_")[1];
+    }
     var pattern = /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[a-zA-Z]){1,20}$/;
-    return pattern.test(name);
+    if (formatName.length!=0){
+        return {"type":pattern.test(formatName),"value":formatName};
+    }else {
+        return {"type":pattern.test(name),"value":name};
+    }
+
+
 }
 
 // 去除数组中空白数据
@@ -956,8 +976,8 @@ $('.submit').on('click',function(){
     if(!isPoneAvailable(phoneVal)&&!isPhone(phoneVal)){
         $.alert("手机号码不规范，请输入正确的号码!");
     }
-    if(!nameElVal){
-        $.alert("省市区不能为空！");
+    if(postInfo.proName.length==0||postInfo.cityName.length==0){
+        $.alert("省市不能为空，请手动选择！");
     }
     /**姓名验证*/
     /*if(!isChinaName(chinaVal)){
