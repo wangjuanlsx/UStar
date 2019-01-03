@@ -262,7 +262,9 @@
         .explain-wrap textarea {
             border: 1px solid #e6e6e6;
             height: 4rem;
-            padding: 10px;
+            padding: 0.3rem;
+            font-size: 0.75rem;
+            color: #3e3e3e;
         }
     </style>
 </head>
@@ -417,7 +419,7 @@
         <div class="list-block pt0 cus-list-form cus-driver-wrap">
             <div class="explain-wrap">
                 <h2>备注</h2>
-                <div class="explain-textarea">
+                <div class="explain-textarea" id="textArea">
                     <textarea class="jjr-list-box-textarea"
                               placeholder=""></textarea>
                 </div>
@@ -431,6 +433,37 @@
 <script type="text/javascript" src="./tpl/static/ustarform/js/zepto.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="./tpl/static/ustarform/js/sm.min.js" charset="utf-8"></script>
 <script>
+    // 处理安卓手机输入法遮挡输入框问题
+    function jump_top(){
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if(isAndroid){
+            $("body").css("height","0px");
+            $("body").css("height",document.body.scrollHeight);
+            var originalHeight=document.documentElement.clientHeight ||document.body.clientHeight;
+            $('#textArea').on("focus",function(event){
+                if($(event.target).attr("type")=="button")return;
+                $("body").css("margin-bottom","500px");
+                $(window).scrollTop($('#textArea').offset().top-100);
+                $('#footer').css("position","absolute");
+                event.preventDefault();
+            });
+            window.addEventListener('resize', function () {
+                //键盘弹起与隐藏都会引起窗口的高度发生变化
+                var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
+                if((resizeHeight > originalHeight)||(resizeHeight == originalHeight)){
+                    //当软键盘收起，在此处操作
+                    $('#textArea').blur();
+                    $("body").css("height","0px");
+                    $("body").css("height",document.body.scrollHeight);
+                    $("body").css("margin-bottom","0px");
+                    $('#footer').css("position","fixed");
+                }
+            })
+        };
+    }
+    jump_top();
     /**
      *货物类型下拉菜单
      * */
