@@ -99,37 +99,6 @@ function noopsycheFill() {
             }else {
                 postInfo.phoneNum = infoContent;
             }
-            /*if (postInfo.proName == "" && postInfo.cityName == "" && postInfo.disName == "") {
-                if (isName(infoContent)) {
-                    postInfo.name = infoContent;
-                }
-                else if (!isNaN(infoContent) && infoContent.length >= 6) {
-                    postInfo.phoneNum = infoContent;
-                }
-                else {
-                    var regex = /^[A-Za-z]*[a-z0-9]*$/;
-                    if (!regex.test(infoContent)) {
-                        postInfo.detailedAddress = infoContent;
-                    }
-                }
-            }
-            else if (!isNaN(infoContent) && infoContent.length >= 6) {
-                postInfo.phoneNum = infoContent;
-            }
-            else if (isName(infoContent)) {
-                var proviceStr = postInfo.proName+postInfo.cityName+postInfo.disName;
-                if(infoContent!==proviceStr){
-                    postInfo.name = infoContent;
-                }
-            }
-            else {
-                if (postInfo.detailedAddress == "") {
-                    var proviceStr = postInfo.proName+postInfo.cityName+postInfo.disName;
-                    if(infoContent!==proviceStr){
-                        postInfo.detailedAddress = infoContent;
-                    }
-                }
-            }*/
         }
     }
     $("#name").val(postInfo.name);
@@ -314,21 +283,27 @@ function detailAddrassParse(addressInfo){
             detail_area = addressInfo.substr(is_deep3_area3+1);
             deep3_area = getDeep3Area(before_detail_area).deep3_area;
             before_deep3_area = getDeep3Area(before_detail_area).before_deep3_area;
-
-            deep2_area = getDeep3Area(before_deep3_area).deep2_area;
-            deep1_area = getDeep3Area(before_deep3_area).deep1_area;
-            detail_area1 = getDeep3Area(before_deep3_area).detail_area;
+            deep2_area = getDeep3Area(before_detail_area).deep2_area;
+            deep1_area = getDeep3Area(before_detail_area).deep1_area;
+            detail_area1 = getDeep3Area(before_detail_area).detail_area;
 
         }
         // 区
         if(is_deep3_area2!=-1) {
-            before_detail_area = addressInfo.substr(0, is_deep3_area2+1);
+            // 东城区单独处理，如果出现东城区字眼
+            var is_deep3_area2_dong = addressInfo.search("东城区");
+            if(is_deep3_area2_dong!=-1){
+                before_detail_area = addressInfo.substr(0, is_deep3_area2);
+            }else {
+                before_detail_area = addressInfo.substr(0, is_deep3_area2+1);
+            }
+
             detail_area = addressInfo.substr(is_deep3_area2+1);
             deep3_area = getDeep3Area(before_detail_area).deep3_area;
             before_deep3_area = getDeep3Area(before_detail_area).before_deep3_area;
-            deep2_area = getDeep3Area(before_deep3_area).deep2_area;
-            deep1_area = getDeep3Area(before_deep3_area).deep1_area;
-            detail_area1 = getDeep3Area(before_deep3_area).detail_area;
+            deep2_area = getDeep3Area(before_detail_area).deep2_area;
+            deep1_area = getDeep3Area(before_detail_area).deep1_area;
+            detail_area1 = getDeep3Area(before_detail_area).detail_area;
         }
 
         // 县
@@ -337,13 +312,20 @@ function detailAddrassParse(addressInfo){
             detail_area = addressInfo.substr(is_deep3_area1+1);
             deep3_area = getDeep3Area(before_detail_area).deep3_area;
             before_deep3_area = getDeep3Area(before_detail_area).before_deep3_area;
-            deep2_area = getDeep3Area(before_deep3_area).deep2_area;
-            deep1_area = getDeep3Area(before_deep3_area).deep1_area;
-            detail_area1 = getDeep3Area(before_deep3_area).detail_area;
+            deep2_area = getDeep3Area(before_detail_area).deep2_area;
+            deep1_area = getDeep3Area(before_detail_area).deep1_area;
+            detail_area1 = getDeep3Area(before_detail_area).detail_area;
         }
         // 三级地区为市
         if(is_deep3_area4!=-1) {
-            var is_County1 = -1;
+            before_detail_area = addressInfo.substr(0,is_deep3_area4+1);
+            detail_area = addressInfo.substr(is_deep3_area4+1);
+            deep3_area = getDeep3Area(before_detail_area).deep3_area;
+            before_deep3_area = getDeep3Area(before_detail_area).before_deep3_area;
+            deep2_area = getDeep3Area(before_detail_area).deep2_area;
+            deep1_area = getDeep3Area(before_detail_area).deep1_area;
+            detail_area1 = getDeep3Area(before_detail_area).detail_area;
+            /*var is_County1 = -1;
             var deep3_area_city_id_4 = '';
             for(var countryI1 = 0; countryI1 < CountyLen; countryI1++ ) {
                 is_County1 = addressInfo.search(allCounty[countryI1].name);
@@ -363,7 +345,7 @@ function detailAddrassParse(addressInfo){
             console.log("888",before_deep3_area);
             deep2_area = getDeep2Area(before_deep3_area,deep3_area_city_id_4).deep2_area;
             deep1_area = getDeep2Area(before_deep3_area,deep3_area_city_id_4).deep1_area;
-            detail_area1 = getDeep2Area(before_deep3_area,deep3_area_city_id_4).detail_area;
+            detail_area1 = getDeep2Area(before_deep3_area,deep3_area_city_id_4).detail_area;*/
             /*deep2_area = getDeep2Area(before_deep3_area).deep2_area;
             deep1_area = getDeep2Area(before_deep3_area).deep1_area;
             detail_area1 = getDeep2Area(before_deep3_area).detail_area;*/
@@ -445,7 +427,7 @@ function getDeep3Area(before_detail_area) {
     var deep1_area = '';
     var deep2_area = '';
     var detail_area1 = '';
-    // 如果三级地址未知
+    // 三级地址简称
     var deep3_area_short1 = '';
     var is_County3 = -1;
     for(var countryI3 = 0; countryI3 < CountyLen; countryI3++ ) {
@@ -457,16 +439,6 @@ function getDeep3Area(before_detail_area) {
         }
         is_County3 = before_detail_area.search(deep3_area_short1);
         // 三级地区位置>2,且匹配三级地名长度大于2
-        /*if((is_County3 != -1) && (is_County3>2||is_County3==2)) {
-            before_deep3_area1 = before_detail_area.substr(0,is_County3);
-            deep3_area_provice_id = allCounty[countryI3].provinceId;
-            // 只有三级地址的proviceId和一级二级的proviceId相等才取出deep3_area
-            if(deep3AreaIsTrue(before_deep3_area1,deep3_area_provice_id)) {
-                before_deep3_area = before_detail_area.substr(0,is_County3);
-                deep3_area = allCounty[countryI3].name;
-                deep3_area_city_id = allCounty[countryI3].cityId;
-            }
-        }*/
         var is_hainan = before_detail_area.search("海南");
         var is_henan = before_detail_area.search("河北");
         if(is_hainan!=-1||is_henan!=-1){
@@ -481,8 +453,7 @@ function getDeep3Area(before_detail_area) {
                 }
             }
         }else {
-            if((is_County3 != -1)) {
-                console.log("22222",deep3_area_short1);
+            if((is_County3 != -1)) {;
                 before_deep3_area1 = before_detail_area.substr(0,is_County3);
                 deep3_area_provice_id = allCounty[countryI3].provinceId;
                 // 只有三级地址的proviceId和一级二级的proviceId相等才取出deep3_area
@@ -495,6 +466,7 @@ function getDeep3Area(before_detail_area) {
                 }
             }
         }
+
 
     }
     deep2_area = getDeep2Area(before_deep3_area,deep3_area_city_id).deep2_area;
