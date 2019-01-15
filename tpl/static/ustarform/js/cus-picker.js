@@ -79,8 +79,8 @@ function noopsycheFill() {
 
     content = SymbolReplace(content);//文本框内容
     var infoList = content.split(",");//分割里面内容
-
     infoList = notempty(infoList);
+
     for (var i in infoList) {
         if (infoList[i] == "") {
             continue;
