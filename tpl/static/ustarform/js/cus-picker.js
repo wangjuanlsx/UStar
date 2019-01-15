@@ -281,15 +281,23 @@ function detailAddrassParse(addressInfo){
         if(is_deep3_area3!=-1) {
             before_detail_area = addressInfo.substr(0,is_deep3_area3+1);
             detail_area = addressInfo.substr(is_deep3_area3+1);
-            deep3_area = getDeep3Area(before_detail_area).deep3_area;
-            before_deep3_area = getDeep3Area(before_detail_area).before_deep3_area;
-            deep2_area = getDeep3Area(before_detail_area).deep2_area;
-            deep1_area = getDeep3Area(before_detail_area).deep1_area;
-            detail_area1 = getDeep3Area(before_detail_area).detail_area;
+            var is_deep3_area3All= getDeep3Area(before_detail_area);
+            deep3_area = is_deep3_area3All.deep3_area;
+            before_deep3_area = is_deep3_area3All.before_deep3_area;
+            deep2_area = is_deep3_area3All.deep2_area;
+            deep1_area = is_deep3_area3All.deep1_area;
+            detail_area1 = is_deep3_area3All.detail_area;
 
+            postInfo.proName = deep1_area;
+            postInfo.cityName = deep2_area;
+            postInfo.disName = deep3_area;
+            postInfo.detailedAddress = detail_area1+detail_area;
         }
         // 区
         if(is_deep3_area2!=-1) {
+            if(deep3_area){
+                return;
+            }
             // 东城区单独处理，如果出现东城区字眼
             var is_deep3_area2_dong = addressInfo.search("东城区");
             if(is_deep3_area2_dong!=-1){
@@ -299,32 +307,53 @@ function detailAddrassParse(addressInfo){
             }
 
             detail_area = addressInfo.substr(is_deep3_area2+1);
-            deep3_area = getDeep3Area(before_detail_area).deep3_area;
-            before_deep3_area = getDeep3Area(before_detail_area).before_deep3_area;
-            deep2_area = getDeep3Area(before_detail_area).deep2_area;
-            deep1_area = getDeep3Area(before_detail_area).deep1_area;
-            detail_area1 = getDeep3Area(before_detail_area).detail_area;
+            var is_deep3_area2All= getDeep3Area(before_detail_area);
+            deep3_area = is_deep3_area2All.deep3_area;
+            before_deep3_area = is_deep3_area2All.before_deep3_area;
+            deep2_area = is_deep3_area2All.deep2_area;
+            deep1_area = is_deep3_area2All.deep1_area;
+            detail_area1 = is_deep3_area2All.detail_area;
+            postInfo.proName = deep1_area;
+            postInfo.cityName = deep2_area;
+            postInfo.disName = deep3_area;
+            postInfo.detailedAddress = detail_area1+detail_area;
         }
 
         // 县
         if(is_deep3_area1!=-1) {
+            if(deep3_area){
+                return;
+            }
             before_detail_area = addressInfo.substr(0,is_deep3_area1+1);
             detail_area = addressInfo.substr(is_deep3_area1+1);
-            deep3_area = getDeep3Area(before_detail_area).deep3_area;
-            before_deep3_area = getDeep3Area(before_detail_area).before_deep3_area;
-            deep2_area = getDeep3Area(before_detail_area).deep2_area;
-            deep1_area = getDeep3Area(before_detail_area).deep1_area;
-            detail_area1 = getDeep3Area(before_detail_area).detail_area;
+            var is_deep3_area1All= getDeep3Area(before_detail_area);
+            deep3_area = is_deep3_area1All.deep3_area;
+            before_deep3_area = is_deep3_area1All.before_deep3_area;
+            deep2_area = is_deep3_area1All.deep2_area;
+            deep1_area = is_deep3_area1All.deep1_area;
+            detail_area1 = is_deep3_area1All.detail_area;
+            postInfo.proName = deep1_area;
+            postInfo.cityName = deep2_area;
+            postInfo.disName = deep3_area;
+            postInfo.detailedAddress = detail_area1+detail_area;
         }
         // 三级地区为市
         if(is_deep3_area4!=-1) {
+            if(deep3_area){
+                return;
+            }
             before_detail_area = addressInfo.substr(0,is_deep3_area4+1);
-            detail_area = addressInfo.substr(is_deep3_area4+1);
-            deep3_area = getDeep3Area(before_detail_area).deep3_area;
-            before_deep3_area = getDeep3Area(before_detail_area).before_deep3_area;
-            deep2_area = getDeep3Area(before_detail_area).deep2_area;
-            deep1_area = getDeep3Area(before_detail_area).deep1_area;
-            detail_area1 = getDeep3Area(before_detail_area).detail_area;
+            detail_area = addressInfo.substr(is_deep3_area4+1)
+            var is_deep3_area4All= getDeep3Area(before_detail_area);
+            deep3_area = is_deep3_area4All.deep3_area;
+            before_deep3_area = is_deep3_area4All.before_deep3_area;
+            deep2_area = is_deep3_area4All.deep2_area;
+            deep1_area = is_deep3_area4All.deep1_area;
+            detail_area1 = is_deep3_area4All.detail_area;
+            postInfo.proName = deep1_area;
+            postInfo.cityName = deep2_area;
+            postInfo.disName = deep3_area;
+            postInfo.detailedAddress = detail_area1+detail_area;
             /*var is_County1 = -1;
             var deep3_area_city_id_4 = '';
             for(var countryI1 = 0; countryI1 < CountyLen; countryI1++ ) {
@@ -401,17 +430,22 @@ function detailAddrassParse(addressInfo){
         if(before_deep3_area.length==0){
             before_deep3_area = addressInfo;
         }
-        deep2_area = getDeep2Area(before_deep3_area,deep3_area_city_id_5).deep2_area;
-        deep1_area = getDeep2Area(before_deep3_area,deep3_area_city_id_5).deep1_area;
-        detail_area1 = getDeep2Area(before_deep3_area,deep3_area_city_id_5).detail_area;
+        var noFullAll = getDeep2Area(before_deep3_area,deep3_area_city_id_5);
+        deep2_area = noFullAll.deep2_area;
+        deep1_area = noFullAll.deep1_area;
+        detail_area1 = noFullAll.detail_area;
         /*deep2_area = getDeep2Area(before_deep3_area).deep2_area;
         deep1_area = getDeep2Area(before_deep3_area).deep1_area;
         detail_area1 = getDeep2Area(before_deep3_area).detail_area;*/
+        postInfo.proName = deep1_area;
+        postInfo.cityName = deep2_area;
+        postInfo.disName = deep3_area;
+        postInfo.detailedAddress = detail_area1+detail_area;
     }
-    postInfo.proName = deep1_area;
+    /*postInfo.proName = deep1_area;
     postInfo.cityName = deep2_area;
     postInfo.disName = deep3_area;
-    postInfo.detailedAddress = detail_area1+detail_area;
+    postInfo.detailedAddress = detail_area1+detail_area*/;
     console.log("deep1_area",deep1_area,"deep2_area",deep2_area,"deep3_area",deep3_area,"before_deep3_area",before_deep3_area,"before_detail_area",before_detail_area,"detail_area",detail_area);
 }
 
@@ -469,9 +503,10 @@ function getDeep3Area(before_detail_area) {
 
 
     }
-    deep2_area = getDeep2Area(before_deep3_area,deep3_area_city_id).deep2_area;
-    deep1_area = getDeep2Area(before_deep3_area,deep3_area_city_id).deep1_area;
-    detail_area1 = getDeep2Area(before_deep3_area,deep3_area_city_id).detail_area;
+    var deep3AllData = getDeep2Area(before_deep3_area,deep3_area_city_id);
+    deep2_area = deep3AllData.deep2_area;
+    deep1_area = deep3AllData.deep1_area;
+    detail_area1 = deep3AllData.detail_area;
     console.log("555",deep2_area,deep1_area);
 
     return {"before_deep3_area":before_deep3_area,"deep3_area":deep3_area,"deep2_area":deep2_area,"deep1_area":deep1_area,"detail_area":detail_area1};
@@ -953,7 +988,7 @@ $('.submit').on('click',function(){
     }
     /**姓名验证*/
     /*if(!isChinaName(chinaVal)){
-        $.alert("请输入中文姓名!");
-    }*/
+     $.alert("请输入中文姓名!");
+     }*/
 });
 

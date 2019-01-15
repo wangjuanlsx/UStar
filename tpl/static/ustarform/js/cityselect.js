@@ -3275,7 +3275,6 @@ function getAllCounty(){
 		{"cityId":"p3Bv66xgQS249PrdvAjmBV","name":"大兴安岭地区呼中区","provinceId":"heilongjiang","id":"daxinganlingdiquhuzhongqu"},
 		{"cityId":"7NJtL3VoTPWBt3ScI4ljxV","name":"宁洱哈尼族彝族自治县","provinceId":"yunnan","id":"ningerhanizuyizuzizhixian"},
 		{"cityId":"7OJTjawIRUKCizYy2xp2UF","name":"宁陵县","provinceId":"henan","id":"ninglingxian"},
-		{"cityId":"4YE91XXHTYyMcvPs3bkzkF","name":"广州市","provinceId":"guangdong","id":"guangzhoushi"},
 		{"cityId":"a03KwWMyRBSNFyUnBJfnUF","name":"桂阳县","provinceId":"hunan","id":"guiyangxian"},
 		{"cityId":"OckAmUaaQwuJZBJQFdS8OV","name":"黄梅县","provinceId":"hubei","id":"huangmeixian"},
 		{"cityId":"4ekeqXM4QuB40OVJzuBCAV","name":"嘉祥县","provinceId":"shandong","id":"jiaxiangxian"},
