@@ -61,3 +61,21 @@ $(function(){
     upLoadImg("#up-file-driver2","#up-file-img2");
 })
 
+/**
+ *揽件区域下拉菜单
+ * */
+$("#picker-area-type").picker({
+    toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择区域</h1>\
+  </header>',
+    cols: [
+        {
+            textAlign: 'center',
+            values: ['龙华区', '美兰区', '琼山区', '秀英区']
+        }
+    ]
+});
+$(function(){
+$(".cus-bill-list-wrap .order-tel").html($(".cus-bill-list-wrap .order-tel").substring(0,3)+"****"+$(".cus-bill-list-wrap .order-tel").substring(8,11));
+})

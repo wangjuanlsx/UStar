@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>取件</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--框架样式-->
+    <link rel="stylesheet" href="./tpl/static/ustarform/css/sm.min.css">
+    <!--自定义样式-->
+    <link rel="stylesheet" href="./tpl/static/ustarform/css/all.css">
+</head>
+<body>
+<div class="cus-wrap">
+    
+    <div class="content cus-bill-list-wrap">
+        <div class="bar">
+            <div class="searchbar">
+                <a class="searchbar-cancel">取消</a>
+                <div class="search-input">
+                  <label class="icon search-icon" for="search"><img src="./tpl/static/ustarform/images/14.png" alt=""></label>
+                  <input type="search" id='search' placeholder='请输入物流单号'/>
+                </div>
+            </div>
+        </div>
+        <div class="buttons-tab fixed-tab">
+            <a href="#tab1" class="tab-link active button">待接单</a>
+            <a href="#tab2" class="tab-link button">已接单</a>
+        </div>
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <div class="order-list">
+                   <ul>
+                       <li>
+                           <a href="">
+                             <div class="order-img">
+                                 <img src="./tpl/static/ustarform/images/10.png" alt="">
+                             </div>
+                             <div class="order-msg">
+                                 <p class="msg-title">历山德<span class="order-tel">13012348310</span></p>
+                                 <p class="msg-site">海南省海口市美兰区国兴大道5号海南大厦R203</p>
+                                 <div class="msg-package">
+                                    <span class="msg-flag-orange">文件</span>
+                                    <span class="msg-flag-orange">1kg</span>
+                                </div>
+                             </div>
+                             <div class="order-handle">
+                                <button class="order-handle-receiving">抢单</button>
+                                <div class="order-time">01-23 22:31</div>
+                             </div>
+                           </a>
+                           
+                       </li>
+                       <li>
+                           <a href="">
+                             <div class="order-img">
+                                 <img src="./tpl/static/ustarform/images/12.png" alt="">
+                             </div>
+                             <div class="order-msg">
+                                 <p class="msg-title">历山德<span class="order-tel">130****8310</span></p>
+                                 <p class="msg-site">海南省海口市美兰区白龙街道青年路下贤村一村146号玫瑰湾小区...</p>
+                                 <div class="msg-package">
+                                    <span class="msg-flag-orange">文件</span>
+                                    <span class="msg-flag-orange">1kg</span>
+                                </div>
+                             </div>
+                             <div class="order-handle">
+                                <button class="order-handle-receiving">抢单</button>
+                                <div class="order-time">01-23 22:31</div>
+                             </div>
+                           </a>
+                           
+                       </li>
+                       <li>
+                           <a href="">
+                             <div class="order-img">
+                                 <img src="./tpl/static/ustarform/images/11.png" alt="">
+                             </div>
+                             <div class="order-msg">
+                                 <p class="msg-title">历山德<span class="order-tel">130****8310</span></p>
+                                 <p class="msg-site">海南省海口市美兰区国兴大道5号海南大厦R203</p>
+                                 <div class="msg-package">
+                                    <span class="msg-flag-orange">文件</span>
+                                    <span class="msg-flag-orange">1kg</span>
+                                </div>
+                             </div>
+                             <div class="order-handle">
+                                <img src="./tpl/static/ustarform/images/13.png" alt="">
+                                <div class="order-time">01-23 22:31</div>
+                             </div>
+                           </a>
+                           
+                       </li>
+                   </ul>
+                </div>
+            </div>
+            <div id="tab2" class="tab">
+                <div class="order-list">
+                   <ul>
+                       <li>
+                           <a href="">
+                             <div class="order-img">
+                                 <img src="./tpl/static/ustarform/images/10.png" alt="">
+                             </div>
+                             <div class="order-msg">
+                                 <p class="msg-title">历山德<span>130****8310</span></p>
+                                 <p class="msg-site">海南省海口市美兰区国兴大道5号海南大厦R203</p>
+                                 <div class="msg-package">
+                                    <span class="msg-flag-orange">文件</span>
+                                    <span class="msg-flag-orange">1kg</span>
+                                </div>
+                             </div>
+                             <div class="order-handle">
+                                <button class="order-handle-cancel">取消</button>
+                                <div class="order-time">01-23 22:31</div>
+                             </div>
+                           </a>
+                           
+                       </li>
+                       
+                   </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<script type="text/javascript" src="./tpl/static/ustarform/js/zepto.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./tpl/static/ustarform/js/sm.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./tpl/static/ustarform/js/all.js" charset="utf-8"></script>
+</body>
+</html>
