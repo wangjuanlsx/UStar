@@ -76,6 +76,4 @@ $("#picker-area-type").picker({
         }
     ]
 });
-$(function(){
-$(".cus-bill-list-wrap .order-tel").html($(".cus-bill-list-wrap .order-tel").substring(0,3)+"****"+$(".cus-bill-list-wrap .order-tel").substring(8,11));
-})
+
