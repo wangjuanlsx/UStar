@@ -205,7 +205,7 @@
                     </span>
                     <span>
                         <input type="checkbox" class="e-selfecheckbox1" id="place6" name="checkboxName" value="月结客户">
-                        <label class="selfecheckbox_label1" for="place6" onclick="checkItem('place5', '月结客户')" >月结客户</label>
+                        <label class="selfecheckbox_label1" for="place6" onclick="checkItem('place6', '月结客户')" >月结客户</label>
                     </span>
                 </div>
                 <div class="explain-textarea" id="textArea">
@@ -470,26 +470,19 @@
             }
         ]
     });
-    $(function() {
-        function checkItem(UserName,UserTrueName) {
-            var cbx = this.document.getElementById(UserName);
-            UserTrueName += ",";
-            console.log(cbx);
-            if (cbx.checked == true) {
-                console.log(UserTrueName);
-                var str = $("#txtFilePath").val() + UserTrueName;
-                $('#txtFilePath').val(str);
-            } else {
-                var UTN;
-                UTN = $('#txtFilePath').val();
-                $('#txtFilePath').text = UTN.replace(UserTrueName, "");
-            }
+    function checkItem(UserName,UserTrueName) {
+        var cbx = this.document.getElementById(UserName);
+        UserTrueName += " ";
+        console.log(cbx);
+        if (cbx.checked == false) {
+            var str = $("#txtFilePath").val() + UserTrueName;
+            $('#txtFilePath').val(str);
+        } else {
+            var UTN;
+            UTN = $('#txtFilePath').val();
+            $('#txtFilePath').val(UTN.replace(UserTrueName, ""));
         }
-/*
-        $('#place31').on('click', function(){
-            checkItem('place3','上午取件');
-        })*/;
-    })
+    }
 
 </script>
 </body>
