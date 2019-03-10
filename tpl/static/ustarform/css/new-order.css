@@ -1116,10 +1116,8 @@ p{
     width: 65%;
 }
 .list-block .new-order-sure-input-width input{
-    border-bottom: 1px solid #ccc;
-}
-.list-block .new-order-sure-wight-wrap input{
-    height: 2rem;
+    border-bottom: 1px solid #e7e7e7;
+    height: 1.6rem !important;
 }
 .color-wight{
     color: #8e8d8d;
