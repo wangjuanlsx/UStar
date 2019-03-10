@@ -172,44 +172,26 @@
         </div>
         <div class="list-block pt0 cus-list-form cus-driver-wrap">
             <div class="explain-wrap">
-               <!-- <div class="new-order-taking-checkbox">
-                    <span>
-                        <input type="checkbox" class="e-selfecheckbox1" id="place3" name="checkboxName" value="上午取件">
-                        <label class="selfecheckbox_label1" for="place3"  onclick="checkItem('place3','上午取件')" id="place31">上午取件</label>
-                    </span>
-                    <span>
-                        <input type="checkbox" class="e-selfecheckbox1" id="place4" name="checkboxName" value="下午取件">
-                        <label class="selfecheckbox_label1" for="place4" onclick="checkItem('place4','下午取件')" >下午取件</label>
-                    </span>
-                    <span>
-                        <input type="checkbox" class="e-selfecheckbox1" id="place5" name="checkboxName" value="缺少包装">
-                        <label class="selfecheckbox_label1" for="place5" onclick="checkItem('place5', '缺少包装')" >缺少包装</label>
-                    </span>
-                    <span>
-                        <input type="checkbox" class="e-selfecheckbox1" id="place6" name="checkboxName" value="月结客户">
-                        <label class="selfecheckbox_label1" for="place6" onclick="checkItem('place5', '月结客户')" >月结客户</label>
-                    </span>
-            </div>-->
                 <div class="new-order-taking-checkbox">
                     <span>
-                        <input type="checkbox" class="e-selfecheckbox1" id="place3" name="checkboxName" value="上午取件">
-                        <label class="selfecheckbox_label1" for="place3" onclick="checkItem('place3','上午取件')" id="place31">上午取件</label>
+                        <input type="checkbox" class="e-selfecheckbox1" id="place3" name="checkboxName" value="上午取件" onclick="checkItem('place3','上午取件')">
+                        <label class="selfecheckbox_label1" for="place3" id="place31">上午取件</label>
                     </span>
                     <span>
-                        <input type="checkbox" class="e-selfecheckbox1" id="place4" name="checkboxName" value="下午取件">
-                        <label class="selfecheckbox_label1" for="place4" onclick="checkItem('place4','下午取件')" >下午取件</label>
+                        <input type="checkbox" class="e-selfecheckbox1" id="place4" name="checkboxName" value="下午取件" onclick="checkItem('place4','下午取件')" >
+                        <label class="selfecheckbox_label1" for="place4" >下午取件</label>
                     </span>
                     <span>
-                        <input type="checkbox" class="e-selfecheckbox1" id="place5" name="checkboxName" value="缺少包装">
-                        <label class="selfecheckbox_label1" for="place5" onclick="checkItem('place5', '缺少包装')" >缺少包装</label>
+                        <input type="checkbox" class="e-selfecheckbox1" id="place5" name="checkboxName" value="缺少包装" onclick="checkItem('place5', '缺少包装')" >
+                        <label class="selfecheckbox_label1" for="place5" >缺少包装</label>
                     </span>
                     <span>
-                        <input type="checkbox" class="e-selfecheckbox1" id="place6" name="checkboxName" value="月结客户">
-                        <label class="selfecheckbox_label1" for="place6" onclick="checkItem('place6', '月结客户')" >月结客户</label>
+                        <input type="checkbox" class="e-selfecheckbox1" id="place6" name="checkboxName" value="月结客户" onclick="checkItem('place5', '月结客户')" >
+                        <label class="selfecheckbox_label1" for="place6" >月结客户</label>
                     </span>
-                </div>
+            </div>
                 <div class="explain-textarea" id="textArea">
-                    <textarea class="jjr-list-box-textarea"
+                    <textarea class="jjr-list-box-textarea" readonly="readonly"
                               placeholder="" id="txtFilePath"></textarea>
                 </div>
         </div>
@@ -471,10 +453,10 @@
         ]
     });
     function checkItem(UserName,UserTrueName) {
-        var cbx = this.document.getElementById(UserName);
+        var cbx = document.getElementById(UserName);
         UserTrueName += " ";
         console.log(cbx);
-        if (cbx.checked == false) {
+        if (cbx.checked == true) {
             var str = $("#txtFilePath").val() + UserTrueName;
             $('#txtFilePath').val(str);
         } else {
@@ -483,7 +465,6 @@
             $('#txtFilePath').val(UTN.replace(UserTrueName, ""));
         }
     }
-
 </script>
 </body>
 </html>

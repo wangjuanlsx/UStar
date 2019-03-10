@@ -301,6 +301,7 @@ input[type=radio]{
 .e-selfecheckbox:checked+.selfecheckbox_label:before {
     width: 0.8rem;
     height: 0.8rem;
+    background: none;
     background-image: url(../images/checkbox.png);
     background-size: 100%;
 }
@@ -314,13 +315,28 @@ input[type=radio]{
 
 
 input[type=checkbox]{
-    display: none;
+    /*display: none;*/
+    width: 3.4rem;
+    height: 1.4rem;
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 2;
+    opacity: 0;filter: alpha(opacity=0);
 }
 .selfecheckbox_label1{
     position: relative;
 }
 .selfecheckbox_label1{
-    padding:0.1rem 0.2rem;
+    display: inline-block;
+    width: 3.4rem;
+    height: 1.4rem;
+    line-height: 1.2rem;
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 1;
+    /* padding: 0.1rem 0.2rem; */
     border-radius: 2px;
     font-size: 0.7rem;
     color: #b2b2b2;
@@ -332,9 +348,14 @@ input[type=checkbox]{
     background: #f2f4ff;
 }
 .new-order-taking-checkbox{
-    line-height: 2rem;
     text-align: center;
+    padding: 0.5rem 0 0.3rem 0;
 }
 .new-order-taking-checkbox span{
+    position: relative;
+    display: inline-block;
+    width: 3.4rem;
+    height: 1.4rem;
+    line-height: 1.2rem;
     padding: 0 0.1rem;
 }
