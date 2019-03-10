@@ -1112,9 +1112,14 @@ p{
     height: 2rem;
     line-height: 2rem;
 }
+.new-order-sure-input-width{
+    width: 65%;
+}
+.list-block .new-order-sure-input-width input{
+    border-bottom: 1px solid #ccc;
+}
 .list-block .new-order-sure-wight-wrap input{
     height: 2rem;
-    border-bottom: 1px solid #ccc;
 }
 .color-wight{
     color: #8e8d8d;
@@ -1168,7 +1173,7 @@ input[type=radio]{
     padding-top: 0.5rem;
 }
 .cus-wrap .new-order-sure-wight-wrap ul {
-    padding: 0.6rem 0 0.3rem 0;
+    padding: 0.6rem 0 0.9rem 0;
 }
 .w30{
     width:30% !important;
