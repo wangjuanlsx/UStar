@@ -1102,7 +1102,7 @@ p{
     transform: rotate(-45deg);
 }
 .new-order-bottom-bg{
-    margin-top:-11px;
+    margin-top:-12px;
 }
 .new-order-bottom-bg img{
     width: 100%;
@@ -1145,6 +1145,7 @@ input[type=radio]{
 .e-selfecheckbox:checked+.selfecheckbox_label:before {
     width: 0.6rem;
     height: 0.6rem;
+    border: none;
     background-image: url(../images/checkbox.png);
     background-size: 100%;
 }
