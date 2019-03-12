@@ -1167,8 +1167,12 @@ input[type=radio]{
     border-bottom: none !important;
     line-height: 2rem !important;
 }
+.w60{
+    width: 61%;
+}
 .cus-wrap .new-order-sure-wight-wrap li:nth-child(2){
     padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 .cus-wrap .new-order-sure-wight-wrap ul {
     padding: 0.6rem 0 0.9rem 0;
@@ -1312,4 +1316,19 @@ input[type=radio]{
 }
 .new-order-show{
     display: block;
+}
+.new-order-success-order-wrap{
+    text-align: center;
+}
+.new-order-success-order-icon-wrap img{
+    width: 4.5rem !important;
+}
+.new-order-success-link{
+    padding-top: 3rem;
+    font-size: 0.7rem;
+    text-align: center;
+    color: #b1b1b1;
+}
+.new-order-success-order-margin-wrap{
+    margin-top:4rem !important;
 }

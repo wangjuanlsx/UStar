@@ -259,3 +259,9 @@ function checkItem(UserName,UserTrueName) {
         $('#txtFilePath').val(UTN.replace(UserTrueName, ""));
     }
 }
+
+$(function(){
+    $('#place2').on('click',function(){
+        $.alert("快递员上门揽件区域为国兴大道以北、海府路以南");
+    });
+});
