@@ -748,7 +748,7 @@ p{
    position: relative;
    border-radius: .2rem;
 }
-.cus-bill-list-wrap .order-list ul li a {
+.cus-bill-list-wrap .order-list ul li {
     display: flex;
     display: -webkit-flex;
     color: #666;
@@ -782,6 +782,7 @@ p{
     font-weight: normal;
     display: inline-block;
     color: #7e7e7e;
+    margin-left: 10px;
 }
 .cus-bill-list-wrap .order-list ul li .msg-site {
     display: -webkit-box;
