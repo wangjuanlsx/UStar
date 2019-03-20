@@ -160,29 +160,29 @@
                     <div class="new-order-sure-wight-wrap clearfix">
                         <p class="new-order-sure-wight-left cus-f-l color-wight">确认重量</p>
                         <p class="cus-f-l new-order-sure-input-width">
-                            <input type="text" class="tc" placeholder="" value="20">
+                            <input type="text" class="tc" placeholder="" id="place11" value="" oninput="OnInputWeight('place11')" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
                         </p>
                         <span class="color-wight">KG</span>
                     </div>
                 </li>
                 <li>
                     <div class="cus-f-l">
-                        <input type="radio" name="sameName" class="e-selfecheckbox" id="place1">
+                        <input type="checkbox" name="sameName" class="e-selfecheckbox" id="place1" onclick="checkItem('place1','place3','增值服务')">
                         <label class="selfecheckbox_label" for="place1">增值服务</label>
                     </div>
                     <div class="cus-f-l new-order-sure-input-width w60">
-                        <input type="text" value="9" class="order-sale cus-f-r">
+                        <input type="text" class="order-sale cus-f-r" id="place3" disabled onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" oninput="OnInputWeight('place3')">
                     </div>
                     <span class="color-wight">元</span>
                 </li>
                 <li>
                     <div class="clearfix">
                         <div class="cus-f-l">
-                            <input type="radio" name="sameName" class="e-selfecheckbox" id="place2">
+                            <input type="checkbox" name="sameName" class="e-selfecheckbox" id="place2" onclick="checkItem('place2','place4','客户折扣')">
                             <label class="selfecheckbox_label" for="place2">客户折扣</label>
                         </div>
                         <div class="cus-f-l new-order-sure-input-width w60">
-                            <input type="text" value="9" class="order-sale cus-f-r">
+                            <input type="text" value="" class="order-sale cus-f-r" id="place4" disabled onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" oninput="OnInputWeight('place4')">
                         </div>
                         <span class="color-wight">元</span>
                     </div>
@@ -191,7 +191,7 @@
         </div>
         <div class="fix-button clearfix">
             <a href="#" class="button button-fill cus-button-sure cus-button-height w70 cus-f-l bg-fff color-000 new-order-pace">
-                <span class="new-order-pace1">支付价格</span><span class="new-order-pace3">￥</span><span class="new-order-pace2">98.00</span></a>
+                <span class="new-order-pace1">支付价格</span><!--<span class="new-order-pace3">￥</span>--><span class="new-order-pace2" id="span-id">--</span></a>
             <a href="#" class="button button-fill cus-button-sure cus-button-height w30 cus-f-r bg-ff731e new-order-btn">提交</a>
         </div>
     </div>

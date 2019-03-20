@@ -1332,3 +1332,13 @@ input[type=radio]{
 .new-order-success-order-margin-wrap{
     margin-top:4rem !important;
 }
+input[type=checkbox]{
+    /*display: none !important;*/
+    width: 4rem;
+    height: 1.4rem;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    z-index: 2;;
+    opacity: 0;filter: alpha(opacity=0);
+}
