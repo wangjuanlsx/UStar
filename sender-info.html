@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <title>填写订单</title>
     <!--框架样式-->
@@ -39,6 +40,7 @@
             </div>
             <div class="detail_textarea_wrap">
                 <textarea class="detail_textarea" type="text" id="detailAddress" placeholder="请填写街道、写字楼、门牌" value=""></textarea>
+                <img class="site-icon" src="tpl/static/ustarform/images/site-icon.png" alt="">
             </div>
         </div>
     </div>
@@ -81,11 +83,25 @@
 <footer class="aui-bar aui-bar-tab" id="footer">
     <div class="aui-btn-block submit">确认</div>
 </footer>
+<div class="map-lacation-wrap">
+    <div class="map-area" id="container"></div>
+    <div class="site-list-wrap" id="site-list-wrap">
+        <ul>
+        </ul>
+    </div>
+    <div class="map-back">
+        <div class="map-back-btn"><img src="./tpl/static/ustarform/images/left-icon.png" alt=""></div>
+        <div><img src="./tpl/static/ustarform/images/right-icon.png" alt=""></div>
+    </div>
+</div>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=PG3SfGFmZiCQoE5XUSTgvQBBZmcBHGMz"></script>
+<!-- <script type="text/javascript" src="http://api.map.baidu.com/geocoder/v2/?address=北京市海淀区上地十街10号&output=json&ak=PG3SfGFmZiCQoE5XUSTgvQBBZmcBHGMz&callback=showLocation"></script> -->
 <script src="./tpl/static/ustarform/js/zepto.min.js"></script>
 <script src="./tpl/static/ustarform/js/sm.min.js"></script>
 <script src="tpl/static/ustarform/js/cityselect.js"></script>
 <script src="./tpl/static/ustarform/js/picker.min.js"></script>
 <script src="./tpl/static/ustarform/js/city.js"></script>
 <script src="./tpl/static/ustarform/js/cus-picker.js"></script>
+<script src="./tpl/static/ustarform/js/map-location.js"></script>
 </body>
 </html>

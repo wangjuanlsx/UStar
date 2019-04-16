@@ -163,6 +163,14 @@ input,textarea{-webkit-appearance: none;appearance: none;}
     min-height: 2.2rem;
     height: auto !important;
     padding: 6px 0;
+    padding-right: 22px;
+    position: relative;
+}
+.detail_textarea_wrap img.site-icon {
+    width: 20px;
+    position: absolute;
+    top: 11px;
+    right: 0;
 }
 .aui-list textarea.detail_textarea{
     line-height: 25px;
@@ -171,4 +179,63 @@ input,textarea{-webkit-appearance: none;appearance: none;}
 }
 .phone-input{
     padding-right: 0 !important;
+}
+
+
+/* 地图定位页面 */
+.map-lacation-wrap {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 10;
+    display: none;
+}
+.map-area {
+    width: 100%;
+    height: 12rem;
+    background: #ccc;
+}
+.site-list-wrap {
+    overflow: scroll;
+    padding-bottom: 44px;
+}
+.site-list-wrap ul li {
+    padding: 8px 24px;
+    background: #fff;
+}
+.site-list-wrap ul li:nth-child(even) {
+    background: #f0f0f066;
+}
+.site-list-wrap ul li p {
+    margin: 0;
+}
+.site-list-wrap ul li p:first-child {
+    font-size: .8rem;
+    color: #000;
+}
+.site-list-wrap ul li p:last-child {
+    font-size: .65rem;
+    color: #9b9b9b;
+}
+.map-lacation-wrap .map-back {
+    display: flex;
+    display: -webkit-flex;
+    position: fixed;
+    bottom: 0;
+    background: #FAFAFA;
+    width: 100%;
+    padding: 12px 0;
+    align-items: stretch;
+    border-top: 1px solid #eee;
+}
+.map-lacation-wrap .map-back div {
+    width: 50%;
+    text-align: center;
+    height: 20px;
+}
+.map-lacation-wrap .map-back div img {
+    width: 20px;
 }
