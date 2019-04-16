@@ -221,19 +221,15 @@ input,textarea{-webkit-appearance: none;appearance: none;}
     color: #9b9b9b;
 }
 .map-lacation-wrap .map-back {
-    display: flex;
-    display: -webkit-flex;
     position: fixed;
-    bottom: 0;
-    background: #FAFAFA;
+    top: 0;
     width: 100%;
-    padding: 12px 0;
-    align-items: stretch;
-    border-top: 1px solid #eee;
+    padding: 12px;
+    left: 0;
 }
 .map-lacation-wrap .map-back div {
-    width: 50%;
-    text-align: center;
+   /*  width: 50%; */
+    text-align: left;
     height: 20px;
 }
 .map-lacation-wrap .map-back div img {
