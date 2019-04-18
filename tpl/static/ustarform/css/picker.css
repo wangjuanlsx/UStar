@@ -200,7 +200,6 @@ input,textarea{-webkit-appearance: none;appearance: none;}
 }
 .site-list-wrap {
     overflow: scroll;
-    padding-bottom: 44px;
 }
 .site-list-wrap ul li {
     padding: 8px 24px;
