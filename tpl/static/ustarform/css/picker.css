@@ -206,7 +206,7 @@ input,textarea{-webkit-appearance: none;appearance: none;}
     background: #fff;
 }
 .site-list-wrap ul li:nth-child(even) {
-    background: #f0f0f066;
+    background: #f5f5f5;
 }
 .site-list-wrap ul li p {
     margin: 0;
