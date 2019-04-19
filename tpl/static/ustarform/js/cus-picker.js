@@ -946,7 +946,9 @@ function defaultPickerSelect(proName,cityName,disName) {
     }else {
         defaultSelectedIndex = [0,0,0];
     }
+    console.log(defaultSelectedIndex);
     return defaultSelectedIndex;
+
 }
 
 $('#noopsyche-fill').on('click',function(){
