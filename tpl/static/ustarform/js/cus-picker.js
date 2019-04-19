@@ -996,7 +996,14 @@ $('.submit').on('click',function(){
 
 
 
+$.confirm('是否自动识别地址', function () {
+    getPresentLocal();
+    $('.map-lacation-wrap').css('display','block');
+    var siteListHeight = $(window).height() - $('.map-area').height();
+    $('.site-list-wrap').css('height',siteListHeight)
+},function () {
 
+})
 /*地图 自动识别 定位*/
 $('.site-icon').on('click',function(){
     $.confirm('是否自动识别地址', function () {
