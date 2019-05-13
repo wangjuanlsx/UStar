@@ -63,11 +63,11 @@ $(function(){
     //
     var clipboard = new ClipboardJS('.copyBtn');
     clipboard.on('success', function(e) {
-        alert("复制成功!");
+        $.alert('复制成功');
         e.clearSelection();
     });
     clipboard.on('error', function(e) {
-        alert("复制失败!");
+        $.alert('复制失败');
     });
 
 })

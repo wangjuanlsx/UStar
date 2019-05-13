@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="feee9a7e-2f26-43e5-95f2-bd92025b2f28" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1111.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-order-detail.html" afterPath="$PROJECT_DIR$/my-order-detail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tpl/static/ustarform/js/all.js" afterPath="$PROJECT_DIR$/tpl/static/ustarform/js/all.js" />
     </list>
     <ignored path="UStar.iws" />
@@ -82,12 +80,12 @@
       <file leaf-file-name="all.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tpl/static/ustarform/js/all.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4365325">
-              <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.6377709">
+              <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
               <folding>
-                <marker date="1557757859171" expanded="true" signature="99:218" placeholder="..." />
-                <marker date="1557757859171" expanded="true" signature="478:597" placeholder="..." />
-                <marker date="1557757859171" expanded="true" signature="2002:2121" placeholder="..." />
+                <marker date="1557758078216" expanded="true" signature="99:218" placeholder="..." />
+                <marker date="1557758078216" expanded="true" signature="478:597" placeholder="..." />
+                <marker date="1557758078216" expanded="true" signature="2004:2123" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -184,8 +182,8 @@
         <option value="$PROJECT_DIR$/tpl/static/ustarform/css/all.css" />
         <option value="$PROJECT_DIR$/tpl/static/ustarform/css/new-order-list.css" />
         <option value="$PROJECT_DIR$/1111.html" />
-        <option value="$PROJECT_DIR$/tpl/static/ustarform/js/all.js" />
         <option value="$PROJECT_DIR$/my-order-detail.html" />
+        <option value="$PROJECT_DIR$/tpl/static/ustarform/js/all.js" />
       </list>
     </option>
   </component>
@@ -773,12 +771,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tpl/static/ustarform/js/all.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4365325">
-          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.6377709">
+          <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
           <folding>
-            <marker date="1557757859171" expanded="true" signature="99:218" placeholder="..." />
-            <marker date="1557757859171" expanded="true" signature="478:597" placeholder="..." />
-            <marker date="1557757859171" expanded="true" signature="2002:2121" placeholder="..." />
+            <marker date="1557758078216" expanded="true" signature="99:218" placeholder="..." />
+            <marker date="1557758078216" expanded="true" signature="478:597" placeholder="..." />
+            <marker date="1557758078216" expanded="true" signature="2004:2123" placeholder="..." />
           </folding>
         </state>
       </provider>
