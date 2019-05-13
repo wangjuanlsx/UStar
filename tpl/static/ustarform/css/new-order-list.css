@@ -31,7 +31,7 @@
     padding: 0.2rem .9rem;
 }
 .my-order-wrap .order-list ul li .order-go{
-    top: 3%;
+    top: 10%;
 }
 .order-go-money{
     color: #ff731e;
@@ -71,4 +71,18 @@
     color: #fff;
     text-align: center;
     margin-top: -6px;
+}
+.my-order-wrap .order-list ul li .msg-number, .order-detail-msg .msg-number {
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 22px;
+    line-height: 22px;}
+.my-order-wrap .order-list ul li a {
+    display: block;
+    color: #666;
+    padding: .6rem;
+    padding-bottom: 0.2rem;
+    width: 100%;
 }
