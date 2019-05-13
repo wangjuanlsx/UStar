@@ -59,6 +59,17 @@ $(function(){
     }
     upLoadImg("#up-file-driver1","#up-file-img1");
     upLoadImg("#up-file-driver2","#up-file-img2");
+
+    //
+    var clipboard = new ClipboardJS('.copyBtn');
+    clipboard.on('success', function(e) {
+        alert("复制成功!");
+        e.clearSelection();
+    });
+    clipboard.on('error', function(e) {
+        alert("复制失败!");
+    });
+
 })
 
 /**
@@ -79,7 +90,7 @@ $("#picker-area-type").picker({
 /**
 * 复制文字
 * */
-function copy() {
+/*function copy() {
     var text =document.getElementById("copyText").innerText;
     var input = document.createElement('input');
     input.setAttribute('id', 'copyInput');
@@ -94,5 +105,4 @@ function copy() {
 $('#copyBtn').on('click',function(){
     $.alert('点击复制');
     copy();
-});
-
+});*/
