@@ -92,6 +92,7 @@ function copy() {
     document.getElementById('copyInput').remove();
 }
 $('#copyBtn').on('click',function(){
+    $.alert('点击复制');
     copy();
 });
 
