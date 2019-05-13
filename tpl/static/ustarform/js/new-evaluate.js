@@ -28,7 +28,7 @@ $(function(){
                                     </li>';
                             /*img.src=this.result;
                              div.appendChild(img);*/
-                            $('#evaluate-up-photo-ul-id').append(strHtml);
+                            $('#evaluate-up-photo-ul-id').prepend(strHtml);
                         }
                         fr.readAsDataURL(value);
                     }else {
