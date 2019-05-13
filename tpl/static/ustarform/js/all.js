@@ -76,4 +76,11 @@ $("#picker-area-type").picker({
         }
     ]
 });
+/**
+* 复制文字
+* */
+$('#copyBtn').on('click',function(){
+    $('#copyText').select();
+    document.execCommand('Copy')
+});
 

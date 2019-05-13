@@ -1,0 +1,74 @@
+.my-order-wrap .order-list ul li a.order-list-a{
+    padding-left: 0 !important;
+}
+.cus-bill-list-wrap .order-list ul li .order-msg{
+    width: 73%;
+    padding-left: 0;
+    border-left: none;
+}
+.cus-bill-list-wrap .order-list ul li .order-img {
+    margin-top: 5px;
+}
+.my-order-wrap .order-list ul li .order-go {
+    top: 20%;
+}
+.cus-bill-list-wrap .order-list ul li .msg-title span{
+    transform: scale(0.7);
+    margin-left: 0;
+}
+.cus-bill-list-wrap .order-list ul li .msg-title{
+    color:#2e48a6;
+}
+.cus-bill-list-wrap .order-list ul li{
+    padding: 0 .4rem;
+}
+.new-order-list-wrap .new-order-list-ul li{
+    margin-top: 1px !important;
+}
+.new-order-list-title{
+    font-size: 0.7rem;
+    color: #666;
+    padding: 0.2rem .9rem;
+}
+.my-order-wrap .order-list ul li .order-go{
+    top: 3%;
+}
+.order-go-money{
+    color: #ff731e;
+    font-size: 1rem;
+}
+.order-go-money i{
+    font-size: 0.7rem;
+    font-style: normal;
+}
+.order-list-count-money{
+    margin: 0 0.8rem;
+}
+.my-order-wrap .order-list{
+    padding-top: 0;
+}
+.order-list-count-money img{
+    width: 100%;
+}
+.order-list-count-money{
+    margin-top: 16px;
+    position: relative;
+}
+.order-list-count-money-content{
+    position: absolute;
+    width: 240px;
+    top: 25%;
+    left: 50%;
+    margin-left: -120px;
+}
+.order-list-count-money-text{
+    font-size: 0.7rem;
+    color: #fff;
+    text-align: center;
+}
+.order-list-count-money-num{
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+    margin-top: -6px;
+}

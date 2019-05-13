@@ -1,0 +1,78 @@
+li{
+    list-style: none;
+}
+.fav-com-header{
+    text-align: center;
+}
+.fav-com-header-wrap{
+    background: #fff;
+    margin: 0;
+    padding: 1rem;
+}
+.fav-com-number{
+    color: #ff7f3a;
+    font-size: 26px;
+}
+.fav-com-number-color{
+    color: #2e48a6;
+}
+.fav-com-text{
+    font-size: 14px;
+    color: #b1b1b1;
+}
+.fav-com-border{
+    border-left: 1px solid #e6e6e6;
+}
+.fav-com-list-left img{
+    width: 1rem;
+    vertical-align: sub;
+}
+.fav-com-list li .fav-com-list-content{
+    background: #fff;
+    padding: 0.5rem 1rem;
+    margin: 0.3rem 1rem 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+.fav-com-list-left .fav-com-list-icon, .fav-com-list-right p{
+    font-size: 0.9rem;
+}
+.fav-com-list-left .fav-com-list-icon{
+    color: #7e7e7e;
+}
+.fav-com-list{
+    position: relative;
+}
+.fav-com-list ul{
+    border-left: 1px solid #e3e3e3;
+    margin-left: 20px;
+    padding-left: 14px;
+}
+.fav-com-list-line{
+    position: absolute;
+    height: 4px;
+    width: 4px;
+    top: 0px;
+    left: 20px;
+    z-index: 0;
+    background: #f0f3f6;
+}
+.fav-com-list-right p{
+    color: #ff731e;
+}
+.fav-com-list-header:before{
+    content: '';
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.fav-com-list-header{
+    color: #b1b1b1;
+    font-size: 0.75rem;
+    margin-left: -20px;
+    margin-top: 18px;
+}

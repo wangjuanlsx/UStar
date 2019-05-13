@@ -476,12 +476,13 @@ p{
     color: #666;
     padding: .6rem;
     padding-bottom: 0.5rem;
+    width: 100%;
 }
 .my-order-wrap .order-list ul li .order-img ,.order-detail-msg .order-img {
-    width: 2.8rem;
+    width: 2rem;
     display: inline-block;
     float: left;
-    height: 2.8rem;
+    height: 2rem;
     overflow: hidden;
 }
 .my-order-wrap .order-list ul li .order-img img,.order-detail-msg .order-img img {
@@ -489,7 +490,7 @@ p{
     border: 1px solid #e6e6e6;
 }
 .order-detail-msg .order-msg, .my-order-wrap .order-list ul li .order-msg {
-    width: 75%;
+    width: 80%;
     display: inline-block;
     margin-left: 10px;
 }
@@ -521,8 +522,11 @@ p{
 }
 .my-order-wrap .order-list ul li .msg-number,.order-detail-msg .msg-number{
     overflow: hidden;
+    position: relative;
     text-overflow: ellipsis;
     white-space: nowrap;
+    height: 26px;
+    line-height: 26px;
 }
 .my-order-wrap .order-list ul li .msg-number span,.order-detail-msg .msg-number span {
     color: #b1b1b1;
@@ -547,7 +551,7 @@ p{
 .order-detail-wrap .order-detail-msg {
    background: #fff;
    font-size: .6rem;
-   padding: 0.6rem 1.5rem;
+   padding: 0.6rem 1rem;
    padding-bottom: 0.5rem;
    color: #666;
 }
@@ -1025,4 +1029,25 @@ p{
 }
 .cus-courier-center-wrap .courier-msg-menu ul li .courier-msg-menu-title span {
     color: #7e7e7e;
+}
+.n-order-detail-header{
+    background: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 12px;
+    color: #979797;
+    border-bottom: 1px solid #ccc;
+}
+.msg-flag-green-cp{
+    color: #2e48a6 !important;
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 2px;
+    border: 1px solid #2e48a6;
+    position: absolute;
+    right: 0;
+    top: -1px;
+    /* transform: scale(0.8); */
+    height: 20px;
+    line-height: 20px;
+    margin-top: 1px;
 }

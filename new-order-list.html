@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的订单</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--框架样式-->
+    <link rel="stylesheet" href="./tpl/static/ustarform/css/sm.min.css">
+    <!--自定义样式-->
+    <link rel="stylesheet" href="./tpl/static/ustarform/css/all.css">
+    <link rel="stylesheet" href="./tpl/static/ustarform/css/new-order-list.css">
+</head>
+<body>
+<div class="cus-wrap">
+    
+    <div class="content cus-bill-list-wrap">
+        <div class="bar">
+            <div class="searchbar">
+                <a class="searchbar-cancel">取消</a>
+                <div class="search-input">
+                  <label class="icon search-icon" for="search"><img src="./tpl/static/ustarform/images/14.png" alt=""></label>
+                  <input type="search" id='search' placeholder='请输入物流单号'/>
+                </div>
+            </div>
+        </div>
+        <div class="buttons-tab fixed-tab">
+            <a href="#tab1" class="tab-link active button">我的订单</a>
+            <a href="#tab2" class="tab-link button">返现余额</a>
+        </div>
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <div class="my-order-wrap">
+                    <div class="order-list">
+                    <ul>
+                        <li>
+                            <a href="" class="order-list-a">
+                                <div class="order-img">
+                                    <img src="./tpl/static/ustarform/images/order-list2.jpg" alt="">
+                                </div>
+                                <div class="order-msg">
+                                    <p class="msg-title">EMS<span class="msg-flag-green">陆 运</span></p>
+                                    <p class="msg-number"><span>订单编号：</span>020180708814995</p>
+                                    <p class="msg-number"><span>收&nbsp&nbsp件&nbsp&nbsp人：</span>武圣</p>
+                                    <p class="msg-number"><span>物流单号：</span>8809 4005 9982 5368 </p>
+                                </div>
+                                <div class="order-go">
+                                    <span></span>
+                                </div>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="" class="order-list-a">
+                                <div class="order-img">
+                                    <img src="./tpl/static/ustarform/images/order-list1.jpg" alt="">
+                                </div>
+                                <div class="order-msg">
+                                    <p class="msg-title">申通快递<span class="msg-flag-blue">空 运</span></p>
+                                    <p class="msg-number"><span>订单编号：</span>020180708814995</p>
+                                    <p class="msg-number"><span>收&nbsp&nbsp件&nbsp&nbsp人：</span>武圣</p>
+                                    <p class="msg-number"><span>物流单号：</span>8809 4005 9982 5368 </p>
+                                </div>
+                                <div class="order-go">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="order-list-a">
+                                <div class="order-img">
+                                    <img src="./tpl/static/ustarform/images/order-list1.jpg" alt="">
+                                </div>
+                                <div class="order-msg">
+                                    <p class="msg-title">申通快递<span class="msg-flag-blue">空 运</span></p>
+                                    <p class="msg-number"><span>订单编号：</span>020180708814995</p>
+                                    <p class="msg-number"><span>收&nbsp&nbsp件&nbsp&nbsp人：</span>武圣</p>
+                                    <p class="msg-number"><span>物流单号：</span>8809 4005 9982 5368 </p>
+                                </div>
+                                <div class="order-go">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div id="tab2" class="tab">
+                <div class="order-list-count-money">
+                    <img src="./tpl/static/ustarform/images/order-list1.png" alt="">
+                    <div class="order-list-count-money-content">
+                        <p class="order-list-count-money-text">当前余额(元)</p>
+                        <p class="order-list-count-money-num">21.34</p>
+                    </div>
+                </div>
+                <div class="my-order-wrap">
+                    <div class="order-list new-order-list-wrap">
+                        <div class="new-order-list-title"><p>4月</p></div>
+                        <ul class="new-order-list-ul">
+                            <li>
+                                <a href="" class="order-list-a">
+                                    <div class="order-img">
+                                        <img src="./tpl/static/ustarform/images/order-list2.jpg" alt="">
+                                    </div>
+                                    <div class="order-msg">
+                                        <p class="msg-title">EMS<span class="msg-flag-green">陆 运</span></p>
+                                        <p class="msg-number"><span>物流单号：</span>8809 4005 9982 5368 </p>
+                                        <p class="msg-number"><span>订单编号：</span>020180708814995</p>
+                                    </div>
+                                    <div class="order-go">
+                                        <p class="order-go-money"><i>￥</i>2.30</p>
+                                    </div>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="" class="order-list-a">
+                                    <div class="order-img">
+                                        <img src="./tpl/static/ustarform/images/order-list1.jpg" alt="">
+                                    </div>
+                                    <div class="order-msg">
+                                        <p class="msg-title">申通快递<span class="msg-flag-blue">空 运</span></p>
+                                        <p class="msg-number"><span>物流单号：</span>8809 4005 9982 5368 </p>
+                                        <p class="msg-number"><span>订单编号：</span>020180708814995</p>
+                                    </div>
+                                    <div class="order-go">
+                                        <p class="order-go-money"><i>￥</i>5.50</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="new-order-list-title"><p>3月</p></div>
+                        <ul class="new-order-list-ul">
+                            <li>
+                                <a href="" class="order-list-a">
+                                    <div class="order-img">
+                                        <img src="./tpl/static/ustarform/images/order-list2.jpg" alt="">
+                                    </div>
+                                    <div class="order-msg">
+                                        <p class="msg-title">EMS<span class="msg-flag-green">陆 运</span></p>
+                                        <p class="msg-number"><span>物流单号：</span>8809 4005 9982 5368 </p>
+                                        <p class="msg-number"><span>订单编号：</span>020180708814995</p>
+                                    </div>
+                                    <div class="order-go">
+                                        <p class="order-go-money"><i>￥</i>3.21</p>
+                                    </div>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="" class="order-list-a">
+                                    <div class="order-img">
+                                        <img src="./tpl/static/ustarform/images/order-list1.jpg" alt="">
+                                    </div>
+                                    <div class="order-msg">
+                                        <p class="msg-title">申通快递<span class="msg-flag-blue">空 运</span></p>
+                                        <p class="msg-number"><span>物流单号：</span>8809 4005 9982 5368 </p>
+                                        <p class="msg-number"><span>订单编号：</span>020180708814995</p>
+                                    </div>
+                                    <div class="order-go">
+                                        <p class="order-go-money"><i>￥</i>2.33</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<script type="text/javascript" src="./tpl/static/ustarform/js/zepto.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./tpl/static/ustarform/js/sm.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./tpl/static/ustarform/js/all.js" charset="utf-8"></script>
+</body>
+</html>
