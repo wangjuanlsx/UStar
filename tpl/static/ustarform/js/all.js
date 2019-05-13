@@ -79,8 +79,22 @@ $("#picker-area-type").picker({
 /**
 * 复制文字
 * */
+function copy() {
+    var text =document.getElementById("copyText").innerText;
+    var input = document.createElement('input');
+    input.setAttribute('id', 'copyInput');
+    input.setAttribute('value', text);
+    document.getElementsByTagName('body')[0].appendChild(input);
+    document.getElementById('copyInput').select();
+    /*if (document.execCommand('copy')) {
+        console.log('复制成功');
+    }*/
+    document.getElementById('copyInput').remove();
+}
 $('#copyBtn').on('click',function(){
+    console.log('111');
     $('#copyText').select();
     document.execCommand('Copy')
+    copy();
 });
 
