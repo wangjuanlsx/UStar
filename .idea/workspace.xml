@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="feee9a7e-2f26-43e5-95f2-bd92025b2f28" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1111.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tpl/static/ustarform/js/all.js" afterPath="$PROJECT_DIR$/tpl/static/ustarform/js/all.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tpl/static/ustarform/css/new-evaluate.css" afterPath="$PROJECT_DIR$/tpl/static/ustarform/css/new-evaluate.css" />
     </list>
     <ignored path="UStar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="all.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tpl/static/ustarform/js/all.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6377709">
+            <state vertical-scroll-proportion="-6.983051">
               <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
               <folding>
                 <marker date="1557758078216" expanded="true" signature="99:218" placeholder="..." />
@@ -91,10 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new-evaluate.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="new-evaluate.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tpl/static/ustarform/css/new-evaluate.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.5113637">
+            <state vertical-scroll-proportion="0.5008104">
               <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
               <folding />
             </state>
@@ -177,13 +177,13 @@
         <option value="$PROJECT_DIR$/new-bill-list.html" />
         <option value="$PROJECT_DIR$/new-order-list.html" />
         <option value="$PROJECT_DIR$/tpl/static/ustarform/js/new-evaluate.js" />
-        <option value="$PROJECT_DIR$/tpl/static/ustarform/css/new-evaluate.css" />
         <option value="$PROJECT_DIR$/new-evaluate.html" />
         <option value="$PROJECT_DIR$/tpl/static/ustarform/css/all.css" />
         <option value="$PROJECT_DIR$/tpl/static/ustarform/css/new-order-list.css" />
         <option value="$PROJECT_DIR$/1111.html" />
         <option value="$PROJECT_DIR$/my-order-detail.html" />
         <option value="$PROJECT_DIR$/tpl/static/ustarform/js/all.js" />
+        <option value="$PROJECT_DIR$/tpl/static/ustarform/css/new-evaluate.css" />
       </list>
     </option>
   </component>
@@ -692,14 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tpl/static/ustarform/css/new-evaluate.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5113637">
-          <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tpl/static/ustarform/js/new-evaluate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -771,13 +763,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tpl/static/ustarform/js/all.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6377709">
+        <state vertical-scroll-proportion="-6.983051">
           <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
           <folding>
             <marker date="1557758078216" expanded="true" signature="99:218" placeholder="..." />
             <marker date="1557758078216" expanded="true" signature="478:597" placeholder="..." />
             <marker date="1557758078216" expanded="true" signature="2004:2123" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/static/ustarform/css/new-evaluate.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5008104">
+          <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
