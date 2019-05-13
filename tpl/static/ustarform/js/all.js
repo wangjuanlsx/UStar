@@ -86,8 +86,9 @@ function copy() {
     input.setAttribute('value', text);
     document.getElementsByTagName('body')[0].appendChild(input);
     document.getElementById('copyInput').select();
-    document.execCommand('copy')
-
+    if (document.execCommand('copy')) {
+        $.alert('复制成功');
+    }
     document.getElementById('copyInput').remove();
 }
 $('#copyBtn').on('click',function(){
