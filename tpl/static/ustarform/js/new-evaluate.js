@@ -19,6 +19,7 @@ $(function(){
                         var fr = new FileReader();
                         fr.onload = function(){
                             var strHtml;
+                            $("#evaluate-photo-icon-div").find('input').val('');
                             strHtml = '<li class="evaluate-up-photo-li">\
                                         <div class="evaluate-up-photo position-r">\
                                         <span class="evaluate-up-photo-clear"><img src="./tpl/static/ustarform/images/common-photo-close.png"></span>\
@@ -39,14 +40,17 @@ $(function(){
         //我们把当前input标签的id属性remove
         $input.removeAttr("id");
         //我们做个标记，再class中再添加一个类名就叫test
-        var newInput = '<input class="uploadImg test" type="file" name="file" multiple id="file">';
+        var newInput = '<input class="up-loader evaluate-up-file uploadImg test" type="file" name="file" multiple id="file">';
         $(this).append($(newInput));
+
     })
     // 刪除图片
     $("#evaluate-up-photo-ul-id").on('click','.evaluate-up-photo-clear',function() {
         var parent = $(this);
+        /*$("#file").attr('type','text');*/
         $.confirm('确定删除图片', function () {
             parent.parent().parent().remove();
+            $("#evaluate-photo-icon-div").find('input').val('');
         },function () {
 
         })
