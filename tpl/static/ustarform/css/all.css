@@ -1035,7 +1035,7 @@ p{
     padding: 0.5rem 1rem;
     font-size: 12px;
     color: #979797;
-    border-bottom: 1px solid #ccc;
+    border-bottom:1px solid #eaeaea;
 }
 .msg-flag-green-cp{
     color: #2e48a6 !important;
