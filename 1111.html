@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复制功能实现</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no,maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+<input class="foo" value="这里是内容">
+<span class="fdd">阿斯顿发斯蒂芬阿斯蒂芬</span>
+<button class="btn" data-clipboard-target=".foo">点击复制</button>
+<button class="btn" data-clipboard-target=".fdd">点击复制</button>
+<script src ="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn');
+    clipboard.on('success', function(e) {
+        alert("复制成功!");
+        e.clearSelection();
+    });
+    clipboard.on('error', function(e) {
+        alert("复制失败!");
+    });
+</script>
+
+<div>
+    <img src="" alt="">
+</div>
+</body>
+</html>

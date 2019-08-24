@@ -890,6 +890,7 @@ function addressPicker(nameEl,selectedIndex1) {
 var nameEl = document.getElementById('sel_city');
 var selectedIndex_default = defaultPickerSelect(postInfo.proName,postInfo.cityName,postInfo.disName);
 addressPicker(nameEl,selectedIndex_default).picker;
+
 nameEl.addEventListener('click', function () {
     console.log(postInfo.proName + " " + postInfo.cityName + " " + postInfo.disName);
     var selectedIndex2 = defaultPickerSelect(postInfo.proName,postInfo.cityName,postInfo.disName);
@@ -918,17 +919,17 @@ function defaultPickerSelect(proName,cityName,disName) {
     var defaultSelectedIndex = [];
     if(proName.length!=0){
         for(var defaultI = 0; defaultI < cityLen; defaultI++){
-            if(proName == city[defaultI].name){
+            if(city[defaultI].name.indexOf(proName)>-1){
                 // 第一个
                 defaultSelectedIndex.push(defaultI);
                 if(cityName.length!=0){
                     for(var defaultI1 = 0; defaultI1 < city[defaultI].sub.length; defaultI1++) {
-                        if(cityName == city[defaultI].sub[defaultI1].name){
+                        if(city[defaultI].sub[defaultI1].name.indexOf(cityName)>-1){
                             // 第二个
                             defaultSelectedIndex.push(defaultI1);
                             if(disName.length!=0){
                                 for(var defaultI2 = 0; defaultI2 < city[defaultI].sub[defaultI1].sub.length; defaultI2++){
-                                    if(disName == city[defaultI].sub[defaultI1].sub[defaultI2].name){
+                                    if(city[defaultI].sub[defaultI1].sub[defaultI2].name.indexOf(disName)>-1){
                                         // 第三个
                                         defaultSelectedIndex.push(defaultI2);
                                     }
@@ -946,13 +947,57 @@ function defaultPickerSelect(proName,cityName,disName) {
     }else {
         defaultSelectedIndex = [0,0,0];
     }
-    console.log(defaultSelectedIndex);
+    console.log('联动',defaultSelectedIndex);
     return defaultSelectedIndex;
 
 }
+/**
+* 新--识别地址
+* */
+function newNoopsycheFill() {
+    var newAreaList1 = getNewAllProvince();
+    parseArea(newAreaList1);
+    var content = $.trim($("#textArea").val());
+    if (content.length!=0){
+        let result = parse(content);
+        console.log("打印",result);
+        postInfo.name = result.name;
+        postInfo.phoneNum = result.mobile||result.phone;
+        postInfo.proName = result.province;
+        postInfo.cityName = result.city;
+        postInfo.disName = result.area;
+        postInfo.detailedAddress = result.addr;
+        $("#name").val(postInfo.name);
+        $("#phone").val(postInfo.phoneNum);
+
+        var cityAddress = '';
+        // 从下拉的数组中选省市区填入input框
+        let selectedIndex_default1 = defaultPickerSelect(postInfo.proName,postInfo.cityName,postInfo.disName);
+        if(postInfo.proName.length==0||postInfo.cityName.length==0){
+            cityAddress = ''
+        }else {
+            if(selectedIndex_default1[0]>-1){
+                cityAddress = city[selectedIndex_default1[0]].name
+            }
+            if(selectedIndex_default1[1]>-1) {
+                cityAddress = city[selectedIndex_default1[0]].name+" "+city[selectedIndex_default1[0]].sub[selectedIndex_default1[1]].name
+            }
+            if(selectedIndex_default1[2]>-1) {
+                cityAddress = city[selectedIndex_default1[0]].name+" "+city[selectedIndex_default1[0]].sub[selectedIndex_default1[1]].name+" "+city[selectedIndex_default1[0]].sub[selectedIndex_default1[1]].sub[selectedIndex_default1[2]].name;
+            }
+
+        }
+        $("#sel_city").val(cityAddress);
+        $("#detailAddress").val(postInfo.detailedAddress);
+    }
+    if(postInfo.proName.length==0||postInfo.cityName.length==0){
+        $.alert("省市不能为空，请手动选择！");
+    }
+}
 
 $('#noopsyche-fill').on('click',function(){
-    noopsycheFill();
+    newNoopsycheFill();
+
 });
 $('.picker-mask').on('click',function(){
     picker.hide();
