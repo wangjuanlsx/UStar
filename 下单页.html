@@ -9,6 +9,7 @@
     <!--框架样式-->
     <link rel="stylesheet" href="./tpl/static/ustarform/css/aui.css">
     <link rel="stylesheet" href="./tpl/static/ustarform/css/sm.min.css">
+    <link href="./tpl/static/ustarform/css/swiper.min.css" rel="stylesheet">
     <style type="text/css">
         .w90 {
             width: 90% !important;
@@ -266,10 +267,28 @@
             font-size: 0.75rem;
             color: #3e3e3e;
         }
+        .swiper-wrapper{
+            width: 100%;
+            height: 5rem;
+        }
+        .ad-wrap {
+            margin-bottom:0.5rem;
+        }
     </style>
 </head>
 <body>
 <div class="aui-content xdy-top">
+    <div class="ad-wrap">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./tpl/static/ustarform/images/order-ad1.jpg" width="100%"></div>
+                <div class="swiper-slide"><img src="./tpl/static/ustarform/images/order-ad2.jpg" width="100%"></div>
+                <div class="swiper-slide"><img src="./tpl/static/ustarform/images/order-a31.jpg" width="100%"></div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
     <ul class="aui-list aui-form-list">
         <li class="aui-list-item xdy-list-item">
             <div class="order-add-wrap">
@@ -432,6 +451,7 @@
 </footer>
 <script type="text/javascript" src="./tpl/static/ustarform/js/zepto.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="./tpl/static/ustarform/js/sm.min.js" charset="utf-8"></script>
+<script src="./tpl/static/ustarform/js/swiper.min.js"></script>
 <script>
     // 处理安卓手机输入法遮挡输入框问题
     function jump_top(){
@@ -683,6 +703,16 @@
         ]
     });
     /*$('#payment-way').*/
+    $(function() {
+        var mySwiper = new Swiper('.swiper-container', {
+            loop: true,
+            // 如果需要分页器
+            pagination:{
+                el:'.swiper-pagination'
+            },
+            autoplay: 1000
+        })
+    })
 </script>
 </body>
 </html>

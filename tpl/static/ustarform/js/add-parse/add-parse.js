@@ -1,8 +1,8 @@
-let defaultData = [];
+var defaultData = [];
 
-const mCity = {};
+var mCity = {};
 
-const mArea = {};
+var mArea = {};
 
 /**
  * 处理原始地址数据转换成专用数据
@@ -53,7 +53,7 @@ function parseArea(list, init) {
  * @returns {{name: string, mobile: string, detail: string, zip_code: string, phone: string}}
  */
 function parse(address) {
-    const parse = {
+    var parse = {
         name: '',
         mobile: '',
         detail: '',
@@ -63,7 +63,7 @@ function parse(address) {
 
     address = address.replace(/\r\n/g, ' ').replace(/\n/g, ' ').replace(/\t/g, ' ');
 
-    const search = ['地址','地 址', '收货地址', '收货人', '收件人', '收货', '邮编','是','邮寄', '电话','电 话', '请核对下您的','信息','哦','亲','：', ':', '；', ';', '，', ',', '。',];
+    var search = ['地址','地 址', '收货地址', '收货人', '收件人', '收货', '邮编','是','邮寄', '电话','电 话', '请核对下您的','信息','哦','：', ':', '；', ';', '，', ',', '。',];
     search.forEach(str => {
         address = address.replace(new RegExp(str, 'g'), ' ')
 });
@@ -74,22 +74,22 @@ function parse(address) {
 
     address = address.replace(/(\d{3}) (\d{4}) (\d{4})/g, '$1$2$3');
 
-    const mobileReg = /(86-[1][0-9]{10})|(86[1][0-9]{10})|([1][0-9]{10})/g;
-    const mobile = mobileReg.exec(address);
+    var mobileReg = /(86-[1][0-9]{10})|(86[1][0-9]{10})|([1][0-9]{10})/g;
+    var mobile = mobileReg.exec(address);
     if (mobile) {
         parse.mobile = mobile[0];
         address = address.replace(mobile[0], ' ')
     }
 
-    const phoneReg = /(([0-9]{3,4}-)[0-9]{7,8})|([0-9]{12})|([0-9]{11})|([0-9]{10})|([0-9]{9})|([0-9]{8})|([0-9]{7})/g;
-    const phone = phoneReg.exec(address);
+    var phoneReg = /(([0-9]{3,4}-)[0-9]{7,8})|([0-9]{12})|([0-9]{11})|([0-9]{10})|([0-9]{9})|([0-9]{8})|([0-9]{7})/g;
+    var phone = phoneReg.exec(address);
     if (phone) {
         parse.phone = phone[0];
         address = address.replace(phone[0], ' ')
     }
 
-    const zipReg = /([0-9]{6})/g;
-    const zip = zipReg.exec(address);
+    var zipReg = /([0-9]{6})/g;
+    var zip = zipReg.exec(address);
     if (zip) {
         parse.zip_code = zip[0];
         address = address.replace(zip[0], '')
@@ -98,19 +98,20 @@ function parse(address) {
     address = address.replace(/ {2,}/, ' ');
 
     //console.log(address)
-    let detail = detail_parse_forward(address.trim());
+    var detail = detail_parse_forward(address.trim());
     if (!detail.city) {
         detail = detail_parse(address.trim());
         if (detail.area && !detail.city) {
             detail = detail_parse(address.trim(), {
                 ignoreArea: true
             });
-            console.log('smart_parse->ignoreArea');
+            //console.log('smart_parse->ignoreArea');
         }else{
-            console.log('smart_parse');
+            //console.log('smart_parse');
         }
         //这个待完善
-        const list = address.replace(detail.province, '').replace(detail.city, '').replace(detail.area, '').split(' ').filter(str => str);
+        var list = address.replace(detail.province, '').replace(detail.city, '').replace(detail.area, '').split(' ').filter(str => str);
+        //console.log("list",list);
         if (list.length > 1) {
             list.forEach(str => {
                 if (!parse.name || str && str.length < parse.name.length) {
@@ -125,9 +126,9 @@ function parse(address) {
         if (detail.name) {
             parse.name = detail.name
         } else {
-            const list = detail.addr.split(' ').filter(str => str);
-            if (list.length > 1) {
-                parse.name = list[list.length - 1]
+            var list1 = detail.addr.split(' ').filter(str => str);
+            if (list1.length > 1) {
+                parse.name = list1[list1.length - 1]
             }
             if (parse.name) {
                 detail.addr = detail.addr.replace(parse.name, '').trim()
@@ -152,7 +153,7 @@ function parse(address) {
  * @returns {{province: string, city: string, area: string, addr: string}}
  */
 function detail_parse_forward(address) {
-    const parse = {
+    var parse = {
         province: '',
         city: '',
         area: '',
@@ -160,12 +161,12 @@ function detail_parse_forward(address) {
         name: '',
     };
 
-    const provinceKey = ['特别行政区', '古自治区', '维吾尔自治区', '壮族自治区', '回族自治区', '自治区', '省省直辖', '省', '市'];
-    const cityKey = ['布依族苗族自治州', '苗族侗族自治州', '自治州', '州', '市', '县'];
+    var provinceKey = ['特别行政区', '古自治区', '维吾尔自治区', '壮族自治区', '回族自治区', '自治区', '省省直辖', '省', '市'];
+    var cityKey = ['布依族苗族自治州', '苗族侗族自治州', '自治州', '州', '市', '县'];
 
-    for (let i in defaultData) {
-        const province = defaultData[i];
-        let index = address.indexOf(province.name);
+    for (var i in defaultData) {
+        var province = defaultData[i];
+        var index = address.indexOf(province.name);
         //let index = pArr[mixIndex].indexOf(province.name);
         if (index > -1) {
             if (index > 0) {
@@ -174,25 +175,25 @@ function detail_parse_forward(address) {
             }
             parse.province = province.name;
             address = address.substr(index + province.name.length);
-            for (let k in provinceKey) {
+            for (var k in provinceKey) {
                 if (address.indexOf(provinceKey[k]) === 0) {
                     address = address.substr(provinceKey[k].length);
                 }
             }
-            for (let j in province.city) {
-                const city = province.city[j];
+            for (var j in province.city) {
+                var city = province.city[j];
                 index = address.indexOf(city.name);
                 if (index > -1 && index < 3) {
                     parse.city = city.name;
                     address = address.substr(index + parse.city.length);
-                    for (let k in cityKey) {
-                        if (address.indexOf(cityKey[k]) === 0) {
-                            address = address.substr(cityKey[k].length);
+                    for (var l in cityKey) {
+                        if (address.indexOf(cityKey[l]) === 0) {
+                            address = address.substr(cityKey[l].length);
                         }
                     }
                     if (city.area) {
-                        for (let k in city.area) {
-                            const area = city.area[k];
+                        for (var z in city.area) {
+                            var area = city.area[z];
                             index = address.indexOf(area);
                             if (index > -1 && index < 3) {
                                 parse.area = area;
@@ -220,7 +221,7 @@ function detail_parse_forward(address) {
  * @returns {{province: string, city: string, area: string, name: string, _area: string, addr: string}}
  */
 function detail_parse(address, {ignoreArea = false} = {}) {
-    const parse = {
+    var parse = {
         province: '',
         city: '',
         area: '',
@@ -228,7 +229,7 @@ function detail_parse(address, {ignoreArea = false} = {}) {
         _area: '',
         addr: '',
     };
-    let areaIndex = -1,
+    var areaIndex = -1,
         cityIndex = -1,
         cityIndexArr = [],
         cityArr = [],
@@ -237,12 +238,12 @@ function detail_parse(address, {ignoreArea = false} = {}) {
 
     address = address.replace('  ', ' ');
     // 新增城市的索引
-    for(let i in mCity) {
-        const city = mCity[i];
-        let index = address.indexOf(city[0].c);
+    for(var i in mCity) {
+        var city1 = mCity[i];
+        var index = address.indexOf(city1[0].c);
         if(index>-1){
             cityIndexArr.push(index);
-            cityArr.push(city[0].c);
+            cityArr.push(city1[0].c);
             //console.log("城市索引！！",index,city[0].c)
         }
     }
@@ -252,7 +253,7 @@ function detail_parse(address, {ignoreArea = false} = {}) {
         });*/
         cityIndex = Math.min.apply(null,cityIndexArr);
         if (cityIndexArr.length!==0){
-            for(let z=0; z<cityIndexArr.length;z++){
+            for(var z=0; z<cityIndexArr.length;z++){
                 if(Math.min.apply(null,cityIndexArr) === cityIndexArr[z]) {
                     cityMinIndex = z;
                 }
@@ -345,8 +346,8 @@ function detail_parse(address, {ignoreArea = false} = {}) {
             parse.city = mArea[parse.area][0].c
         } else {
             parse._area = parse._area.trim();
-            const addr = address.substr(0, areaIndex);
-            const d = mArea[parse.area].find(item => {
+            var addr = address.substr(0, areaIndex);
+            var d = mArea[parse.area].find(item => {
                     return item.p.indexOf(addr) > -1 || item.c === parse._area;
         });
             if (d) {
@@ -358,7 +359,7 @@ function detail_parse(address, {ignoreArea = false} = {}) {
         }
     } else {
         if (parse._area) {
-            const city = mCity[parse._area];
+            var city = mCity[parse._area];
             if (city) {
                 parse.province = city[0].p;
                 parse.city = city[0].c;
@@ -370,7 +371,7 @@ function detail_parse(address, {ignoreArea = false} = {}) {
                 }
                 //parse.addr = address.substr(address.indexOf(parse.city) + parse.city.length + 1);
                 parse.area = '';
-                for (let i in city[0].a) {
+                for (var i in city[0].a) {
                     if (parse.addr.indexOf(city[0].a[i]) === 0) {
                         parse.area = city[0].a[i];
                         parse.addr = parse.addr.replace(city[0].a[i], '');

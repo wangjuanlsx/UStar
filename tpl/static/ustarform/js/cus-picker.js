@@ -881,7 +881,6 @@ function addressPicker(nameEl,selectedIndex1) {
         }
 
     });
-    console.log(checked,selectedIndex);
     picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
 
     });
@@ -947,7 +946,6 @@ function defaultPickerSelect(proName,cityName,disName) {
     }else {
         defaultSelectedIndex = [0,0,0];
     }
-    console.log('联动',defaultSelectedIndex);
     return defaultSelectedIndex;
 
 }
@@ -959,8 +957,7 @@ function newNoopsycheFill() {
     parseArea(newAreaList1);
     var content = $.trim($("#textArea").val());
     if (content.length!=0){
-        let result = parse(content);
-        console.log("打印",result);
+        var result = parse(content);
         postInfo.name = result.name;
         postInfo.phoneNum = result.mobile||result.phone;
         postInfo.proName = result.province;
@@ -972,7 +969,7 @@ function newNoopsycheFill() {
 
         var cityAddress = '';
         // 从下拉的数组中选省市区填入input框
-        let selectedIndex_default1 = defaultPickerSelect(postInfo.proName,postInfo.cityName,postInfo.disName);
+        var selectedIndex_default1 = defaultPickerSelect(postInfo.proName,postInfo.cityName,postInfo.disName);
         if(postInfo.proName.length==0||postInfo.cityName.length==0){
             cityAddress = ''
         }else {
