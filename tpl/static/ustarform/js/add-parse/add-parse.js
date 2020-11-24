@@ -99,8 +99,10 @@ function parse(address) {
 
     //console.log(address)
     var detail = detail_parse_forward(address.trim());
+
     if (!detail.city) {
         detail = detail_parse(address.trim());
+        console.log('detail', detail);
         if (detail.area && !detail.city) {
             detail = detail_parse(address.trim(), {
                 ignoreArea: true
@@ -247,6 +249,7 @@ function detail_parse(address, {ignoreArea = false} = {}) {
             //console.log("城市索引！！",index,city[0].c)
         }
     }
+    console.log('城市索引！！',mCity,cityIndexArr, cityArr);
     if(cityIndexArr.length!==0){
         /*cityIndex = cityIndexArr.findIndex(function(item){
             return Math.min.apply(null,cityIndexArr) === item

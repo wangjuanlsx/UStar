@@ -915,6 +915,7 @@ function isOpenPicker(proName,cityName,disName) {
 // 默认选中地址
 function defaultPickerSelect(proName,cityName,disName) {
     var cityLen = city.length;
+    console.log('city',city);
     var defaultSelectedIndex = [];
     if(proName.length!=0){
         for(var defaultI = 0; defaultI < cityLen; defaultI++){
